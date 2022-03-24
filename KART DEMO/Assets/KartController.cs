@@ -18,9 +18,9 @@ public class KartController : MonoBehaviour
         public float boostTime;
     }
 
-    float horizontal, vertical, moveSpeed, driftValue, currentBoostTime = 0;
+    float horizontal, vertical, moveSpeed, currentBoostTime = 0;
     public bool grounded, drifting;
-    public float speed;
+    public float speed, driftValue;
 
     public KartStats ks;
     [SerializeField] Rigidbody rb;
