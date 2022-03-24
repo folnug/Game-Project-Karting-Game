@@ -19,9 +19,8 @@ public class KartController : MonoBehaviour
     }
 
     float horizontal, vertical, moveSpeed, driftValue, currentBoostTime = 0;
-    bool grounded, drifting;
+    public bool grounded, drifting;
     public float speed;
-    int currentBoostCount;
 
     public KartStats ks;
     [SerializeField] Rigidbody rb;
@@ -72,7 +71,7 @@ public class KartController : MonoBehaviour
     }
 
     float Steer(float direction, float ammount, float turnSpeed) {
-        return (direction * turnSpeed * Time.deltaTime * Input.GetAxisRaw("Vertical")) * ammount;
+        return (direction * turnSpeed * Time.deltaTime) * ammount;
     }
 
     void GroundCheck() {
