@@ -330,6 +330,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3483750390603921303, guid: cb38469500039904c8584a734a0b5373, type: 3}
   m_PrefabInstance: {fileID: 109371907}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &333561861 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 3672632517223838585, guid: cb38469500039904c8584a734a0b5373, type: 3}
+  m_PrefabInstance: {fileID: 109371907}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &427148377
 GameObject:
   m_ObjectHideFlags: 0
@@ -1401,7 +1406,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kc: {fileID: 427148378}
-  driftSmoke: []
+  driftSmoke:
+  - {fileID: 1287786761}
+  - {fileID: 333561861}
 --- !u!1 &1190439768
 GameObject:
   m_ObjectHideFlags: 0
@@ -1516,6 +1523,11 @@ Transform:
 --- !u!4 &1287786759 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3483750390603921303, guid: cb38469500039904c8584a734a0b5373, type: 3}
+  m_PrefabInstance: {fileID: 1636628088}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &1287786761 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 3672632517223838585, guid: cb38469500039904c8584a734a0b5373, type: 3}
   m_PrefabInstance: {fileID: 1636628088}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1385794812
