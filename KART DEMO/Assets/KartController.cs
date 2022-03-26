@@ -16,9 +16,11 @@ public class KartController : MonoBehaviour
         public float maxDriftCharge;
 
         public float boostTime;
+
+        public float outwardDriftForce;
     }
 
-    float horizontal, vertical, moveSpeed, currentBoostTime = 0;
+    float horizontal, vertical, moveSpeed, currentBoostTime = 0, direction;
     public bool grounded, drifting;
     public float speed, driftValue;
 
@@ -35,7 +37,7 @@ public class KartController : MonoBehaviour
     }
 
     void Update()
-    {
+    {  
         transform.position = rb.transform.position;
         
         if (!drifting)
@@ -58,7 +60,8 @@ public class KartController : MonoBehaviour
     }
 
     void Steering() {
-        float direction = horizontal == 1 ? 1 : -1;
+        if (!drifting)
+            direction = horizontal == 1 ? 1 : -1;
         float turnSpeed = drifting ? ks.driftTurnSpeed : ks.turnSpeed;
         float rotation = Steer(horizontal, Mathf.Abs(horizontal), turnSpeed);
         if (drifting) {
@@ -78,7 +81,7 @@ public class KartController : MonoBehaviour
         RaycastHit hit;
         grounded = Physics.Raycast(transform.position, -transform.up, out hit, 1f, groundLayer);
         Debug.DrawRay(transform.position, -transform.up * 1f, Color.red);
-        transform.rotation = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
+        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.FromToRotation(transform.up * 2, hit.normal) * transform.rotation, 7f * Time.deltaTime);
 
         rb.drag = grounded ? ks.groundDrag : ks.airDrag;
     }
@@ -105,6 +108,11 @@ public class KartController : MonoBehaviour
     void FixedUpdate() {
         speed = transform.InverseTransformDirection(rb.velocity).z;
         // rb.AddForce(transform.forward * moveSpeed * vertical, ForceMode.Acceleration); rb.velocity = transform.forward * moveSpeed * vertical;
+
+        if (drifting) {
+            rb.AddForce(transform.right * -direction * ks.outwardDriftForce, ForceMode.Acceleration);
+        }
+
         if (grounded)
             rb.AddForce(transform.forward * moveSpeed * vertical, ForceMode.Acceleration);
         else
