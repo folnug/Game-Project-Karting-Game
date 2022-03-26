@@ -41,6 +41,11 @@ public class Goal : MonoBehaviour
         {
             GameObject.Find("Kart").SendMessage("GoalUpdate");
         }
+
+        if (currentLap == 3)
+        {
+            GameObject.Find("BG Music").SendMessage("Faster");
+        }
     }
 
     //Checkpointit l‰hett‰‰ t‰n viestin Goalille
