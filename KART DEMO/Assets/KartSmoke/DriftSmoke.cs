@@ -5,7 +5,7 @@ using System;
 public class DriftSmoke : MonoBehaviour
 {
     [SerializeField] KartController kc;
-    [SerializeField] ParticleSystem leftSmoke, rightSmoke;
+    [SerializeField] ParticleSystem[] smoke;
 
     void Start()
     {
@@ -15,15 +15,37 @@ public class DriftSmoke : MonoBehaviour
 
     void Update()
     {
+        
+    }
+
+    private void FixedUpdate()
+    {
         CheckIfDrifting();
     }
 
     void CheckIfDrifting()
     {
-        if (kc.drifting && kc.grounded)
+        //if (Input.GetKey(KeyCode.LeftShift)) DEBUG
+        if (kc.drifting && kc.grounded && kc.speed > 10)
         {
-            leftSmoke.Play();
-            rightSmoke.Play();
+            StartSmoke();
+        }
+    }
+
+    void StartSmoke()
+    {
+        for (int i = 0; i < smoke.Length; i++)
+        {
+            smoke[i].Play();
+        }
+
+    }
+
+    void StopSmoke()
+    {
+        for (int i = 0; i < smoke.Length; i++)
+        {
+            smoke[i].Stop();
         }
     }
 }
