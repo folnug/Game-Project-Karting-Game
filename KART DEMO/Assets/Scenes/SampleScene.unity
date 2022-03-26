@@ -494,6 +494,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grounded: 0
   drifting: 0
+  driftFailed: 0
+  boost: 0
   speed: 0
   driftValue: 0
   ks:
@@ -504,15 +506,18 @@ MonoBehaviour:
     groundDrag: 4
     airDrag: 0
     driftBoost: 260
+    driftChainBoost: 40
     driftChargeSpeed: 70
     maxDriftCharge: 100
     boostTime: 1.5
     outwardDriftForce: 50
+    maxBoostCount: 3
   rb: {fileID: 1718032727}
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
   bb: {fileID: 1836478649}
+  chainDrift: 1
 --- !u!4 &427148379
 Transform:
   m_ObjectHideFlags: 0
@@ -884,7 +889,7 @@ MonoBehaviour:
   m_ZDamping: 0
   m_AngularDampingMode: 0
   m_PitchDamping: 10
-  m_YawDamping: 0
+  m_YawDamping: 0.2
   m_RollDamping: 1
   m_AngularDamping: 0
 --- !u!114 &641826598
@@ -1037,7 +1042,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
