@@ -50,6 +50,10 @@
      <Compile Include="Assets\TireVFX.cs" />
      <Compile Include="Assets\SpeedUi.cs" />
      <Compile Include="Assets\BoostBar.cs" />
+     <Compile Include="Assets\KartSmoke\DriftSmoke.cs" />
+     <Compile Include="Assets\Timer.cs" />
+     <Compile Include="Assets\Goal.cs" />
+     <Compile Include="Assets\Checkpoint.cs" />
      <Compile Include="Assets\KartController.cs" />
  <Reference Include="UnityEngine">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.30f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
