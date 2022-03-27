@@ -506,7 +506,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3df3229f0f787d94d9f58f6a6046922a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  kart: {fileID: 11400000, guid: 1abab9fec51abc24bb3c121712f4c5c2, type: 2}
+  kart: {fileID: 11400000, guid: 01ae51adb2eec83419f6fdc135ff2dff, type: 2}
   grounded: 0
   drifting: 0
   boost: 0
