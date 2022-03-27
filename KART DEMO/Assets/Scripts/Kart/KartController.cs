@@ -75,7 +75,7 @@ public class KartController : MonoBehaviour
 
     void ApplyGravity() {
         if(!grounded)
-        rb.AddForce(transform.up * -30f, ForceMode.Acceleration);
+        rb.AddForce(transform.up * -kart.gravity, ForceMode.Acceleration);
     }
 
     void Drifting() {
@@ -99,7 +99,7 @@ public class KartController : MonoBehaviour
     public void Hop() {
         if (!grounded) return;
         hopped = true;
-        rb.AddForce(transform.up * 15f, ForceMode.Impulse);
+        rb.AddForce(transform.up * kart.jumpForce, ForceMode.Impulse);
     }
 
     public void SetInputs(float horizontal, float vertical) {

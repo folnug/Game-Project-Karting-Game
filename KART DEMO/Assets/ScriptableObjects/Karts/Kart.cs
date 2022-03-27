@@ -15,4 +15,7 @@ public class Kart : ScriptableObject {
     public float driftChargeSpeed;
     public float boostTime;
     public float outwardsDriftForce;
+
+    public float gravity;
+    public float jumpForce;
 }
