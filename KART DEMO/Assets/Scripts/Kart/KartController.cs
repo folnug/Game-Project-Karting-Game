@@ -4,9 +4,11 @@ using UnityEngine;
 public class KartController : MonoBehaviour
 {
 
-    public delegate void KartAction();
-    public static event KartAction BoostUsed;
+    public delegate void KartBoostAction();
+    public static event KartBoostAction BoostUsed;
 
+    public delegate void KartBoostBar(float driftAmmount);
+    public static event KartBoostBar UpdateBoostUi;
     [SerializeField] Kart kart;
 
     float horizontal, vertical, moveSpeed, currentBoostTime = 0, direction = 0;
@@ -81,7 +83,7 @@ public class KartController : MonoBehaviour
     void Drifting() {
         if (drifting) {
             driftValue += kart.driftChargeSpeed * Time.deltaTime;
-        } else if (!drifting && driftValue >= kart.maxDriftCharge) {
+        } else if (!drifting && driftValue >= 100) {
             driftValue = 0;
              currentBoostTime = kart.boostTime;
             if (BoostUsed != null)
@@ -94,6 +96,9 @@ public class KartController : MonoBehaviour
             currentBoostTime -= 1f * Time.deltaTime;
             rb.AddForce(transform.forward * kart.driftBoost, ForceMode.Acceleration);
         }
+        
+        if (UpdateBoostUi != null)
+            UpdateBoostUi(driftValue);
     }
 
     public void Hop() {
@@ -107,3 +112,8 @@ public class KartController : MonoBehaviour
         this.vertical = vertical;
     }
 }
+
+
+
+
+

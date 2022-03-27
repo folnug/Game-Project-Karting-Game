@@ -6,10 +6,20 @@ using UnityEngine.UI;
 public class BoostBar : MonoBehaviour
 {
     [SerializeField] Slider slider;
-    public void SetMaxValue(float value) {
-        slider.maxValue = value;
+
+    void Awake() {
+        slider.maxValue = 100;
     }
-    public void SetValue(float value) {
-        slider.value = value;
+
+    void OnEnable() {
+       KartController.UpdateBoostUi += UpdateUI;
+    }
+
+    void OnDisable() {
+       KartController.UpdateBoostUi -= UpdateUI;
+    }
+
+    void UpdateUI(float ammount) {
+        slider.value = ammount;
     }
 }
