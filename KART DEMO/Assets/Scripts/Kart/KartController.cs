@@ -17,7 +17,7 @@ public class KartController : MonoBehaviour
     [SerializeField] LayerMask groundLayer;
 
     float DriftDirection(float direction) => Mathf.Abs(0.75f - (direction * -horizontal));
-    float Steer(float direction, float ammount) => (direction * kart.turnSpeed * Time.deltaTime) * ammount;
+    float Steer(float turnSpeed, float direction, float ammount) => (direction * turnSpeed * Time.deltaTime) * ammount;
 
     void Start()
     {
@@ -38,7 +38,8 @@ public class KartController : MonoBehaviour
         if (!drifting) direction = horizontal;
         float turnDirection = drifting ? direction : horizontal;
         float ammount = drifting ? DriftDirection(direction) : Mathf.Abs(horizontal);
-        transform.Rotate(0f, Steer(turnDirection, ammount), 0f);
+        float turnSpeed = drifting ? kart.driftTurnSpeed : kart.turnSpeed;
+        transform.Rotate(0f, Steer(turnSpeed, turnDirection, ammount), 0f);
     }
     void GroundCheck()
     {
