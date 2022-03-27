@@ -25,7 +25,7 @@ public class DriftSmoke : MonoBehaviour
 
     void CheckIfDrifting()
     {
-        if (kc.drifting && kc.grounded && kc.speed > 10)
+        if (kc.drifting && kc.grounded && kc.currentSpeed > 10)
             StartSmoke();
     }
 
