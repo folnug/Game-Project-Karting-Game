@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 543d8aa0779fe484c9924625ff0b72d0, type: 3}
   m_Name: DemoKart
   m_EditorClassIdentifier: 
-  forwardSpeed: 220
+  forwardSpeed: 260
   reverseSpeed: 80
   turnSpeed: 50
   driftTurnSpeed: 50
@@ -23,5 +23,5 @@ MonoBehaviour:
   driftChargeSpeed: 70
   boostTime: 1.5
   outwardsDriftForce: 90
-  gravity: 20
-  jumpForce: 30
+  gravity: 30
+  jumpForce: 10
