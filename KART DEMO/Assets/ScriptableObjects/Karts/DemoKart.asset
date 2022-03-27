@@ -23,3 +23,5 @@ MonoBehaviour:
   driftChargeSpeed: 70
   boostTime: 1.5
   outwardsDriftForce: 90
+  gravity: 10
+  jumpForce: 4
