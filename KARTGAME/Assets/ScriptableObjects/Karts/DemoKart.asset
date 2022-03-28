@@ -15,13 +15,13 @@ MonoBehaviour:
   forwardSpeed: 260
   reverseSpeed: 80
   turnSpeed: 50
-  driftTurnSpeed: 50
-  groundDrag: 4
-  airDrag: 0
-  driftBoost: 40
-  maxDriftCharge: 100
-  driftChargeSpeed: 70
-  boostTime: 1.5
-  outwardsDriftForce: 90
   gravity: 30
   jumpForce: 10
+  driftTurnSpeed: 50
+  driftTurnModifier: 0.7
+  driftChargeSpeed: 80
+  outwardsDriftForce: 90
+  boostTime: 2
+  boostAmount: 40
+  airDrag: 0
+  groundDrag: 4

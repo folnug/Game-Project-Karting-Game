@@ -7,7 +7,7 @@ public class KartController : MonoBehaviour
     public delegate void KartBoostAction();
     public static event KartBoostAction BoostUsed;
 
-    public delegate void KartBoostBar(float driftAmmount);
+    public delegate void KartBoostBar(float driftAmount);
     public static event KartBoostBar UpdateBoostUi;
     [SerializeField] Kart kart;
 
@@ -17,9 +17,10 @@ public class KartController : MonoBehaviour
 
     [SerializeField] Rigidbody rb;
     [SerializeField] LayerMask groundLayer;
+    [SerializeField] Transform visual;
 
-    float DriftDirection(float direction) => Mathf.Abs(0.75f - (direction * -horizontal));
-    float Steer(float direction, float ammount) => (direction * kart.turnSpeed * Time.deltaTime) * ammount;
+    float DriftDirection(float direction) => Mathf.Abs(kart.driftTurnModifier - (direction * -horizontal));
+    float Steer(float turnSpeed, float direction, float amount) => (direction * turnSpeed * Time.deltaTime) * amount;
 
     void Start()
     {
@@ -39,14 +40,24 @@ public class KartController : MonoBehaviour
     {   
         if (!drifting) direction = horizontal;
         float turnDirection = drifting ? direction : horizontal;
-        float ammount = drifting ? DriftDirection(direction) : Mathf.Abs(horizontal);
-        transform.Rotate(0f, Steer(turnDirection, ammount), 0f);
+        float turnSpeed = drifting && grounded ? kart.driftTurnSpeed : kart.turnSpeed;
+        float amount = drifting ? DriftDirection(direction) : Mathf.Abs(horizontal);
+        transform.Rotate(0f, Steer(turnSpeed, turnDirection, amount), 0f);
+
+
+        // Visual
+        float visualDirection = drifting ? direction : horizontal;
+        float localVisualRotAmmoung = drifting ? 10f : 20f;
+        int isMotorcycle = 0;
+        visual.localRotation = Quaternion.Lerp(visual.localRotation, Quaternion.Euler(0, localVisualRotAmmoung * visualDirection, 30f * -visualDirection * isMotorcycle), 2f * Time.deltaTime);
+
     }
     void GroundCheck()
     {
         RaycastHit hit;
-        grounded = Physics.Raycast(transform.position, -transform.up, out hit, 0.6f, groundLayer);
-        Debug.DrawRay(transform.position, -transform.up * 0.6f, Color.red);
+        grounded = Physics.Raycast(transform.position, -transform.up, out hit, 0.8f, groundLayer);
+        Debug.DrawRay(transform.position, -transform.up * 0.8f, Color.red);
+
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.FromToRotation(transform.up * 2, hit.normal) * transform.rotation, 7f * Time.deltaTime);
 
         rb.drag = grounded ? kart.groundDrag : kart.airDrag;
@@ -83,9 +94,9 @@ public class KartController : MonoBehaviour
     void Drifting() {
         if (drifting) {
             driftValue += kart.driftChargeSpeed * Time.deltaTime;
-        } else if (!drifting && driftValue >= 100) {
+        } else if (!drifting && driftValue >= 100 * 0.8) {
             driftValue = 0;
-             currentBoostTime = kart.boostTime;
+            currentBoostTime += kart.boostTime;
             if (BoostUsed != null)
                 BoostUsed();
         } else {
@@ -94,9 +105,11 @@ public class KartController : MonoBehaviour
 
         if (currentBoostTime > 0) {
             currentBoostTime -= 1f * Time.deltaTime;
-            rb.AddForce(transform.forward * kart.driftBoost, ForceMode.Acceleration);
+            rb.AddForce(transform.forward * kart.boostAmount, ForceMode.Acceleration);
         }
-        
+
+        Debug.Log(currentBoostTime);
+
         if (UpdateBoostUi != null)
             UpdateBoostUi(driftValue);
     }
