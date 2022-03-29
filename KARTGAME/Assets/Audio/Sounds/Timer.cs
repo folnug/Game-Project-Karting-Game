@@ -9,7 +9,9 @@ public class Timer : MonoBehaviour
     float currentTime;
     public Text currentTimeText;
     public Text finalTimeText;
+    public Button rePlayButton;
     private bool maalissa = false;
+    private bool started = false;
 
     void Start()
     {
@@ -19,9 +21,11 @@ public class Timer : MonoBehaviour
 
     void Update()
     {
+
         if (maalissa)
             return;
 
+        if (started)
         //Tässä kello käy koko ajan
         currentTime = currentTime + Time.deltaTime;
         TimeSpan time = TimeSpan.FromSeconds(currentTime);
@@ -36,6 +40,12 @@ public class Timer : MonoBehaviour
         currentTimeText.color = Color.green;
         finalTimeText.gameObject.SetActive(maalissa);
         finalTimeText.color = Color.green;
+        rePlayButton.gameObject.SetActive(maalissa);
     }
+
+    void StartedUpdate()
+    {
+        started = true;
+}
 }
 

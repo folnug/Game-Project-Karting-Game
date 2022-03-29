@@ -25,6 +25,8 @@ public class Goal : MonoBehaviour
         if (isTriggered)
             return;
 
+        GameObject.Find("Kart").SendMessage("StartedUpdate");
+
         //Kuinka monta checkpointtia on ja jos tarpeeksi monen checkpointin l‰pi on menty l‰hett‰‰ t‰‰ viestin mik‰ resettaa kaikki checkpointit
         //ja lap counter nousee ja resettaa l‰pikuljettujen checkpointtien m‰‰rn nollaan
         if (canIFinish == 2)
@@ -32,17 +34,17 @@ public class Goal : MonoBehaviour
             Debug.Log("Auto tuli maaliin");
             BroadcastMessage("CheckpointReset");
             currentLap++;
-            currentLapText.text = "Lap " + currentLap.ToString() + " / 3";
+            currentLapText.text = "Lap " + currentLap.ToString() + " / 2";
             canIFinish = 0;
         }
 
         //Kun viimeinen kierros on ajettu l‰hett‰‰ t‰‰ viestin timerille nimell‰ GoalUpdate et se pys‰htyy (esim. jos max kierros on 3 k‰yt‰ 4)
-        if (currentLap == 4)
+        if (currentLap == 3)
         {
             GameObject.Find("Kart").SendMessage("GoalUpdate");
         }
 
-        if (currentLap == 3)
+        if (currentLap == 2)
         {
             GameObject.Find("BG Music").SendMessage("Faster");
         }
