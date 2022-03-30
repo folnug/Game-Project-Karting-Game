@@ -653,6 +653,7 @@ RectTransform:
   - {fileID: 1385794813}
   - {fileID: 2020730565}
   - {fileID: 1850163711}
+  - {fileID: 866972277}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1047,6 +1048,85 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &866972276
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 866972277}
+  - component: {fileID: 866972279}
+  - component: {fileID: 866972278}
+  m_Layer: 5
+  m_Name: Countdown
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &866972277
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 866972276}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 612538199}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 232}
+  m_SizeDelta: {x: 159.04, y: 150.5}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &866972278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 866972276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 133
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 145
+    m_Alignment: 1
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 3
+--- !u!222 &866972279
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 866972276}
+  m_CullTransparentMesh: 1
 --- !u!1 &889737191 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8961359253771211100, guid: ade4c9f8f9c02da4a91dd6a9eb4e5ce8, type: 3}
@@ -1144,7 +1224,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.049675453, y: -0.000000016664616, z: 8.2884566e-10, w: 0.9987654}
+  m_LocalRotation: {x: 0.049675476, y: 0.000000018250569, z: -9.0772645e-10, w: 0.9987654}
   m_LocalPosition: {x: 0, y: 3.63, z: -10.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1330,6 +1410,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: c73ea1081e5e69e4aac6e55509ff7875, type: 3}
       propertyPath: m_Name
       value: lulxd
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c73ea1081e5e69e4aac6e55509ff7875, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: c73ea1081e5e69e4aac6e55509ff7875, type: 3}
       propertyPath: m_Controller
@@ -1807,6 +1891,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1850163712}
     - target: {fileID: 1327157457386611914, guid: c34e68398779f4a4eb7d095edc7c41a5, type: 3}
+      propertyPath: countdownText
+      value: 
+      objectReference: {fileID: 866972278}
+    - target: {fileID: 1327157457386611914, guid: c34e68398779f4a4eb7d095edc7c41a5, type: 3}
       propertyPath: finalTimeText
       value: 
       objectReference: {fileID: 449761655}
@@ -1986,6 +2074,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 21cffb935ac5b4a45b6c0440a7ece0b2, type: 3}
       propertyPath: m_Name
       value: CHIBI_WITH_HAIR
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 21cffb935ac5b4a45b6c0440a7ece0b2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21cffb935ac5b4a45b6c0440a7ece0b2, type: 3}
@@ -2619,7 +2711,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2018242625}
-  m_LocalRotation: {x: 0.049675453, y: -0.000000016664616, z: 8.2884566e-10, w: 0.9987654}
+  m_LocalRotation: {x: 0.049675476, y: 0.000000018250569, z: -9.0772645e-10, w: 0.9987654}
   m_LocalPosition: {x: 0, y: 3.63, z: -10.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

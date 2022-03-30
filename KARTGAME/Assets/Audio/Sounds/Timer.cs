@@ -7,8 +7,10 @@ using System;
 public class Timer : MonoBehaviour
 {
     float currentTime;
+    float countdown;
     public Text currentTimeText;
     public Text finalTimeText;
+    public Text countdownText;
     public Button rePlayButton;
     private bool maalissa = false;
     private bool started = false;
@@ -17,20 +19,27 @@ public class Timer : MonoBehaviour
     {
         //Aloitusarvo
         currentTime = 0;
+        countdown = 4;
     }
 
     void Update()
     {
+        countdown -= Time.deltaTime;
+        TimeSpan countdowntime = TimeSpan.FromSeconds(countdown);
+        countdownText.text = countdowntime.ToString("ss");
 
         if (maalissa)
             return;
 
-        if (started)
-        //Tässä kello käy koko ajan
-        currentTime = currentTime + Time.deltaTime;
-        TimeSpan time = TimeSpan.FromSeconds(currentTime);
-        currentTimeText.text = time.ToString(@"mm\:ss\:ff");
-        finalTimeText.text = time.ToString(@"mm\:ss\:ff");
+        if (countdown < 1)
+        {
+            //Tässä kello käy koko ajan
+            currentTime = currentTime + Time.deltaTime;
+            TimeSpan time = TimeSpan.FromSeconds(currentTime);
+            currentTimeText.text = time.ToString(@"mm\:ss\:ff");
+            finalTimeText.text = time.ToString(@"mm\:ss\:ff");
+            countdownText.gameObject.SetActive(false);
+        }
     }
 
     //Kun saa viestin Goalista tää pysäyttää timerin
@@ -42,10 +51,5 @@ public class Timer : MonoBehaviour
         finalTimeText.color = Color.green;
         rePlayButton.gameObject.SetActive(maalissa);
     }
-
-    void StartedUpdate()
-    {
-        started = true;
-}
 }
 

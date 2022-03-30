@@ -25,8 +25,6 @@ public class Goal : MonoBehaviour
         if (isTriggered)
             return;
 
-        GameObject.Find("Kart").SendMessage("StartedUpdate");
-
         //Kuinka monta checkpointtia on ja jos tarpeeksi monen checkpointin l‰pi on menty l‰hett‰‰ t‰‰ viestin mik‰ resettaa kaikki checkpointit
         //ja lap counter nousee ja resettaa l‰pikuljettujen checkpointtien m‰‰rn nollaan
         if (canIFinish == 2)
