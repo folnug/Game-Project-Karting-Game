@@ -71,6 +71,7 @@
     <Compile Include="Assets\Scripts\Kart\PlayerInput.cs" />
     <Compile Include="Assets\InputSystem\MainControls.cs" />
     <Compile Include="Assets\Scripts\Kart\KartController.cs" />
+    <Compile Include="Assets\Scripts\SkidMarks.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
