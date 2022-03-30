@@ -6,23 +6,29 @@ using System;
 
 public class Timer : MonoBehaviour
 {
-    float currentTime;
-    float countdown;
-    public Text currentTimeText;
-    public Text finalTimeText;
-    public Text countdownText;
+    //Aloitusarvo
+    float currentTime = 0, countdown = 4;
+
+    public Text currentTimeText, finalTimeText, countdownText;
     public Button rePlayButton;
-    private bool maalissa = false;
-    private bool started = false;
+    KartController kc;
+
+    private bool maalissa = false, started = false;
 
     void Start()
     {
-        //Aloitusarvo
-        currentTime = 0;
-        countdown = 4;
+        kc = GetComponent<KartController>();
+        DisableKartController();
+    }
+    void DisableKartController() => kc.enabled = false;
+
+    void EnableKartController() => kc.enabled = true;
+    void Update()
+    {
+        StartCountdown();
     }
 
-    void Update()
+    private void StartCountdown()
     {
         countdown -= Time.deltaTime;
         TimeSpan countdowntime = TimeSpan.FromSeconds(countdown);
@@ -39,6 +45,7 @@ public class Timer : MonoBehaviour
             currentTimeText.text = time.ToString(@"mm\:ss\:ff");
             finalTimeText.text = time.ToString(@"mm\:ss\:ff");
             countdownText.gameObject.SetActive(false);
+            EnableKartController();
         }
     }
 
