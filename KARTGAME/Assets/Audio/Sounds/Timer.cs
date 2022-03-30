@@ -31,8 +31,8 @@ public class Timer : MonoBehaviour
     private void StartCountdown()
     {
         countdown -= Time.deltaTime;
-        TimeSpan countdowntime = TimeSpan.FromSeconds(countdown);
-        countdownText.text = countdowntime.ToString("ss");
+        TimeSpan timeSpan = TimeSpan.FromSeconds(countdown);
+        countdownText.text = timeSpan.ToString("%s");
 
         if (maalissa)
             return;
@@ -40,7 +40,7 @@ public class Timer : MonoBehaviour
         if (countdown < 1)
         {
             //Tässä kello käy koko ajan
-            currentTime = currentTime + Time.deltaTime;
+            currentTime += Time.deltaTime;
             TimeSpan time = TimeSpan.FromSeconds(currentTime);
             currentTimeText.text = time.ToString(@"mm\:ss\:ff");
             finalTimeText.text = time.ToString(@"mm\:ss\:ff");
