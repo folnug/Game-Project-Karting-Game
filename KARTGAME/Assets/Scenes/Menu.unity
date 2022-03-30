@@ -998,9 +998,11 @@ MonoBehaviour:
 
     Shift - Drift
 
+    C - Look Behind
 
-    While drifting, You will build up boost. Release
-    the drift button to gain a boost of speed!'
+
+    While drifting, You will
+    build up boost. Release the drift button to gain a boost of speed!'
 --- !u!222 &2139386270
 CanvasRenderer:
   m_ObjectHideFlags: 0
