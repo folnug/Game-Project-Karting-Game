@@ -68,12 +68,12 @@ public class AiInput : MonoBehaviour
 
     Vector3 randomPosition(Vector3 position) {
         Vector3 randomDirection = new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f)).normalized;
-        return position + randomDirection * Random.Range(1f, 10f);
+        return position + randomDirection * Random.Range(1f, 15f);
     }
 
     void OnDrawGizmos() {
         Gizmos.color = Color.yellow;
 
-        Gizmos.DrawSphere(targetPosition, 5f);
+        Gizmos.DrawSphere(targetPosition, 12f);
     }
 }

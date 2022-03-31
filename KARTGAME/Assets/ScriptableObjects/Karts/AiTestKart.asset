@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forwardSpeed: 260
   reverseSpeed: 80
-  turnSpeed: 50
+  turnSpeed: 200
   gravity: 30
   jumpForce: 10
   driftTurnSpeed: 50
