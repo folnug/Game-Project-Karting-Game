@@ -18,7 +18,7 @@ public class Timer : MonoBehaviour
     void Start()
     {
         kc = GetComponent<KartController>();
-        DisableKartController();
+        //DisableKartController();
     }
     void DisableKartController() => kc.enabled = false;
 
@@ -39,7 +39,7 @@ public class Timer : MonoBehaviour
 
         if (countdown < 1)
         {
-            //Tässä kello käy koko ajan
+            //Tï¿½ssï¿½ kello kï¿½y koko ajan
             currentTime += Time.deltaTime;
             TimeSpan time = TimeSpan.FromSeconds(currentTime);
             currentTimeText.text = time.ToString(@"mm\:ss\:ff");
@@ -49,7 +49,7 @@ public class Timer : MonoBehaviour
         }
     }
 
-    //Kun saa viestin Goalista tää pysäyttää timerin
+    //Kun saa viestin Goalista tï¿½ï¿½ pysï¿½yttï¿½ï¿½ timerin
     void GoalUpdate()
     {
         maalissa = true;
