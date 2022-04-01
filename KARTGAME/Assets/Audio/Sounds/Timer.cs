@@ -11,18 +11,18 @@ public class Timer : MonoBehaviour
 
     public Text currentTimeText, finalTimeText, countdownText;
     public Button rePlayButton;
-    KartController kc;
+    KartController[] controllers;
 
     private bool maalissa = false;
 
     void Start()
     {
-        kc = GetComponent<KartController>();
-        //DisableKartController();
+        controllers = FindObjectsOfType<KartController>();
+        ToggleKartController(false);
     }
-    void DisableKartController() => kc.enabled = false;
-
-    void EnableKartController() => kc.enabled = true;
+    void ToggleKartController(bool toggle) {
+        foreach(KartController controller in controllers) controller.enabled = toggle;
+    }
     void Update()
     {
         StartCountdown();
@@ -45,7 +45,7 @@ public class Timer : MonoBehaviour
             currentTimeText.text = time.ToString(@"mm\:ss\:ff");
             finalTimeText.text = time.ToString(@"mm\:ss\:ff");
             countdownText.gameObject.SetActive(false);
-            EnableKartController();
+            ToggleKartController(true);
         }
     }
 

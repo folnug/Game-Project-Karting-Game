@@ -117,9 +117,8 @@ public class KartController : MonoBehaviour
         }
 
         currentSpeed = Mathf.Clamp(currentSpeed, 0, kart.forwardSpeed);
-        float moveSpeed = drifting ? currentSpeed - kart.outwardsDriftForce : currentSpeed;
         if (grounded) {
-            rb.AddForce(transform.forward * moveSpeed, ForceMode.Force);
+            rb.AddForce(transform.forward * currentSpeed, ForceMode.Force);
         }
     }
 
