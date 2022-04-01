@@ -24,6 +24,9 @@ public class KartController : MonoBehaviour
 
     float currentSpeed = 0;
 
+    float airTime = 0f;
+    bool hoppedBeforAirborne = false;
+
     [SerializeField] Rigidbody rb;
     [SerializeField] LayerMask groundLayer;
     [SerializeField] Transform visual;
@@ -75,6 +78,14 @@ public class KartController : MonoBehaviour
         speed = transform.InverseTransformDirection(rb.velocity).z;
         Movement();
         Drifting();
+
+        if (Landed() && airTime >= 0.6 && hoppedBeforAirborne)  {
+            GiveImpulseBoost(kart.boostAmount);
+            AddBoostTime(kart.boostTime);
+        }
+        if (Landed()) hoppedBeforAirborne = false;
+        
+        AirTime();
 
         if (giveImpulseBoost) {
             rb.AddForce(transform.forward * impulseBoostAmount, ForceMode.Impulse);
@@ -161,6 +172,7 @@ public class KartController : MonoBehaviour
 
     public void Hop() {
         if (!grounded) return;
+        hoppedBeforAirborne = true;
         hopped = true;
     }
 
@@ -168,6 +180,17 @@ public class KartController : MonoBehaviour
         drifting = false;
     }
 
+    void AirTime() {
+        if (grounded) {
+            airTime = 0f;
+        } else {
+            airTime += Time.deltaTime;
+        }
+    }
+
+    bool Landed() {
+        return airTime > 0 && grounded;
+    }
 
     public void GiveImpulseBoost(float amount) {
         giveImpulseBoost = true;
