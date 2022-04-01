@@ -583,7 +583,7 @@ GameObject:
   - component: {fileID: 1327157457386611915}
   m_Layer: 0
   m_Name: Kart
-  m_TagString: Untagged
+  m_TagString: Kart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -618,12 +618,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kart: {fileID: 11400000, guid: 1abab9fec51abc24bb3c121712f4c5c2, type: 2}
-  grounded: 0
-  drifting: 0
-  boost: 0
-  hopped: 0
-  currentSpeed: 0
-  driftValue: 0
   rb: {fileID: 1327157459249854913}
   groundLayer:
     serializedVersion: 2
@@ -701,6 +695,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1327157458412294148}
+  - component: {fileID: 506997765}
   m_Layer: 0
   m_Name: BoostEffects
   m_TagString: Untagged
@@ -724,6 +719,22 @@ Transform:
   m_Father: {fileID: 1327157458097255835}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &506997765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1327157458412294151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cef26e95619955147a7f09ed45b1375f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particles:
+  - {fileID: 5608951873270005094}
+  - {fileID: 2860261717802767955}
+  kc: {fileID: 1327157457386611916}
 --- !u!1 &1327157458707669795
 GameObject:
   m_ObjectHideFlags: 0
@@ -5501,9 +5512,10 @@ GameObject:
   - component: {fileID: 1327157459249854912}
   - component: {fileID: 1327157459249854926}
   - component: {fileID: 1327157459249854913}
+  - component: {fileID: 1752161325}
   m_Layer: 0
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: Kart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5529,7 +5541,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1327157459249854915}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: c4cff91e7003bc54693b4233a152d9c6, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -5551,6 +5563,19 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!114 &1752161325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1327157459249854915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea8ee2ef2e3d3ee409573f6697bfd10f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kartController: {fileID: 1327157457386611916}
 --- !u!1 &1327157459291517235
 GameObject:
   m_ObjectHideFlags: 0
@@ -19958,8 +19983,8 @@ ParticleSystem:
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  looping: 0
-  prewarm: 0
+  looping: 1
+  prewarm: 1
   playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
@@ -24762,8 +24787,8 @@ ParticleSystem:
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  looping: 0
-  prewarm: 0
+  looping: 1
+  prewarm: 1
   playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1

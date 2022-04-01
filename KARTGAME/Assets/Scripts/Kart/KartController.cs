@@ -19,6 +19,9 @@ public class KartController : MonoBehaviour
 
     public float minDriftAmmount { get; private set; }
 
+    bool giveImpulseBoost = false;
+    float impulseBoostAmount = 0f;
+
     float currentSpeed = 0;
 
     [SerializeField] Rigidbody rb;
@@ -71,8 +74,13 @@ public class KartController : MonoBehaviour
     {
         speed = transform.InverseTransformDirection(rb.velocity).z;
         Movement();
-        ApplyGravity();
+        //ApplyGravity();
         Drifting();
+
+        if (giveImpulseBoost) {
+            rb.AddForce(transform.forward * impulseBoostAmount, ForceMode.Impulse);
+            giveImpulseBoost = false;
+        }
     }
 
     void Movement() {
@@ -81,7 +89,7 @@ public class KartController : MonoBehaviour
         }
         
         braking = vertical < 0 && currentSpeed > 0;
-        if (grounded && currentSpeed <= 0 && vertical < 0) {
+        if (currentSpeed <= 0 && vertical < 0) {
             BackwardsMovement();
         } else if (grounded) {
             ForwardMovement();
@@ -138,7 +146,8 @@ public class KartController : MonoBehaviour
             driftValue += kart.driftChargeSpeed * Time.deltaTime;
         } else if (!drifting && driftValue >= minDriftAmmount) {
             driftValue = 0;
-            currentBoostTime += kart.boostTime;
+            AddBoostTime(kart.boostTime);
+            GiveImpulseBoost(20f);
         } else if (!drifting) {
             driftValue = 0;
         }
@@ -166,10 +175,18 @@ public class KartController : MonoBehaviour
         drifting = false;
     }
 
+
+    public void GiveImpulseBoost(float amount) {
+        giveImpulseBoost = true;
+        impulseBoostAmount = amount;
+    }
+
     public void SetInputs(float horizontal, float vertical) {
         this.horizontal = horizontal;
         this.vertical = vertical;
     }
+
+    public void AddBoostTime(float amount) => currentBoostTime += amount;
 
 }
 

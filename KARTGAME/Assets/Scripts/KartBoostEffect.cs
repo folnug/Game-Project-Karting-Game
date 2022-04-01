@@ -8,8 +8,12 @@ public class KartBoostEffect : MonoBehaviour
     [SerializeField] KartController kc;
     void Update()
     {
-        if (!kc.drifting && kc.driftValue > 100f * 0.8f) {
-            foreach(ParticleSystem particle in particles) particle.Play();
+        foreach(ParticleSystem particle in particles) {
+            if (kc.currentBoostTime > 0) {
+                particle.Play();
+            } else {
+                particle.Stop();
+            }
         }
     }
 }

@@ -55,6 +55,8 @@
      <Compile Include="Assets\InputSystem\MainControls.cs" />
      <Compile Include="Assets\Scripts\Kart\KartController.cs" />
      <Compile Include="Assets\Scripts\UI\KartBoostBar.cs" />
+     <Compile Include="Assets\Scripts\Kart\KartMotor.cs" />
+     <Compile Include="Assets\Boostpad.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.30f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>

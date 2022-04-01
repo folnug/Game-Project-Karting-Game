@@ -406,8 +406,8 @@ ParticleSystem:
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  looping: 0
-  prewarm: 0
+  looping: 1
+  prewarm: 1
   playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
@@ -15712,9 +15712,10 @@ GameObject:
   - component: {fileID: 8610551683285759843}
   - component: {fileID: 8610551683285759853}
   - component: {fileID: 8610551683285759842}
+  - component: {fileID: 9205672971516587231}
   m_Layer: 0
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: Kart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15740,7 +15741,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8610551683285759840}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: c4cff91e7003bc54693b4233a152d9c6, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -15762,6 +15763,19 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!114 &9205672971516587231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8610551683285759840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea8ee2ef2e3d3ee409573f6697bfd10f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kartController: {fileID: 8610551684276513391}
 --- !u!1 &8610551683298536216
 GameObject:
   m_ObjectHideFlags: 0
@@ -25177,7 +25191,7 @@ GameObject:
   - component: {fileID: 4148187296268536252}
   m_Layer: 0
   m_Name: AiKart
-  m_TagString: Untagged
+  m_TagString: Kart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25211,7 +25225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3df3229f0f787d94d9f58f6a6046922a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  kart: {fileID: 11400000, guid: 6a81b4112e17710429a924b159de894d, type: 2}
+  kart: {fileID: 11400000, guid: efe5aa6367778a74ab7f4b80996f6a8b, type: 2}
   rb: {fileID: 8610551683285759842}
   groundLayer:
     serializedVersion: 2
@@ -25391,8 +25405,8 @@ ParticleSystem:
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  looping: 0
-  prewarm: 0
+  looping: 1
+  prewarm: 1
   playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
