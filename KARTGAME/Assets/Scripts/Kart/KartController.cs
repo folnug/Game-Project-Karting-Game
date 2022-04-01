@@ -147,7 +147,7 @@ public class KartController : MonoBehaviour
         } else if (!drifting && driftValue >= minDriftAmmount) {
             driftValue = 0;
             AddBoostTime(kart.boostTime);
-            GiveImpulseBoost(20f);
+            GiveImpulseBoost(kart.impulseBoostAmount);
         } else if (!drifting) {
             driftValue = 0;
         }

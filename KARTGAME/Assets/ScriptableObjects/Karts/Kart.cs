@@ -25,6 +25,7 @@ public class Kart : ScriptableObject {
     [Header("Boost Settings")]
     public float boostTime;
     public float boostAmount;
+    public float impulseBoostAmount;
 
     [Header("Air Settings")]
     public float airDrag;
