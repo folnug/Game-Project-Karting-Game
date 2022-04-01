@@ -22,29 +22,33 @@ public class Goal : MonoBehaviour
     //Objekti jolla on rigidbody osuu t‰h‰n
     private void OnTriggerEnter(Collider other)
     {
-        if (isTriggered)
-            return;
 
-        //Kuinka monta checkpointtia on ja jos tarpeeksi monen checkpointin l‰pi on menty l‰hett‰‰ t‰‰ viestin mik‰ resettaa kaikki checkpointit
-        //ja lap counter nousee ja resettaa l‰pikuljettujen checkpointtien m‰‰rn nollaan
-        if (canIFinish == 2)
+        if (other.gameObject.name == "Sphere")
         {
-            Debug.Log("Auto tuli maaliin");
-            BroadcastMessage("CheckpointReset");
-            currentLap++;
-            currentLapText.text = "Lap " + currentLap.ToString() + " / 2";
-            canIFinish = 0;
-        }
+            if (isTriggered)
+                return;
 
-        //Kun viimeinen kierros on ajettu l‰hett‰‰ t‰‰ viestin timerille nimell‰ GoalUpdate et se pys‰htyy (esim. jos max kierros on 3 k‰yt‰ 4)
-        if (currentLap == 3)
-        {
-            GameObject.Find("Kart").SendMessage("GoalUpdate");
-        }
+            //Kuinka monta checkpointtia on ja jos tarpeeksi monen checkpointin l‰pi on menty l‰hett‰‰ t‰‰ viestin mik‰ resettaa kaikki checkpointit
+            //ja lap counter nousee ja resettaa l‰pikuljettujen checkpointtien m‰‰rn nollaan
+            if (canIFinish == 2)
+            {
+                Debug.Log("Auto tuli maaliin");
+                BroadcastMessage("CheckpointReset");
+                currentLap++;
+                currentLapText.text = "Lap " + currentLap.ToString() + " / 2";
+                canIFinish = 0;
+            }
 
-        if (currentLap == 2)
-        {
-            GameObject.Find("BG Music").SendMessage("Faster");
+            //Kun viimeinen kierros on ajettu l‰hett‰‰ t‰‰ viestin timerille nimell‰ GoalUpdate et se pys‰htyy (esim. jos max kierros on 3 k‰yt‰ 4)
+            if (currentLap == 3)
+            {
+                GameObject.Find("Kart").SendMessage("GoalUpdate");
+            }
+
+            if (currentLap == 2)
+            {
+                GameObject.Find("BG Music").SendMessage("Faster");
+            }
         }
     }
 
