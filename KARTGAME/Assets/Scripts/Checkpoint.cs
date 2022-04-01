@@ -11,13 +11,17 @@ public class Checkpoint : MonoBehaviour
     //Objekti jolla on rigidbody osuu t‰h‰n
     private void OnTriggerEnter(Collider other)
     {
-        if (isTriggered)
-            return;
+        if (other.gameObject.name == "Sphere")
+        {
 
-        //L‰hett‰‰ viestin Goalille nimell‰ Checkpoint ja disablee itsens‰
-        GameObject.Find("Goal").SendMessage("Checkpoint");
-        isTriggered = true;
-        Debug.Log("Checkpoint");
+            if (isTriggered)
+                return;
+
+            //L‰hett‰‰ viestin Goalille nimell‰ Checkpoint ja disablee itsens‰
+            GameObject.Find("Goal").SendMessage("Checkpoint");
+            isTriggered = true;
+            Debug.Log("Checkpoint");
+        }
     }
 
     //Vastaanottaa ottaa CheckpointReset viestin

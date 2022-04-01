@@ -1923,7 +1923,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.000000018626451, y: -0.0006576766, z: 0.00006558374, w: 0.9999998}
+  m_LocalRotation: {x: 0.000000037252903, y: -0.00019258249, z: 0.000019204417, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -2128,7 +2128,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c73ea1081e5e69e4aac6e55509ff7875, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: c73ea1081e5e69e4aac6e55509ff7875, type: 3}
       propertyPath: m_Controller
@@ -2301,7 +2301,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1026754823}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3309,6 +3309,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 919132149619015908, guid: c34e68398779f4a4eb7d095edc7c41a5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1327157457386611914, guid: c34e68398779f4a4eb7d095edc7c41a5, type: 3}
       propertyPath: rePlayButton
       value: 
@@ -3325,6 +3329,10 @@ PrefabInstance:
       propertyPath: currentTimeText
       value: 
       objectReference: {fileID: 1044519148}
+    - target: {fileID: 1327157457386611916, guid: c34e68398779f4a4eb7d095edc7c41a5, type: 3}
+      propertyPath: kart
+      value: 
+      objectReference: {fileID: 11400000, guid: 1abab9fec51abc24bb3c121712f4c5c2, type: 2}
     - target: {fileID: 1327157457386611917, guid: c34e68398779f4a4eb7d095edc7c41a5, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -4041,13 +4049,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7625922783621779015, guid: 4bc4a7aa092e97b42a76cffc307e7752, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8610551683285759840, guid: 4bc4a7aa092e97b42a76cffc307e7752, type: 3}
+      propertyPath: m_Name
+      value: SphereAi
+      objectReference: {fileID: 0}
+    - target: {fileID: 8610551683285759853, guid: 4bc4a7aa092e97b42a76cffc307e7752, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8610551683285759853, guid: 4bc4a7aa092e97b42a76cffc307e7752, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8610551684276513388, guid: 4bc4a7aa092e97b42a76cffc307e7752, type: 3}
       propertyPath: m_Name
       value: AiKart (1)
       objectReference: {fileID: 0}
     - target: {fileID: 8610551684276513388, guid: 4bc4a7aa092e97b42a76cffc307e7752, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8610551684276513390, guid: 4bc4a7aa092e97b42a76cffc307e7752, type: 3}
       propertyPath: m_RootOrder
@@ -4837,7 +4861,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1993830582}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -4940,7 +4964,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2018242625}
-  m_LocalRotation: {x: 0.000000018626451, y: -0.0006576766, z: 0.00006558374, w: 0.9999998}
+  m_LocalRotation: {x: 0.000000037252903, y: -0.00019258249, z: 0.000019204417, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -5177,13 +5201,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7625922783621779015, guid: 4bc4a7aa092e97b42a76cffc307e7752, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8610551683285759840, guid: 4bc4a7aa092e97b42a76cffc307e7752, type: 3}
+      propertyPath: m_Name
+      value: SphereAi
+      objectReference: {fileID: 0}
+    - target: {fileID: 8610551683285759853, guid: 4bc4a7aa092e97b42a76cffc307e7752, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8610551684276513388, guid: 4bc4a7aa092e97b42a76cffc307e7752, type: 3}
       propertyPath: m_Name
       value: AiKart
       objectReference: {fileID: 0}
     - target: {fileID: 8610551684276513388, guid: 4bc4a7aa092e97b42a76cffc307e7752, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8610551684276513390, guid: 4bc4a7aa092e97b42a76cffc307e7752, type: 3}
       propertyPath: m_RootOrder
