@@ -46,7 +46,7 @@
      <Compile Include="Assets\Scripts\AI\AiInput.cs" />
      <Compile Include="Assets\KartSmoke\DriftSmoke.cs" />
      <Compile Include="Assets\Scripts\KartRespawn.cs" />
-     <Compile Include="Assets\Audio\Sounds\Timer.cs" />
+     <Compile Include="Assets\Scripts\Timer.cs" />
      <Compile Include="Assets\Scripts\Goal.cs" />
      <Compile Include="Assets\Scripts\Checkpoint.cs" />
      <Compile Include="Assets\Scripts\AI\AiWaypoint.cs" />
