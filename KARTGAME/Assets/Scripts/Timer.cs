@@ -12,6 +12,7 @@ public class Timer : MonoBehaviour
     public Text currentTimeText, finalTimeText, countdownText;
     public Button rePlayButton;
     KartController[] controllers;
+    public AudioSource audioSource;
 
     private bool maalissa = false;
 
@@ -26,6 +27,14 @@ public class Timer : MonoBehaviour
     void Update()
     {
         StartCountdown();
+        StartCountdownAudio();
+    }
+
+    private void StartCountdownAudio()
+    {
+        if (!audioSource.isPlaying)
+            for (int i = 2; i < countdown; i++)
+                audioSource.Play();
     }
 
     private void StartCountdown()
