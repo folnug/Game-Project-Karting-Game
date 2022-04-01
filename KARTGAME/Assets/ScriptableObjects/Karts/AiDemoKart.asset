@@ -26,5 +26,6 @@ MonoBehaviour:
   outwardsDriftForce: 90
   boostTime: 2
   boostAmount: 40
+  impulseBoostAmount: 20
   airDrag: 0
   groundDrag: 4

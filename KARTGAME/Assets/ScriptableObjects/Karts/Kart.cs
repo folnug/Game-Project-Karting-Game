@@ -13,7 +13,6 @@ public class Kart : ScriptableObject {
     public float brakeForce;
     public float reverseSpeed;
     public float turnSpeed;
-    public float gravity;
     public float jumpForce;
 
     [Header("Driftin Settings")]

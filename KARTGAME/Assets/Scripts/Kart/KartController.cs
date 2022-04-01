@@ -74,7 +74,6 @@ public class KartController : MonoBehaviour
     {
         speed = transform.InverseTransformDirection(rb.velocity).z;
         Movement();
-        //ApplyGravity();
         Drifting();
 
         if (giveImpulseBoost) {
@@ -136,11 +135,6 @@ public class KartController : MonoBehaviour
         }
     }
 
-    void ApplyGravity() {
-        if(!grounded)
-        rb.AddForce(transform.up * -kart.gravity, ForceMode.Acceleration);
-    }
-
     void Drifting() {
         if (drifting && grounded) {
             driftValue += kart.driftChargeSpeed * Time.deltaTime;
@@ -189,8 +183,3 @@ public class KartController : MonoBehaviour
     public void AddBoostTime(float amount) => currentBoostTime += amount;
 
 }
-
-
-
-
-
