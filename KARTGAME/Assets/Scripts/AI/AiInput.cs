@@ -51,7 +51,13 @@ public class AiInput : MonoBehaviour
             kartController.drifting = false;
         }
         */
-        horizontal = angleToDirection > 0 ? 1f : -1f;
+        if (angleToDirection > 10f) {
+            horizontal = 1f;
+        } else if (angleToDirection < -10f) {
+            horizontal = -1f;
+        } else {
+            horizontal = 0f;
+        }
 
         kartController.SetInputs(horizontal, vertical);
     }
@@ -68,12 +74,12 @@ public class AiInput : MonoBehaviour
 
     Vector3 randomPosition(Vector3 position) {
         Vector3 randomDirection = new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f)).normalized;
-        return position + randomDirection * Random.Range(1f, 15f);
+        return position + randomDirection * Random.Range(1f, 12f);
     }
 
     void OnDrawGizmos() {
         Gizmos.color = Color.yellow;
 
-        Gizmos.DrawSphere(targetPosition, 12f);
+        Gizmos.DrawSphere(targetPosition, 2f);
     }
 }
