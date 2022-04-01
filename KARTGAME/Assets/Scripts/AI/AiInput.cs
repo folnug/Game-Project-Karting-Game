@@ -6,7 +6,6 @@ using System.Linq;
 public class AiInput : MonoBehaviour
 {
     Vector3 targetPosition;
-    [SerializeField] Transform targetPositionTransform;
     KartController kartController;
 
     AiWaypoint currentWaypoint;

@@ -20,14 +20,11 @@ public class PlayerInput : MonoBehaviour
 
     void OnEnable() {
         controls.Kart.Hop.started += StartHop;
-        controls.Kart.Drifting.performed += StartDrifting;
-        controls.Kart.Drifting.canceled += StopDrifting;
+        controls.Kart.Hop.canceled += StopDrifting;
     }
 
     void OnDisable() {
         controls.Kart.Hop.started -= StartHop;
-        controls.Kart.Drifting.performed -= StartDrifting;
-        controls.Kart.Drifting.canceled -= StopDrifting;
     }
 
     void Update() {
@@ -38,8 +35,5 @@ public class PlayerInput : MonoBehaviour
     }
 
     void StartHop(InputAction.CallbackContext context) => kc.Hop();
-
-    void StartDrifting(InputAction.CallbackContext context) => kc.drifting = true;
-    void StopDrifting(InputAction.CallbackContext context) => kc.drifting = false;
-
+    void StopDrifting(InputAction.CallbackContext context) => kc.StopDrifting();
 } 

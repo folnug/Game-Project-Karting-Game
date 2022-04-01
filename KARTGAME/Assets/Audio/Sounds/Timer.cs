@@ -13,7 +13,7 @@ public class Timer : MonoBehaviour
     public Button rePlayButton;
     KartController kc;
 
-    private bool maalissa = false, started = false;
+    private bool maalissa = false;
 
     void Start()
     {

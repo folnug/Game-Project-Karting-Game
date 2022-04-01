@@ -9,6 +9,6 @@ public class SpeedUi : MonoBehaviour
     [SerializeField] KartController ks;
 
     void Update() {
-        txt.text = ks.currentSpeed.ToString();
+        txt.text = ks.speed.ToString();
     }
 }

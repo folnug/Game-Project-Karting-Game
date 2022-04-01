@@ -26,9 +26,11 @@ public class SkidMarks : MonoBehaviour
     void CheckIfDrifting()
     {
         for (int i = 0; i < skidMarks.Length; i++)
-            if (kc.drifting && kc.grounded && kc.currentSpeed > 20)
+            if (Drifting() || kc.braking)
                 skidMarks[i].emitting = true;
             else
                 skidMarks[i].emitting = false;
     }
+
+    bool Drifting() => kc.drifting && kc.grounded && kc.speed > 20;
 }

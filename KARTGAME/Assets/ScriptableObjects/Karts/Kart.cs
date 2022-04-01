@@ -6,6 +6,11 @@ using UnityEngine;
 public class Kart : ScriptableObject {
     [Header("Movement Settings")]
     public float forwardSpeed;
+
+    public float Acceleration;
+    public float Decelerate;
+
+    public float brakeForce;
     public float reverseSpeed;
     public float turnSpeed;
     public float gravity;

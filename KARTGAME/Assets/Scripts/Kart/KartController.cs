@@ -3,17 +3,23 @@ using UnityEngine;
 
 public class KartController : MonoBehaviour
 {
-
-    public delegate void KartBoostAction();
-    public static event KartBoostAction BoostUsed;
-
-    public delegate void KartBoostBar(float driftAmount);
-    public static event KartBoostBar UpdateBoostUi;
     [SerializeField] Kart kart;
 
-    float horizontal, vertical, moveSpeed, currentBoostTime = 0, direction = 0;
-    public bool grounded, drifting, boost, hopped;
-    public float currentSpeed, driftValue;
+    float horizontal, vertical, moveSpeed, direction = 0;
+
+    public bool grounded { get; private set; }
+
+    public bool braking { get; private set; }
+    public bool drifting { get; private set; }
+    public bool hopped { get; set; }
+
+    public float speed { get; private set; }
+    public float driftValue { get; private set; }
+    public float currentBoostTime { get; private set; }
+
+    public float minDriftAmmount { get; private set; }
+
+    float currentSpeed = 0;
 
     [SerializeField] Rigidbody rb;
     [SerializeField] LayerMask groundLayer;
@@ -25,6 +31,7 @@ public class KartController : MonoBehaviour
     void Start()
     {
         rb.transform.parent = null;
+        minDriftAmmount = 80f;
     }
 
     void Update()
@@ -32,13 +39,11 @@ public class KartController : MonoBehaviour
         transform.position = rb.transform.position;
         GroundCheck();
         Steering();
-
-        if (grounded) hopped = false;
     }
 
     void Steering()
     {   
-        if (!drifting) direction = horizontal;
+        if (!drifting) direction = horizontal > 0 ? 1f : -1f;
         float turnDirection = drifting ? direction : horizontal;
         float turnSpeed = drifting && grounded ? kart.driftTurnSpeed : kart.turnSpeed;
         float amount = drifting ? DriftDirection(direction) : Mathf.Abs(horizontal);
@@ -64,25 +69,62 @@ public class KartController : MonoBehaviour
     }
     void FixedUpdate()
     {
-        currentSpeed = transform.InverseTransformDirection(rb.velocity).z;
-        DriftMovement();
+        speed = transform.InverseTransformDirection(rb.velocity).z;
         Movement();
         ApplyGravity();
         Drifting();
     }
 
     void Movement() {
-        if (grounded && !drifting) {
-            float speed = vertical > 0 ? kart.forwardSpeed : kart.reverseSpeed;
-            rb.AddForce(transform.forward * speed * vertical, ForceMode.Acceleration);
+        if ((vertical != 0 || horizontal != 0) && OnSlope()) {
+            rb.AddForce(-transform.up * 70f, ForceMode.Acceleration);
+        }
+        
+        braking = vertical < 0 && currentSpeed > 0;
+        if (grounded && currentSpeed <= 0 && vertical < 0) {
+            BackwardsMovement();
+        } else if (grounded) {
+            ForwardMovement();
+        }
+
+        if (drifting && grounded) {
+            rb.AddForce(transform.right * -direction * kart.outwardsDriftForce, ForceMode.Acceleration);
+        }
+
+        if (hopped) {
+            rb.AddForce(transform.up * kart.jumpForce, ForceMode.Impulse);
+            if ((horizontal != 0) && currentSpeed > kart.forwardSpeed * 0.25f) {
+                drifting = true;
+            }
+            hopped = false;
         }
     }
 
-    void DriftMovement() {
-        if (drifting && grounded) {
-            float speed = kart.forwardSpeed - kart.outwardsDriftForce;
-            rb.AddForce(transform.right * -direction * kart.outwardsDriftForce * vertical, ForceMode.Acceleration);
-            rb.AddForce(transform.forward * speed * vertical, ForceMode.Acceleration);
+    void ForwardMovement() {
+        if (vertical > 0) {
+            currentSpeed += kart.Acceleration * Time.deltaTime;
+        } else if (vertical < 0) {
+            currentSpeed -= kart.brakeForce * Time.deltaTime;
+        } else if (vertical == 0) {
+            currentSpeed -= kart.Decelerate * Time.deltaTime;
+        }
+
+        currentSpeed = Mathf.Clamp(currentSpeed, 0, kart.forwardSpeed);
+        float moveSpeed = drifting ? currentSpeed - kart.outwardsDriftForce : currentSpeed;
+        if (grounded) {
+            rb.AddForce(transform.forward * moveSpeed, ForceMode.Force);
+        }
+    }
+
+    void BackwardsMovement() {
+        if (vertical < 0) {
+            currentSpeed -= kart.Acceleration * Time.deltaTime;
+        } else {
+            currentSpeed += kart.Decelerate * Time.deltaTime;
+        }
+        currentSpeed = Mathf.Clamp(currentSpeed, -kart.reverseSpeed, 0f);
+        if (grounded) {
+            rb.AddForce(transform.forward * currentSpeed, ForceMode.Force);
         }
     }
 
@@ -92,38 +134,43 @@ public class KartController : MonoBehaviour
     }
 
     void Drifting() {
-        if (drifting) {
+        if (drifting && grounded) {
             driftValue += kart.driftChargeSpeed * Time.deltaTime;
-        } else if (!drifting && driftValue >= 100 * 0.8) {
+        } else if (!drifting && driftValue >= minDriftAmmount) {
             driftValue = 0;
             currentBoostTime += kart.boostTime;
-            if (BoostUsed != null)
-                BoostUsed();
-        } else {
+        } else if (!drifting) {
             driftValue = 0;
         }
-
         if (currentBoostTime > 0) {
             currentBoostTime -= 1f * Time.deltaTime;
             rb.AddForce(transform.forward * kart.boostAmount, ForceMode.Acceleration);
         }
+    }
 
-        Debug.Log(currentBoostTime);
+    bool OnSlope() {
+        if (!hopped) return false;
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, 0.8f))
+            if (hit.normal != Vector3.up) return true;
+        return false;
 
-        if (UpdateBoostUi != null)
-            UpdateBoostUi(driftValue);
     }
 
     public void Hop() {
         if (!grounded) return;
         hopped = true;
-        rb.AddForce(transform.up * kart.jumpForce, ForceMode.Impulse);
+    }
+
+    public void StopDrifting() {
+        drifting = false;
     }
 
     public void SetInputs(float horizontal, float vertical) {
         this.horizontal = horizontal;
         this.vertical = vertical;
     }
+
 }
 
 

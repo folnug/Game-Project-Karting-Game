@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: DemoKart
   m_EditorClassIdentifier: 
   forwardSpeed: 260
+  Acceleration: 200
+  Decelerate: 100
+  brakeForce: 300
   reverseSpeed: 80
   turnSpeed: 50
   gravity: 30

@@ -4,13 +4,8 @@ using UnityEngine;
 
 public class DrawAiWayPoints : MonoBehaviour
 {
-    AiWaypoint[] aiWaypoints;
-    void Start()
-    {
-        aiWaypoints = GetComponentsInChildren<AiWaypoint>();
-    }
-
     void OnDrawGizmos() {
+        AiWaypoint[] aiWaypoints = GetComponentsInChildren<AiWaypoint>();
         AiWaypoint lastWaypoint = aiWaypoints[0];
         foreach(AiWaypoint waypoints in aiWaypoints) {
             Gizmos.color = Color.red;
