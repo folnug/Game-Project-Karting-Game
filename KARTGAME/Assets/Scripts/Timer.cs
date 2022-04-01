@@ -33,8 +33,10 @@ public class Timer : MonoBehaviour
     private void StartCountdownAudio()
     {
         if (!audioSource.isPlaying)
+        {
             for (int i = 2; i < countdown; i++)
                 audioSource.Play();
+        }
     }
 
     private void StartCountdown()

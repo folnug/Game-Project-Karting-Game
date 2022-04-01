@@ -56,7 +56,7 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\KartBoostDurationBar.cs" />
+    <Compile Include="Assets\Scripts\Kart\KartBoostDurationBar.cs" />
     <Compile Include="Assets\Scripts\Kart\SkidMarks.cs" />
     <Compile Include="Assets\Scripts\SpeedUi.cs" />
     <Compile Include="Assets\ScriptableObjects\Karts\Kart.cs" />
@@ -67,14 +67,14 @@
     <Compile Include="Assets\Scripts\Camera\LookBehind.cs" />
     <Compile Include="Assets\Scripts\Boostpad.cs" />
     <Compile Include="Assets\Scripts\AI\AiInput.cs" />
-    <Compile Include="Assets\KartSmoke\DriftSmoke.cs" />
-    <Compile Include="Assets\Scripts\KartRespawn.cs" />
+    <Compile Include="Assets\Scripts\Kart\DriftSmoke.cs" />
+    <Compile Include="Assets\Scripts\Kart\KartRespawn.cs" />
     <Compile Include="Assets\Scripts\Timer.cs" />
     <Compile Include="Assets\Scripts\Goal.cs" />
     <Compile Include="Assets\Scripts\Checkpoint.cs" />
     <Compile Include="Assets\Scripts\AI\AiWaypoint.cs" />
     <Compile Include="Assets\Scripts\Kart\PlayerInput.cs" />
-    <Compile Include="Assets\Scripts\KartBoostEffect.cs" />
+    <Compile Include="Assets\Scripts\Kart\KartBoostEffect.cs" />
     <Compile Include="Assets\InputSystem\MainControls.cs" />
     <Compile Include="Assets\Scripts\Kart\KartController.cs" />
     <Compile Include="Assets\Scripts\Kart\KartMotor.cs" />

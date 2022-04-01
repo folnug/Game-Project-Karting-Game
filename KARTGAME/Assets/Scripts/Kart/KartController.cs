@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class KartController : MonoBehaviour
 {
@@ -18,6 +19,15 @@ public class KartController : MonoBehaviour
     public float currentBoostTime { get; private set; }
 
     public float minDriftAmmount { get; private set; }
+
+    //Audio
+    public AudioSource audioSource;
+    public AudioClip[] hopAudioList;
+    public int hopRangeScan;
+    public AudioClip[] boostAudioList;
+    public int boostRangeScan;
+    private int toPlay;
+
 
     bool giveImpulseBoost = false;
     float impulseBoostAmount = 0f;
@@ -174,6 +184,14 @@ public class KartController : MonoBehaviour
         if (!grounded) return;
         hoppedBeforAirborne = true;
         hopped = true;
+        PlayAudio(hopAudioList);
+    }
+
+    private void PlayAudio(AudioClip[] testList)
+    {
+        toPlay = Random.Range(0, testList.Length);
+        audioSource.PlayOneShot(testList[toPlay], 0.2F);
+        audioSource.Play();
     }
 
     public void StopDrifting() {
@@ -188,13 +206,14 @@ public class KartController : MonoBehaviour
         }
     }
 
-    bool Landed() {
+    public bool Landed() {
         return airTime > 0 && grounded;
     }
 
     public void GiveImpulseBoost(float amount) {
         giveImpulseBoost = true;
         impulseBoostAmount = amount;
+        PlayAudio(boostAudioList); //TEST
     }
 
     public void SetInputs(float horizontal, float vertical) {
