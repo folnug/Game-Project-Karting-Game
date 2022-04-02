@@ -7,11 +7,14 @@ using UnityEngine.SceneManagement;
 
 public class Play : MonoBehaviour
 {
+<<<<<<< Updated upstream
     public AudioSource audioSource;
     public AudioClip[] confirmAudioList;
     public int confirmRangeScan;
     private int toPlay;
 
+=======
+>>>>>>> Stashed changes
     public void LoadScene(string sceneName)
     {
         PlayAudio(confirmAudioList);
