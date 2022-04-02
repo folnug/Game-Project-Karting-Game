@@ -4,11 +4,18 @@ using UnityEngine;
 
 public class BgMuisc : MonoBehaviour
 {
-    private AudioSource audioSource;
+    public AudioSource audioSource;
+    public AudioClip[] backgroundMusicList;
 
-    void Faster()
+    public void Start()
     {
-        audioSource = GetComponent<AudioSource>();
-        audioSource.pitch = 1.05f;
+        PlayTrackMusic(0);
+    }
+
+    public void PlayTrackMusic(int num)
+    {
+        audioSource.PlayOneShot(backgroundMusicList[num], 0.2F);
+        audioSource.Play();
     }
 }
+

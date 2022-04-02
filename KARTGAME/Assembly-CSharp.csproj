@@ -78,6 +78,7 @@
     <Compile Include="Assets\InputSystem\MainControls.cs" />
     <Compile Include="Assets\Scripts\Kart\KartController.cs" />
     <Compile Include="Assets\Scripts\Kart\KartMotor.cs" />
+    <Compile Include="Assets\Scripts\Music\SoundController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

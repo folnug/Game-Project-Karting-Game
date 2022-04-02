@@ -278,7 +278,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!82 &230424913
 AudioSource:
   m_ObjectHideFlags: 0
@@ -289,11 +289,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ba29ac9b69cb9bf4ba17f3172c9d3df4, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_Volume: 0.5
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -401,6 +401,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c675f1d12db45e84f94930a94db115c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 230424913}
+  backgroundMusicList:
+  - {fileID: 8300000, guid: 852bcbd28836b48348abe32bd5ccaa4e, type: 3}
+  - {fileID: 8300000, guid: b93c994a7c1b74f0d9ab34941991b9a0, type: 3}
 --- !u!114 &258717576 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1327157457386611916, guid: c34e68398779f4a4eb7d095edc7c41a5, type: 3}
@@ -503,6 +507,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70551d0b693a80c4ba9260c552a51f75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
+  confirmAudioList: []
+  confirmRangeScan: 0
 --- !u!1 &327199564
 GameObject:
   m_ObjectHideFlags: 0
@@ -617,11 +624,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   time: 1
   impulseBoostAmount: 20
-  audioSource: {fileID: 338051727}
-  boostAudio:
-  - {fileID: 8300000, guid: e4aadced6aadb664f8110f77b224bfe7, type: 3}
-  - {fileID: 8300000, guid: 7b85d9f016fbd8d4d85edc0c51888bdd, type: 3}
-  - {fileID: 8300000, guid: 3e7dfc4db6df5eb4db77f04d550b1083, type: 3}
+  boostpadAudioSource: {fileID: 338051727}
+  boostpadAudioList:
+  - {fileID: 8300000, guid: d05aeadf71aa020438ad1abff12cbbfc, type: 3}
+  - {fileID: 8300000, guid: e0b562df86302f54ea05c09c202d6b03, type: 3}
+  - {fileID: 8300000, guid: c3bfdf589301f8f448ba448ad9efe98e, type: 3}
 --- !u!65 &338051723
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2391,7 +2398,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.000000033527613, y: 0.00021700317, z: -0.000021639637, w: 1}
+  m_LocalRotation: {x: 0.000000029802322, y: -0.00005892862, z: 0.0000058763762, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -2990,11 +2997,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   time: 1
   impulseBoostAmount: 0
-  audioSource: {fileID: 1052459370}
-  boostAudio:
-  - {fileID: 8300000, guid: e4aadced6aadb664f8110f77b224bfe7, type: 3}
-  - {fileID: 8300000, guid: 7b85d9f016fbd8d4d85edc0c51888bdd, type: 3}
-  - {fileID: 8300000, guid: 3e7dfc4db6df5eb4db77f04d550b1083, type: 3}
+  boostpadAudioSource: {fileID: 1052459370}
+  boostpadAudioList:
+  - {fileID: 8300000, guid: d05aeadf71aa020438ad1abff12cbbfc, type: 3}
+  - {fileID: 8300000, guid: e0b562df86302f54ea05c09c202d6b03, type: 3}
+  - {fileID: 8300000, guid: c3bfdf589301f8f448ba448ad9efe98e, type: 3}
 --- !u!65 &1052459366
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3927,6 +3934,10 @@ PrefabInstance:
       propertyPath: boostRangeScan
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1327157457386611916, guid: c34e68398779f4a4eb7d095edc7c41a5, type: 3}
+      propertyPath: KartAudioSource
+      value: 
+      objectReference: {fileID: 716895547}
     - target: {fileID: 1327157457386611916, guid: c34e68398779f4a4eb7d095edc7c41a5, type: 3}
       propertyPath: myAudio.Array.size
       value: 4
@@ -4914,6 +4925,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8610551684276513391, guid: 4bc4a7aa092e97b42a76cffc307e7752, type: 3}
+      propertyPath: KartAudioSource
+      value: 
+      objectReference: {fileID: 64990274}
+    - target: {fileID: 8610551684276513391, guid: 4bc4a7aa092e97b42a76cffc307e7752, type: 3}
       propertyPath: hopAudioList.Array.size
       value: 5
       objectReference: {fileID: 0}
@@ -5199,11 +5214,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   time: 1
   impulseBoostAmount: 0
-  audioSource: {fileID: 1827081080}
-  boostAudio:
-  - {fileID: 8300000, guid: e4aadced6aadb664f8110f77b224bfe7, type: 3}
-  - {fileID: 8300000, guid: 7b85d9f016fbd8d4d85edc0c51888bdd, type: 3}
-  - {fileID: 8300000, guid: 3e7dfc4db6df5eb4db77f04d550b1083, type: 3}
+  boostpadAudioSource: {fileID: 1827081080}
+  boostpadAudioList:
+  - {fileID: 8300000, guid: d05aeadf71aa020438ad1abff12cbbfc, type: 3}
+  - {fileID: 8300000, guid: e0b562df86302f54ea05c09c202d6b03, type: 3}
+  - {fileID: 8300000, guid: c3bfdf589301f8f448ba448ad9efe98e, type: 3}
 --- !u!65 &1827081076
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5934,7 +5949,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2018242625}
-  m_LocalRotation: {x: 0.000000033527613, y: 0.00021700317, z: -0.000021639637, w: 1}
+  m_LocalRotation: {x: 0.000000029802322, y: -0.00005892862, z: 0.0000058763762, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -6280,6 +6295,10 @@ PrefabInstance:
       propertyPath: boostRangeScan
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 8610551684276513391, guid: 4bc4a7aa092e97b42a76cffc307e7752, type: 3}
+      propertyPath: KartAudioSource
+      value: 
+      objectReference: {fileID: 1560328611}
     - target: {fileID: 8610551684276513391, guid: 4bc4a7aa092e97b42a76cffc307e7752, type: 3}
       propertyPath: hopAudioList.Array.size
       value: 5

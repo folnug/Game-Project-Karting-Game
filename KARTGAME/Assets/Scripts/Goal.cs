@@ -8,6 +8,7 @@ public class Goal : MonoBehaviour
 {
     private bool isTriggered = false;
 
+    BgMuisc BgMuisc;
     public Text currentLapText;
     float currentLap;
     float canIFinish;
@@ -47,7 +48,8 @@ public class Goal : MonoBehaviour
 
             if (currentLap == 2)
             {
-                GameObject.Find("BG Music").SendMessage("Faster");
+                BgMuisc.PlayTrackMusic(1);
+                //GameObject.Find("BG Music").SendMessage("Faster");
             }
         }
     }
