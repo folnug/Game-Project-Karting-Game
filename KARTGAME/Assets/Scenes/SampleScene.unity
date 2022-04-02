@@ -259,7 +259,7 @@ Transform:
   - {fileID: 1560328613}
   - {fileID: 64990276}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &230424912
 GameObject:
@@ -464,7 +464,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8090779937422063184, guid: 9beaccb05e4210c418c545119323963a, type: 3}
   m_PrefabInstance: {fileID: 1342696012}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< Updated upstream
 --- !u!1 &312478628
 GameObject:
   m_ObjectHideFlags: 0
@@ -511,8 +510,6 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   confirmAudioList: []
   confirmRangeScan: 0
-=======
->>>>>>> Stashed changes
 --- !u!1 &327199564
 GameObject:
   m_ObjectHideFlags: 0
@@ -2402,11 +2399,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-<<<<<<< Updated upstream
   m_LocalRotation: {x: 0.000000029802322, y: -0.000058928737, z: 0.000005876398, w: 1}
-=======
-  m_LocalRotation: {x: 0.000000029802319, y: -0.000061758205, z: 0.0000061585442, w: 1}
->>>>>>> Stashed changes
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -4310,7 +4303,7 @@ Transform:
   - {fileID: 1261990385}
   - {fileID: 1798334291}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1385794812
 GameObject:
@@ -5095,7 +5088,7 @@ Transform:
   - {fileID: 230424914}
   - {fileID: 920303499}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1762533876
 GameObject:
@@ -5528,7 +5521,6 @@ GameObject:
   - component: {fileID: 1850163714}
   - component: {fileID: 1850163713}
   - component: {fileID: 1850163712}
-  - component: {fileID: 1850163715}
   m_Layer: 5
   m_Name: Replay
   m_TagString: Untagged
@@ -5600,7 +5592,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1850163715}
+      - m_Target: {fileID: 312478630}
         m_TargetAssemblyTypeName: Play, Assembly-CSharp
         m_MethodName: LoadScene
         m_Mode: 5
@@ -5609,7 +5601,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: MainMenu
+          m_StringArgument: Menu
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1850163713
@@ -5650,18 +5642,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1850163710}
   m_CullTransparentMesh: 1
---- !u!114 &1850163715
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1850163710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70551d0b693a80c4ba9260c552a51f75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1897738776
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5977,11 +5957,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2018242625}
-<<<<<<< Updated upstream
   m_LocalRotation: {x: 0.000000029802322, y: -0.000058928737, z: 0.000005876398, w: 1}
-=======
-  m_LocalRotation: {x: 0.000000029802319, y: -0.000061758205, z: 0.0000061585442, w: 1}
->>>>>>> Stashed changes
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -6158,7 +6134,7 @@ Transform:
   - {fileID: 1052459369}
   - {fileID: 338051726}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2108723413 stripped
 GameObject:
