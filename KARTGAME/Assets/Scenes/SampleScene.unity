@@ -3681,7 +3681,9 @@ MonoBehaviour:
   currentLapText: {fileID: 616291282}
   audioSource: {fileID: 716895547}
   goalAudioList:
-  - {fileID: 8300000, guid: 051c625af56d40249a3f9a14b468728c, type: 3}
+  - {fileID: 8300000, guid: 625260d76004fae4f909ff46128ce539, type: 3}
+  - {fileID: 8300000, guid: d8830a4c99194ca4e964d8a7213357a5, type: 3}
+  - {fileID: 8300000, guid: 733dd8bc3fc6c6f49ab6f0be3fbbef03, type: 3}
   goalAudioVolume: 0.75
 --- !u!65 &1190439770
 BoxCollider:
