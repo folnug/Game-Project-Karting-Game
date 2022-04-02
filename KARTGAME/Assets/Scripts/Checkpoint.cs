@@ -6,6 +6,10 @@ using System;
 
 public class Checkpoint : MonoBehaviour
 {
+    //Audio
+    //public AudioSource audioSource;
+    //public AudioClip[] checkpointAudioList;
+
     private bool isTriggered = false;
 
     //Objekti jolla on rigidbody osuu tähän
@@ -21,6 +25,7 @@ public class Checkpoint : MonoBehaviour
             GameObject.Find("Goal").SendMessage("Checkpoint");
             isTriggered = true;
             Debug.Log("Checkpoint");
+            //SoundController.PlayAudio(audioSource, checkpointAudioList);
         }
     }
 

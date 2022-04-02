@@ -13,6 +13,10 @@ public class Goal : MonoBehaviour
     float currentLap;
     float canIFinish;
 
+    public AudioSource audioSource;
+    public AudioClip[] goalAudioList;
+    public float goalAudioVolume;
+
     void Start()
     {
         //Aloitusarvot
@@ -38,6 +42,7 @@ public class Goal : MonoBehaviour
                 currentLap++;
                 currentLapText.text = "Lap " + currentLap.ToString() + " / 2";
                 canIFinish = 0;
+                SoundController.PlayAudio(audioSource, goalAudioList, goalAudioVolume);
             }
 
             //Kun viimeinen kierros on ajettu l‰hett‰‰ t‰‰ viestin timerille nimell‰ GoalUpdate et se pys‰htyy (esim. jos max kierros on 3 k‰yt‰ 4)

@@ -10,6 +10,7 @@ public class Boostpad : MonoBehaviour
     //Audio
     public AudioSource boostpadAudioSource;
     public AudioClip[] boostpadAudioList;
+    public float boostpadAudioVolume;
 
     void OnTriggerEnter(Collider other) {
         if (other.transform.tag != "Kart") return;
@@ -17,6 +18,6 @@ public class Boostpad : MonoBehaviour
         KartController kc = other.transform.GetComponent<KartMotor>().kartController;
         kc.AddBoostTime(time);
         kc.GiveImpulseBoost(impulseBoostAmount);
-        SoundController.PlayAudio(boostpadAudioSource, boostpadAudioList);
+        SoundController.PlayAudio(boostpadAudioSource, boostpadAudioList, boostpadAudioVolume);
     }
 }

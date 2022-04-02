@@ -629,6 +629,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d05aeadf71aa020438ad1abff12cbbfc, type: 3}
   - {fileID: 8300000, guid: e0b562df86302f54ea05c09c202d6b03, type: 3}
   - {fileID: 8300000, guid: c3bfdf589301f8f448ba448ad9efe98e, type: 3}
+  boostpadAudioVolume: 0.3
 --- !u!65 &338051723
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2398,7 +2399,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.000000029802322, y: -0.00005892862, z: 0.0000058763762, w: 1}
+  m_LocalRotation: {x: 0.000000029802322, y: -0.000058928737, z: 0.000005876398, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -3002,6 +3003,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d05aeadf71aa020438ad1abff12cbbfc, type: 3}
   - {fileID: 8300000, guid: e0b562df86302f54ea05c09c202d6b03, type: 3}
   - {fileID: 8300000, guid: c3bfdf589301f8f448ba448ad9efe98e, type: 3}
+  boostpadAudioVolume: 0.3
 --- !u!65 &1052459366
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3681,6 +3683,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentLapText: {fileID: 616291282}
+  audioSource: {fileID: 716895547}
+  goalAudioList:
+  - {fileID: 8300000, guid: 22f5f424242a16e4b86163b3662cb62c, type: 3}
+  - {fileID: 8300000, guid: d838e188bb855044292b078cde0b5303, type: 3}
+  goalAudioVolume: 0
 --- !u!65 &1190439770
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5219,6 +5226,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d05aeadf71aa020438ad1abff12cbbfc, type: 3}
   - {fileID: 8300000, guid: e0b562df86302f54ea05c09c202d6b03, type: 3}
   - {fileID: 8300000, guid: c3bfdf589301f8f448ba448ad9efe98e, type: 3}
+  boostpadAudioVolume: 0.3
 --- !u!65 &1827081076
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5949,7 +5957,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2018242625}
-  m_LocalRotation: {x: 0.000000029802322, y: -0.00005892862, z: 0.0000058763762, w: 1}
+  m_LocalRotation: {x: 0.000000029802322, y: -0.000058928737, z: 0.000005876398, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
