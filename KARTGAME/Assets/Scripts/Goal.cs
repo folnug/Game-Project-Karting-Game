@@ -53,7 +53,7 @@ public class Goal : MonoBehaviour
 
             if (currentLap == 2)
             {
-                BgMuisc.PlayTrackMusic(1);
+                //BgMuisc.PlayTrackMusic(1);
                 //GameObject.Find("BG Music").SendMessage("Faster");
             }
         }

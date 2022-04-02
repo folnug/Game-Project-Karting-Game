@@ -293,7 +293,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.5
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -401,10 +401,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c675f1d12db45e84f94930a94db115c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 230424913}
-  backgroundMusicList:
-  - {fileID: 8300000, guid: 852bcbd28836b48348abe32bd5ccaa4e, type: 3}
-  - {fileID: 8300000, guid: b93c994a7c1b74f0d9ab34941991b9a0, type: 3}
 --- !u!114 &258717576 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1327157457386611916, guid: c34e68398779f4a4eb7d095edc7c41a5, type: 3}
@@ -629,7 +625,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d05aeadf71aa020438ad1abff12cbbfc, type: 3}
   - {fileID: 8300000, guid: e0b562df86302f54ea05c09c202d6b03, type: 3}
   - {fileID: 8300000, guid: c3bfdf589301f8f448ba448ad9efe98e, type: 3}
-  boostpadAudioVolume: 0.3
+  boostpadAudioVolume: 0.2
 --- !u!65 &338051723
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2235,7 +2231,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 096e7d0d525d1454a8ac445b8e56305b, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.1
   m_Pitch: 1
@@ -2399,7 +2395,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.000000029802322, y: -0.000058928737, z: 0.000005876398, w: 1}
+  m_LocalRotation: {x: 0.000000026077032, y: -0.00027118938, z: 0.000027043105, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -3003,7 +2999,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d05aeadf71aa020438ad1abff12cbbfc, type: 3}
   - {fileID: 8300000, guid: e0b562df86302f54ea05c09c202d6b03, type: 3}
   - {fileID: 8300000, guid: c3bfdf589301f8f448ba448ad9efe98e, type: 3}
-  boostpadAudioVolume: 0.3
+  boostpadAudioVolume: 0.2
 --- !u!65 &1052459366
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3685,9 +3681,8 @@ MonoBehaviour:
   currentLapText: {fileID: 616291282}
   audioSource: {fileID: 716895547}
   goalAudioList:
-  - {fileID: 8300000, guid: 22f5f424242a16e4b86163b3662cb62c, type: 3}
-  - {fileID: 8300000, guid: d838e188bb855044292b078cde0b5303, type: 3}
-  goalAudioVolume: 0
+  - {fileID: 8300000, guid: 051c625af56d40249a3f9a14b468728c, type: 3}
+  goalAudioVolume: 0.75
 --- !u!65 &1190439770
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3898,6 +3893,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1327157457386611914, guid: c34e68398779f4a4eb7d095edc7c41a5, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1327157457386611914, guid: c34e68398779f4a4eb7d095edc7c41a5, type: 3}
+      propertyPath: totalCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1327157457386611914, guid: c34e68398779f4a4eb7d095edc7c41a5, type: 3}
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 920303500}
@@ -3921,6 +3924,66 @@ PrefabInstance:
       propertyPath: currentTimeText
       value: 
       objectReference: {fileID: 1044519148}
+    - target: {fileID: 1327157457386611914, guid: c34e68398779f4a4eb7d095edc7c41a5, type: 3}
+      propertyPath: countdownAudioSource
+      value: 
+      objectReference: {fileID: 716895547}
+    - target: {fileID: 1327157457386611914, guid: c34e68398779f4a4eb7d095edc7c41a5, type: 3}
+      propertyPath: countdownAudioVolume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1327157457386611914, guid: c34e68398779f4a4eb7d095edc7c41a5, type: 3}
+      propertyPath: backgroundAudioSource
+      value: 
+      objectReference: {fileID: 230424913}
+    - target: {fileID: 1327157457386611914, guid: c34e68398779f4a4eb7d095edc7c41a5, type: 3}
+      propertyPath: backgroundAudioVolume
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1327157457386611914, guid: c34e68398779f4a4eb7d095edc7c41a5, type: 3}
+      propertyPath: countdownAudioList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1327157457386611914, guid: c34e68398779f4a4eb7d095edc7c41a5, type: 3}
+      propertyPath: backgroundAudioList.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1327157457386611914, guid: c34e68398779f4a4eb7d095edc7c41a5, type: 3}
+      propertyPath: countdownAudioList.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: b7b6a49e8aded3a4aa9db5de2913c9f7, type: 3}
+    - target: {fileID: 1327157457386611914, guid: c34e68398779f4a4eb7d095edc7c41a5, type: 3}
+      propertyPath: countdownAudioList.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 03db44eddd4c4554b860fff3c089f538, type: 3}
+    - target: {fileID: 1327157457386611914, guid: c34e68398779f4a4eb7d095edc7c41a5, type: 3}
+      propertyPath: countdownAudioList.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 03db44eddd4c4554b860fff3c089f538, type: 3}
+    - target: {fileID: 1327157457386611914, guid: c34e68398779f4a4eb7d095edc7c41a5, type: 3}
+      propertyPath: countdownAudioList.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 03db44eddd4c4554b860fff3c089f538, type: 3}
+    - target: {fileID: 1327157457386611914, guid: c34e68398779f4a4eb7d095edc7c41a5, type: 3}
+      propertyPath: countdownAudioList.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: 03db44eddd4c4554b860fff3c089f538, type: 3}
+    - target: {fileID: 1327157457386611914, guid: c34e68398779f4a4eb7d095edc7c41a5, type: 3}
+      propertyPath: countdownAudioList.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: 03db44eddd4c4554b860fff3c089f538, type: 3}
+    - target: {fileID: 1327157457386611914, guid: c34e68398779f4a4eb7d095edc7c41a5, type: 3}
+      propertyPath: countdownAudioList.Array.data[6]
+      value: 
+      objectReference: {fileID: 8300000, guid: 03db44eddd4c4554b860fff3c089f538, type: 3}
+    - target: {fileID: 1327157457386611914, guid: c34e68398779f4a4eb7d095edc7c41a5, type: 3}
+      propertyPath: backgroundAudioList.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: b93c994a7c1b74f0d9ab34941991b9a0, type: 3}
+    - target: {fileID: 1327157457386611914, guid: c34e68398779f4a4eb7d095edc7c41a5, type: 3}
+      propertyPath: backgroundAudioList.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 7b3c9e4f91cf8914d84f57d8bfcc66f3, type: 3}
     - target: {fileID: 1327157457386611916, guid: c34e68398779f4a4eb7d095edc7c41a5, type: 3}
       propertyPath: kart
       value: 
@@ -3942,9 +4005,17 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1327157457386611916, guid: c34e68398779f4a4eb7d095edc7c41a5, type: 3}
+      propertyPath: hopAudioVolume
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 1327157457386611916, guid: c34e68398779f4a4eb7d095edc7c41a5, type: 3}
       propertyPath: KartAudioSource
       value: 
       objectReference: {fileID: 716895547}
+    - target: {fileID: 1327157457386611916, guid: c34e68398779f4a4eb7d095edc7c41a5, type: 3}
+      propertyPath: boostAudioVolume
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 1327157457386611916, guid: c34e68398779f4a4eb7d095edc7c41a5, type: 3}
       propertyPath: myAudio.Array.size
       value: 4
@@ -3991,7 +4062,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 385646b1d622f8b43954e49be8593f89, type: 3}
     - target: {fileID: 1327157457386611916, guid: c34e68398779f4a4eb7d095edc7c41a5, type: 3}
       propertyPath: hopAudioList.Array.size
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1327157457386611916, guid: c34e68398779f4a4eb7d095edc7c41a5, type: 3}
       propertyPath: boostAudioList.Array.size
@@ -4000,19 +4071,19 @@ PrefabInstance:
     - target: {fileID: 1327157457386611916, guid: c34e68398779f4a4eb7d095edc7c41a5, type: 3}
       propertyPath: hopAudioList.Array.data[0]
       value: 
-      objectReference: {fileID: 8300000, guid: cc571f44ef78b6e4f89e45b9f73bedcf, type: 3}
+      objectReference: {fileID: 8300000, guid: 37fac91dfd3d31a48ab0d03b64094849, type: 3}
     - target: {fileID: 1327157457386611916, guid: c34e68398779f4a4eb7d095edc7c41a5, type: 3}
       propertyPath: hopAudioList.Array.data[1]
       value: 
-      objectReference: {fileID: 8300000, guid: cf7d42dddb6130b4fbab5eb230ca1598, type: 3}
+      objectReference: {fileID: 8300000, guid: eaaf45af64a833c44969d688c7388e80, type: 3}
     - target: {fileID: 1327157457386611916, guid: c34e68398779f4a4eb7d095edc7c41a5, type: 3}
       propertyPath: hopAudioList.Array.data[2]
       value: 
-      objectReference: {fileID: 8300000, guid: 8e8184a82ea6c6c4ea0b9d9c1b9139ba, type: 3}
+      objectReference: {fileID: 8300000, guid: 17a4b68b0747df44ab13c2be67c78ffa, type: 3}
     - target: {fileID: 1327157457386611916, guid: c34e68398779f4a4eb7d095edc7c41a5, type: 3}
       propertyPath: hopAudioList.Array.data[3]
       value: 
-      objectReference: {fileID: 8300000, guid: f67d361f09668ff4a893729887a31cb5, type: 3}
+      objectReference: {fileID: 8300000, guid: 385646b1d622f8b43954e49be8593f89, type: 3}
     - target: {fileID: 1327157457386611916, guid: c34e68398779f4a4eb7d095edc7c41a5, type: 3}
       propertyPath: hopAudioList.Array.data[4]
       value: 
@@ -4020,15 +4091,15 @@ PrefabInstance:
     - target: {fileID: 1327157457386611916, guid: c34e68398779f4a4eb7d095edc7c41a5, type: 3}
       propertyPath: boostAudioList.Array.data[0]
       value: 
-      objectReference: {fileID: 8300000, guid: e4aadced6aadb664f8110f77b224bfe7, type: 3}
+      objectReference: {fileID: 8300000, guid: bbfd2ffb9da98c14f85b8427560ccb55, type: 3}
     - target: {fileID: 1327157457386611916, guid: c34e68398779f4a4eb7d095edc7c41a5, type: 3}
       propertyPath: boostAudioList.Array.data[1]
       value: 
-      objectReference: {fileID: 8300000, guid: 7b85d9f016fbd8d4d85edc0c51888bdd, type: 3}
+      objectReference: {fileID: 8300000, guid: c19e488ebf718b848a12f5e6415db1e0, type: 3}
     - target: {fileID: 1327157457386611916, guid: c34e68398779f4a4eb7d095edc7c41a5, type: 3}
       propertyPath: boostAudioList.Array.data[2]
       value: 
-      objectReference: {fileID: 8300000, guid: 3e7dfc4db6df5eb4db77f04d550b1083, type: 3}
+      objectReference: {fileID: 8300000, guid: 45c70befbf179df45a4206298ab82a3b, type: 3}
     - target: {fileID: 1327157457386611917, guid: c34e68398779f4a4eb7d095edc7c41a5, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -5226,7 +5297,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d05aeadf71aa020438ad1abff12cbbfc, type: 3}
   - {fileID: 8300000, guid: e0b562df86302f54ea05c09c202d6b03, type: 3}
   - {fileID: 8300000, guid: c3bfdf589301f8f448ba448ad9efe98e, type: 3}
-  boostpadAudioVolume: 0.3
+  boostpadAudioVolume: 0.2
 --- !u!65 &1827081076
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5957,7 +6028,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2018242625}
-  m_LocalRotation: {x: 0.000000029802322, y: -0.000058928737, z: 0.000005876398, w: 1}
+  m_LocalRotation: {x: 0.000000026077032, y: -0.00027118938, z: 0.000027043105, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

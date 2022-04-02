@@ -25,6 +25,7 @@ public class KartController : MonoBehaviour
     public AudioSource KartAudioSource;
     public AudioClip[] hopAudioList;
     public AudioClip[] boostAudioList;
+    public float hopAudioVolume, boostAudioVolume;
 
 
     bool giveImpulseBoost = false;
@@ -183,7 +184,7 @@ public class KartController : MonoBehaviour
         hoppedBeforAirborne = true;
         hopped = true;
 
-        SoundController.PlayAudio(KartAudioSource, hopAudioList, 0.4F);
+        SoundController.PlayAudio(KartAudioSource, hopAudioList, hopAudioVolume);
     }
 
     public void StopDrifting() {
@@ -205,7 +206,7 @@ public class KartController : MonoBehaviour
     public void GiveImpulseBoost(float amount) {
         giveImpulseBoost = true;
         impulseBoostAmount = amount;
-        SoundController.PlayAudio(KartAudioSource, boostAudioList, 0.4F);
+        SoundController.PlayAudio(KartAudioSource, boostAudioList, boostAudioVolume);
     }
 
     public void SetInputs(float horizontal, float vertical) {

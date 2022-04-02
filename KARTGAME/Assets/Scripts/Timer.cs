@@ -12,7 +12,15 @@ public class Timer : MonoBehaviour
     public Text currentTimeText, finalTimeText, countdownText;
     public Button rePlayButton;
     KartController[] controllers;
-    public AudioSource audioSource;
+
+    //Audio
+    public AudioSource countdownAudioSource;
+    public AudioClip[] countdownAudioList;
+    public float countdownAudioVolume;
+
+    public AudioSource backgroundAudioSource;
+    public AudioClip[] backgroundAudioList;
+    public float backgroundAudioVolume;
 
     private bool maalissa = false;
 
@@ -20,22 +28,26 @@ public class Timer : MonoBehaviour
     {
         controllers = FindObjectsOfType<KartController>();
         ToggleKartController(false);
+        
+        
+        //SoundController.PlayAudio(backgroundAudioSource, backgroundAudioList, backgroundAudioVolume);
+
     }
     void ToggleKartController(bool toggle) {
         foreach(KartController controller in controllers) controller.enabled = toggle;
     }
     void Update()
     {
-        StartCountdown();
         StartCountdownAudio();
+        StartCountdown();
     }
 
     private void StartCountdownAudio()
     {
-        if (!audioSource.isPlaying)
+        if (!countdownAudioSource.isPlaying)
         {
             for (int i = 2; i < countdown; i++)
-                audioSource.Play();
+                SoundController.PlayAudio(countdownAudioSource, countdownAudioList, countdownAudioVolume);
         }
     }
 
@@ -49,7 +61,7 @@ public class Timer : MonoBehaviour
             return;
 
         if (countdown < 1)
-        {
+        {  
             //T�ss� kello k�y koko ajan
             currentTime += Time.deltaTime;
             TimeSpan time = TimeSpan.FromSeconds(currentTime);
