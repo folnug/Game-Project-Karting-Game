@@ -17,7 +17,7 @@ MonoBehaviour:
   Decelerate: 200
   brakeForce: 300
   reverseSpeed: 80
-  turnSpeed: 50
+  turnSpeed: 100
   jumpForce: 15
   driftTurnSpeed: 50
   driftTurnModifier: 0.7

@@ -54,7 +54,7 @@ public class AiInput : MonoBehaviour
             kartController.StopDrifting();
         }
         */
-        
+
         if (angleToDirection > 10f) {
             horizontal = 1f;
         } else if (angleToDirection < -10f) {
@@ -78,7 +78,7 @@ public class AiInput : MonoBehaviour
 
     Vector3 randomPosition(Vector3 position) {
         Vector3 randomDirection = new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f)).normalized;
-        return position + randomDirection * Random.Range(1f, 12f);
+        return position + randomDirection * Random.Range(1f, 30f);
     }
 
     void OnDrawGizmos() {
