@@ -14,14 +14,14 @@ public class Play : MonoBehaviour
 
     public void LoadScene(string sceneName)
     {
-        PlayAudio(confirmAudioList);
+        //PlayAudio(confirmAudioList);
         SceneManager.LoadScene(sceneName);
     }
 
-    private void PlayAudio(AudioClip[] testList)
+    /*private void PlayAudio(AudioClip[] testList)
     {
         toPlay = Random.Range(0, testList.Length);
         audioSource.PlayOneShot(testList[toPlay], 0.2F);
         audioSource.Play();
-    }
+    }*/
 }
