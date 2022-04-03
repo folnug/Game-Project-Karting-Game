@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: DemoKart
   m_EditorClassIdentifier: 
   forwardSpeed: 260
-  Acceleration: 200
-  Decelerate: 100
+  Acceleration: 180
+  Decelerate: 200
   brakeForce: 300
   reverseSpeed: 80
   turnSpeed: 50
@@ -24,7 +24,7 @@ MonoBehaviour:
   driftChargeSpeed: 80
   outwardsDriftForce: 90
   boostTime: 2
-  boostAmount: 40
+  boostAmount: 10
   impulseBoostAmount: 20
   airDrag: 0
   groundDrag: 4

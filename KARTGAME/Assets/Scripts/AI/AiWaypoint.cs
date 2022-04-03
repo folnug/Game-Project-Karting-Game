@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class AiWaypoint : MonoBehaviour
 {
-    public float distanceToReachWaypoint = 7f;
     public AiWaypoint nextWaypoint;
+    public float distanceToReachWaypoint = 20f;
+
+    void OnTriggerEnter(Collider other) {
+        if (other.TryGetComponent<KartMotor>(out KartMotor km)) {
+            AiInput ai = km.kartController.transform.GetComponent<AiInput>();
+            if (ai == null) return;
+            ai.SetTargetPosition(nextWaypoint.transform.position);
+        }
+    }
 }

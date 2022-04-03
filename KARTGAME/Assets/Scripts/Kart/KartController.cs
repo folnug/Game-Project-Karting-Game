@@ -20,6 +20,7 @@ public class KartController : MonoBehaviour
     public float currentBoostTime { get; private set; }
 
     public float minDriftAmmount { get; private set; }
+    public bool giveImpulseBoost { get; private set; }
 
     //Audio
     public AudioSource KartAudioSource;
@@ -27,8 +28,6 @@ public class KartController : MonoBehaviour
     public AudioClip[] boostAudioList;
     public float hopAudioVolume, boostAudioVolume;
 
-
-    bool giveImpulseBoost = false;
     float impulseBoostAmount = 0f;
 
     float currentSpeed = 0;
@@ -64,8 +63,7 @@ public class KartController : MonoBehaviour
         float amount = drifting ? DriftDirection(direction) : Mathf.Abs(horizontal);
         transform.Rotate(0f, Steer(turnSpeed, turnDirection, amount), 0f);
 
-
-        // Visual
+        
         float visualDirection = drifting ? direction : horizontal;
         float localVisualRotAmmoung = drifting ? 10f : 20f;
         int isMotorcycle = 0;
@@ -152,7 +150,6 @@ public class KartController : MonoBehaviour
     }
 
     void DriftChecks() {
-        // Katsotaan voiko driftata
         if (hopped) {
             rb.AddForce(transform.up * kart.jumpForce, ForceMode.Impulse);
             if ((horizontal != 0) && currentSpeed > kart.forwardSpeed * 0.25f) {
@@ -160,7 +157,6 @@ public class KartController : MonoBehaviour
             }
             hopped = false;
         }
-
         if (drifting && vertical < 0) {
             drifting = false;
             currentBoostTime = 0;

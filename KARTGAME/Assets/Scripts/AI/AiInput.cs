@@ -11,6 +11,8 @@ public class AiInput : MonoBehaviour
     AiWaypoint currentWaypoint;
     AiWaypoint[] aiWaypoints;
 
+    bool hopped = false;
+
     void Start()
     {
         kartController = GetComponent<KartController>();
@@ -32,6 +34,7 @@ public class AiInput : MonoBehaviour
         float horizontal = 0f;
 
         float distanceToTarget = Vector3.Distance(transform.position, targetPosition);
+
         if (distanceToTarget <= currentWaypoint.distanceToReachWaypoint) {
             currentWaypoint = currentWaypoint.nextWaypoint;
             SetTargetPosition(randomPosition(currentWaypoint.transform.position));
@@ -43,13 +46,15 @@ public class AiInput : MonoBehaviour
         vertical = dot > 0 ? 1f : -1f;
 
         float angleToDirection = Vector3.SignedAngle(transform.forward, directionToMovePosition, Vector3.up);
+
         /*
-        if (angleToDirection > 40f || angleToDirection < -40f) {
-            kartController.drifting = true;
-        } else {
-            kartController.drifting = false;
+        if (angleToDirection > 30f || angleToDirection < -30f) {
+            kartController.Hop();
+        } else if (angleToDirection < 40f || angleToDirection > -40f) {
+            kartController.StopDrifting();
         }
         */
+        
         if (angleToDirection > 10f) {
             horizontal = 1f;
         } else if (angleToDirection < -10f) {
