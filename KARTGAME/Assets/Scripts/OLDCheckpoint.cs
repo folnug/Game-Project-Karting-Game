@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 
-public class Checkpoint : MonoBehaviour
+public class OLDCheckpoint : MonoBehaviour
 {
     //Audio
     //public AudioSource audioSource;
@@ -12,7 +12,7 @@ public class Checkpoint : MonoBehaviour
 
     private bool isTriggered = false;
 
-    //Objekti jolla on rigidbody osuu tähän
+    //Objekti jolla on rigidbody osuu tï¿½hï¿½n
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name == "Sphere")
@@ -21,7 +21,7 @@ public class Checkpoint : MonoBehaviour
             if (isTriggered)
                 return;
 
-            //Lähettää viestin Goalille nimellä Checkpoint ja disablee itsensä
+            //Lï¿½hettï¿½ï¿½ viestin Goalille nimellï¿½ Checkpoint ja disablee itsensï¿½
             GameObject.Find("Goal").SendMessage("Checkpoint");
             isTriggered = true;
             Debug.Log("Checkpoint");

@@ -86,6 +86,7 @@ public class KartController : MonoBehaviour
     {
         speed = transform.InverseTransformDirection(rb.velocity).z;
         Movement();
+        DriftChecks();
         Drifting();
 
         if (Landed() && airTime >= 0.6 && hoppedBeforAirborne)  {
@@ -99,6 +100,11 @@ public class KartController : MonoBehaviour
         if (giveImpulseBoost) {
             rb.AddForce(transform.forward * impulseBoostAmount, ForceMode.Impulse);
             giveImpulseBoost = false;
+        }
+
+        if (currentBoostTime > 0) {
+            currentBoostTime -= 1f * Time.deltaTime;
+            rb.AddForce(transform.forward * kart.boostAmount, ForceMode.Acceleration);
         }
     }
 
@@ -114,19 +120,10 @@ public class KartController : MonoBehaviour
             ForwardMovement();
         }
 
-        if (drifting && grounded) {
+        if (drifting && grounded && vertical > 0) {
             rb.AddForce(transform.right * -direction * kart.outwardsDriftForce, ForceMode.Acceleration);
         }
-
-        if (hopped) {
-            rb.AddForce(transform.up * kart.jumpForce, ForceMode.Impulse);
-            if ((horizontal != 0) && currentSpeed > kart.forwardSpeed * 0.25f) {
-                drifting = true;
-            }
-            hopped = false;
-        }
     }
-
     void ForwardMovement() {
         if (vertical > 0) {
             currentSpeed += kart.Acceleration * Time.deltaTime;
@@ -154,19 +151,32 @@ public class KartController : MonoBehaviour
         }
     }
 
+    void DriftChecks() {
+        // Katsotaan voiko driftata
+        if (hopped) {
+            rb.AddForce(transform.up * kart.jumpForce, ForceMode.Impulse);
+            if ((horizontal != 0) && currentSpeed > kart.forwardSpeed * 0.25f) {
+                drifting = true;
+            }
+            hopped = false;
+        }
+
+        if (drifting && vertical < 0) {
+            drifting = false;
+            currentBoostTime = 0;
+            driftValue = 0;
+        }
+    }
+
     void Drifting() {
         if (drifting && grounded) {
             driftValue += kart.driftChargeSpeed * Time.deltaTime;
-        } else if (!drifting && driftValue >= minDriftAmmount) {
+        } else if (!drifting && driftValue >= minDriftAmmount && vertical > 0) {
             driftValue = 0;
             AddBoostTime(kart.boostTime);
             GiveImpulseBoost(kart.impulseBoostAmount);
         } else if (!drifting) {
             driftValue = 0;
-        }
-        if (currentBoostTime > 0) {
-            currentBoostTime -= 1f * Time.deltaTime;
-            rb.AddForce(transform.forward * kart.boostAmount, ForceMode.Acceleration);
         }
     }
 
