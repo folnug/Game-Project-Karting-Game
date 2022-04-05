@@ -6,3 +6,5 @@
 /KARTGAME/Builds/
 /KARTGAME/Logs/
 /KARTGAME/MemoryCaptures/
+/KARTGAME/*.csproj
+/KARTGAME/*.sln
