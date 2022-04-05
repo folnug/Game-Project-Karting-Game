@@ -78,6 +78,7 @@
      <Compile Include="Assets\Scripts\Music\SoundController.cs" />
      <Compile Include="Assets\Scripts\Kart\KartController.cs" />
      <Compile Include="Assets\Scripts\Kart\KartMotor.cs" />
+     <Compile Include="Assets\Scripts\Splashscreen.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\RealToon\RealToon Shaders\Version 5\Default\D_Default.shader" />
