@@ -15,6 +15,9 @@ public static class SoundController
         // TRACK //
         TrackCheckpoint,
         TrackCountdown,
+
+        // MENU (ButtonSounds etc.) //
+        MenuButton,
     }
 
     private static Dictionary<Sound, float> soundTimerDictionary;
@@ -114,13 +117,5 @@ public static class SoundController
         }
         Debug.LogWarning($"SoundController: GetAudioClip() | Sound: {sound} not found.");
         return null;    
-    }
-
-    public static void PlayAudio(AudioSource audioSource, AudioClip[] audioList, float volume)
-    {
-        //Debug.Log($"SoundController PlayAudio() | AudioList: {audioList} played. Has {audioList.Length} in list.");
-        int toPlay = Random.Range(0, audioList.Length);
-        audioSource.PlayOneShot(audioList[toPlay], volume);
-        audioSource.Play(); 
     }
 }
