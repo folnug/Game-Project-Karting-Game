@@ -24,7 +24,7 @@ MonoBehaviour:
   driftChargeSpeed: 80
   outwardsDriftForce: 90
   boostTime: 2
-  boostAmount: 10
+  boostAmount: 20
   impulseBoostAmount: 20
   airDrag: 0
   groundDrag: 4
