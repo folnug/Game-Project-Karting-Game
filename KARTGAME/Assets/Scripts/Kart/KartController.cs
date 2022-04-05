@@ -75,9 +75,13 @@ public class KartController : MonoBehaviour
         RaycastHit hit;
         grounded = Physics.Raycast(transform.position, -transform.up, out hit, 0.8f, groundLayer);
         Debug.DrawRay(transform.position, -transform.up * 0.8f, Color.red);
+        Quaternion rot = Quaternion.Lerp(transform.rotation, Quaternion.FromToRotation(transform.up * 2, hit.normal) * transform.rotation, 7f * Time.deltaTime);
+        
+        rot.x = Mathf.Clamp(rot.x, -45f, 45f);
+        rot.z = Mathf.Clamp(rot.z, -45f, 45f);
 
-        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.FromToRotation(transform.up * 2, hit.normal) * transform.rotation, 7f * Time.deltaTime);
-
+        transform.rotation = rot;
+        
         rb.drag = grounded ? kart.groundDrag : kart.airDrag;
     }
     void FixedUpdate()
