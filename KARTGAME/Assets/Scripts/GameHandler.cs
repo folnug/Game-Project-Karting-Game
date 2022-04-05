@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 
 
-public class Play : MonoBehaviour
+public class GameHandler : MonoBehaviour
 {
     public AudioSource audioSource;
     public AudioClip[] confirmAudioList;
@@ -24,4 +24,9 @@ public class Play : MonoBehaviour
         audioSource.PlayOneShot(testList[toPlay], 0.2F);
         audioSource.Play();
     }*/
+
+    private void Awake()
+    {
+        SoundController.Intialize();
+    }
 }

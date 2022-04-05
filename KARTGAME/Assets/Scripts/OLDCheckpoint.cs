@@ -24,7 +24,7 @@ public class OLDCheckpoint : MonoBehaviour
             //L�hett�� viestin Goalille nimell� Checkpoint ja disablee itsens�
             GameObject.Find("Goal").SendMessage("Checkpoint");
             isTriggered = true;
-            Debug.Log("Checkpoint");
+            Debug.Log($"OLDCheckpoint OnTriggerEnter() | Checkpoint");
             //SoundController.PlayAudio(audioSource, checkpointAudioList);
         }
     }
@@ -34,7 +34,7 @@ public class OLDCheckpoint : MonoBehaviour
     void CheckpointReset()
     {
         isTriggered = false;
-        Debug.Log("Sain reset viestin");
+        Debug.Log($"OLDCheckpoint: CheckpointReset() | Reset");
     }
 }
 

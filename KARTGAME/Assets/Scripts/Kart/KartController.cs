@@ -5,7 +5,7 @@ using Random = UnityEngine.Random;
 public class KartController : MonoBehaviour
 {
     [SerializeField] Kart kart;
-    SoundController soundController;
+    //SoundController soundController;
 
     float horizontal, vertical, moveSpeed, direction = 0;
 
@@ -21,12 +21,6 @@ public class KartController : MonoBehaviour
 
     public float minDriftAmmount { get; private set; }
     public bool giveImpulseBoost { get; private set; }
-
-    //Audio
-    public AudioSource KartAudioSource;
-    public AudioClip[] hopAudioList;
-    public AudioClip[] boostAudioList;
-    public float hopAudioVolume, boostAudioVolume;
 
     float impulseBoostAmount = 0f;
 
@@ -194,7 +188,7 @@ public class KartController : MonoBehaviour
         hoppedBeforAirborne = true;
         hopped = true;
 
-        SoundController.PlayAudio(KartAudioSource, hopAudioList, hopAudioVolume);
+        SoundController.PlaySound(SoundController.Sound.KartHop, transform.position, 0.2f);
     }
 
     public void StopDrifting() {
@@ -216,7 +210,8 @@ public class KartController : MonoBehaviour
     public void GiveImpulseBoost(float amount) {
         giveImpulseBoost = true;
         impulseBoostAmount = amount;
-        SoundController.PlayAudio(KartAudioSource, boostAudioList, boostAudioVolume);
+
+        SoundController.PlaySound(SoundController.Sound.KartBoost, transform.position, 0.2f);
     }
 
     public void SetInputs(float horizontal, float vertical) {

@@ -13,16 +13,9 @@ public class Timer : MonoBehaviour
     public Button rePlayButton;
     KartController[] controllers;
 
-    //Audio
-    public AudioSource countdownAudioSource;
-    public AudioClip[] countdownAudioList;
-    public float countdownAudioVolume;
-
-    public AudioSource backgroundAudioSource;
-    public AudioClip[] backgroundAudioList;
-    public float backgroundAudioVolume;
-
     private bool maalissa = false;
+
+    public static float time { get; internal set; }
 
     void Start()
     {
@@ -44,11 +37,7 @@ public class Timer : MonoBehaviour
 
     private void StartCountdownAudio()
     {
-        if (!countdownAudioSource.isPlaying)
-        {
-            for (int i = 2; i < countdown; i++)
-                SoundController.PlayAudio(countdownAudioSource, countdownAudioList, countdownAudioVolume);
-        }
+        //SoundController.PlaySound(SoundController.Sound.TrackCountdown, transform.position, 0.2f);
     }
 
     private void StartCountdown()
