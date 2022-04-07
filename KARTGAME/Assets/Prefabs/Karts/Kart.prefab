@@ -579,7 +579,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1327157457386611917}
   - component: {fileID: 1327157457386611916}
-  - component: {fileID: 1327157457386611914}
   - component: {fileID: 1327157457386611915}
   m_Layer: 0
   m_Name: Kart
@@ -623,22 +622,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   visual: {fileID: 1327157458097255835}
---- !u!114 &1327157457386611914
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1327157457386611919}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cddd10ddc9f549c48a5fd844394449ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentTimeText: {fileID: 0}
-  finalTimeText: {fileID: 0}
-  countdownText: {fileID: 0}
-  rePlayButton: {fileID: 0}
 --- !u!114 &1327157457386611915
 MonoBehaviour:
   m_ObjectHideFlags: 0

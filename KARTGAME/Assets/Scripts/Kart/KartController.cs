@@ -28,7 +28,6 @@ public class KartController : MonoBehaviour
 
     float airTime = 0f;
     bool hoppedBeforAirborne = false;
-
     [SerializeField] Rigidbody rb;
     [SerializeField] LayerMask groundLayer;
     [SerializeField] Transform visual;
@@ -57,11 +56,10 @@ public class KartController : MonoBehaviour
         float amount = drifting ? DriftDirection(direction) : Mathf.Abs(horizontal);
         transform.Rotate(0f, Steer(turnSpeed, turnDirection, amount), 0f);
 
-        
         float visualDirection = drifting ? direction : horizontal;
-        float localVisualRotAmmoung = drifting ? 10f : 20f;
+        float localVisualRotAmount = drifting ? 10f : 20f;
         int isMotorcycle = 0;
-        visual.localRotation = Quaternion.Lerp(visual.localRotation, Quaternion.Euler(0, localVisualRotAmmoung * visualDirection, 30f * -visualDirection * isMotorcycle), 2f * Time.deltaTime);
+        visual.localRotation = Quaternion.Lerp(visual.localRotation, Quaternion.Euler(0, localVisualRotAmount * visualDirection, 30f * -visualDirection * isMotorcycle), 2f * Time.deltaTime);
 
     }
     void GroundCheck()
@@ -73,7 +71,6 @@ public class KartController : MonoBehaviour
         
         rot.x = Mathf.Clamp(rot.x, -45f, 45f);
         rot.z = Mathf.Clamp(rot.z, -45f, 45f);
-
         transform.rotation = rot;
         
         rb.drag = grounded ? kart.groundDrag : kart.airDrag;
@@ -84,6 +81,7 @@ public class KartController : MonoBehaviour
         Movement();
         DriftChecks();
         Drifting();
+
 
         if (Landed() && airTime >= 0.6 && hoppedBeforAirborne)  {
             GiveImpulseBoost(kart.boostAmount);
