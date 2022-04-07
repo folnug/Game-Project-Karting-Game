@@ -56,7 +56,7 @@ public class CheckpointHandler : MonoBehaviour
                 nextCheckpoints[karts.IndexOf(kart)] = nextCheckpoints[karts.IndexOf(kart)] % checkpoints.Count;
             }
         } else {
-            Debug.Log("wrong checkpoint!");
+            return;
         }
     }
 
