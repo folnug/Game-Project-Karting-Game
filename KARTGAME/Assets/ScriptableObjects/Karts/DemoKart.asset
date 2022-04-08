@@ -28,3 +28,8 @@ MonoBehaviour:
   impulseBoostAmount: 20
   airDrag: 0
   groundDrag: 4
+  rollAmount: 0
+  rollDriftAmount: 0
+  yawAmount: 20
+  yawDriftAmount: 10
+  visualTurningSpeed: 2

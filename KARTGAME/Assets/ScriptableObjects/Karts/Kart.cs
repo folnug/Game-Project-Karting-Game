@@ -29,4 +29,11 @@ public class Kart : ScriptableObject {
     [Header("Air Settings")]
     public float airDrag;
     public float groundDrag;
+
+    [Header("Visual Turning Settings")]
+    public float rollAmount;
+    public float rollDriftAmount;
+    public float yawAmount;
+    public float yawDriftAmount;
+    public float visualTurningSpeed;
 }

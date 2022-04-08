@@ -57,9 +57,9 @@ public class KartController : MonoBehaviour
         transform.Rotate(0f, Steer(turnSpeed, turnDirection, amount), 0f);
 
         float visualDirection = drifting ? direction : horizontal;
-        float localVisualRotAmount = drifting ? 10f : 20f;
-        int isMotorcycle = 0;
-        visual.localRotation = Quaternion.Lerp(visual.localRotation, Quaternion.Euler(0, localVisualRotAmount * visualDirection, 30f * -visualDirection * isMotorcycle), 2f * Time.deltaTime);
+        float localVisualYawAmount = drifting ? kart.yawDriftAmount : kart.yawAmount;
+        float localVisualRollAmount = drifting ? kart.rollDriftAmount : kart.rollAmount;
+        visual.localRotation = Quaternion.Lerp(visual.localRotation, Quaternion.Euler(0, localVisualYawAmount * visualDirection, localVisualRollAmount * -visualDirection), kart.visualTurningSpeed * Time.deltaTime);
 
     }
     void GroundCheck()

@@ -12,16 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 543d8aa0779fe484c9924625ff0b72d0, type: 3}
   m_Name: Bike
   m_EditorClassIdentifier: 
-  forwardSpeed: 280
+  forwardSpeed: 260
+  Acceleration: 180
+  Decelerate: 200
+  brakeForce: 300
   reverseSpeed: 80
-  turnSpeed: 30
-  gravity: 30
-  jumpForce: 10
+  turnSpeed: 50
+  jumpForce: 15
   driftTurnSpeed: 50
   driftTurnModifier: 0.7
-  driftChargeSpeed: 100
+  driftChargeSpeed: 80
   outwardsDriftForce: 0
   boostTime: 2
-  boostAmount: 25
+  boostAmount: 20
+  impulseBoostAmount: 20
   airDrag: 0
   groundDrag: 4
+  rollAmount: 30
+  rollDriftAmount: 40
+  yawAmount: 20
+  yawDriftAmount: 10
+  visualTurningSpeed: 4
