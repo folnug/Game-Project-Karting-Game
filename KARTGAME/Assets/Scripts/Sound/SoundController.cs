@@ -1,9 +1,12 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public static class SoundController
 {
+    private static string[] audioSourcePitchArray = {"Kart"};
 
     public enum Sound
     {
@@ -27,7 +30,7 @@ public static class SoundController
     public static void Intialize()
     {
         soundTimerDictionary = new Dictionary<Sound, float>();
-        soundTimerDictionary[Sound.KartDrift] = 0f;
+        soundTimerDictionary[Sound.KartDrift] = 1000;
     }
 
     public static void PlaySound(Sound sound)
@@ -55,6 +58,7 @@ public static class SoundController
 
             audioSource.volume = volume;
 
+            audioSource.pitch = Random.Range(0.9f, 1.1f);
             audioSource.maxDistance = 100f;
             audioSource.spatialBlend = 1f;
             audioSource.rolloffMode = AudioRolloffMode.Linear;
@@ -62,7 +66,7 @@ public static class SoundController
 
             audioSource.Play();
 
-            Object.Destroy(soundGameObject, audioSource.clip.length);
+            UnityEngine.Object.Destroy(soundGameObject, audioSource.clip.length);
         }
     }
 
@@ -112,7 +116,7 @@ public static class SoundController
         {
             if (soundAudioClip.sound == sound)
             {
-                return (soundAudioClip.audioClip);
+                return soundAudioClip.audioClip;
             }
         }
         Debug.LogWarning($"SoundController: GetAudioClip() | Sound: {sound} not found.");
