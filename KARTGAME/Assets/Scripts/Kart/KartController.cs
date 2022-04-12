@@ -5,32 +5,37 @@ using Random = UnityEngine.Random;
 public class KartController : MonoBehaviour
 {
     [SerializeField] Kart kart;
-    //SoundController soundController;
-
-    float horizontal, vertical, moveSpeed, direction = 0;
-
-    public bool grounded { get; private set; }
-
-    public bool braking { get; private set; }
-    public bool drifting { get; private set; }
-    public bool hopped { get; set; }
-
-    public float speed { get; private set; }
-    public float driftValue { get; private set; }
-    public float currentBoostTime { get; private set; }
-
-    public float minDriftAmmount { get; private set; }
-    public bool giveImpulseBoost { get; private set; }
-
-    float impulseBoostAmount = 0f;
-
-    float currentSpeed = 0;
-
-    float airTime = 0f;
-    bool hoppedBeforAirborne = false;
     [SerializeField] Rigidbody rb;
     [SerializeField] LayerMask groundLayer;
     [SerializeField] Transform visual;
+
+    #region public variables
+    public bool grounded { get; private set; }
+    public bool giveImpulseBoost { get; private set; }
+    public bool braking { get; private set; }
+    public bool drifting { get; private set; }
+    public bool hopped { get; set; }
+    public float speed { get; private set; }
+    public float driftValue { get; private set; }
+    public float currentBoostTime { get; private set; }
+    public float minDriftAmmount { get; private set; }
+    #endregion
+
+    #region private variables
+    float horizontal, vertical, moveSpeed, direction = 0;
+    float impulseBoostAmount = 0f;
+    float currentSpeed = 0;
+    float airTime = 0f;
+    bool hoppedBeforAirborne = false;
+    #endregion
+
+    public enum KartStates {
+        Stunned,
+        Drive,
+        Spun,
+    }
+
+    public KartStates currentState { get; private set; }
 
     float DriftDirection(float direction) => Mathf.Abs(kart.driftTurnModifier - (direction * -horizontal));
     float Steer(float turnSpeed, float direction, float amount) => (direction * turnSpeed * Time.deltaTime) * amount;
@@ -39,13 +44,14 @@ public class KartController : MonoBehaviour
     {
         rb.transform.parent = null;
         minDriftAmmount = 80f;
+
+        currentState = KartStates.Stunned;
     }
 
     void Update()
     {
         transform.position = rb.transform.position;
         GroundCheck();
-        Steering();
     }
 
     void Steering()
@@ -78,27 +84,18 @@ public class KartController : MonoBehaviour
     void FixedUpdate()
     {
         speed = transform.InverseTransformDirection(rb.velocity).z;
-        Movement();
-        DriftChecks();
-        Drifting();
-
-
-        if (Landed() && airTime >= 0.6 && hoppedBeforAirborne)  {
-            GiveImpulseBoost(kart.boostAmount);
-            AddBoostTime(kart.boostTime);
-        }
-        if (Landed()) hoppedBeforAirborne = false;
-        
-        AirTime();
-
-        if (giveImpulseBoost) {
-            rb.AddForce(transform.forward * impulseBoostAmount, ForceMode.Impulse);
-            giveImpulseBoost = false;
-        }
-
-        if (currentBoostTime > 0) {
-            currentBoostTime -= 1f * Time.deltaTime;
-            rb.AddForce(transform.forward * kart.boostAmount, ForceMode.Acceleration);
+        switch(currentState) {
+            case KartStates.Stunned:
+                break;
+            case KartStates.Drive:
+                Steering();
+                Movement();
+                DriftChecks();
+                Drifting();
+                AirTime();
+                break;
+            case KartStates.Spun:
+                break;
         }
     }
 
@@ -117,6 +114,18 @@ public class KartController : MonoBehaviour
         if (drifting && grounded && vertical > 0) {
             rb.AddForce(transform.right * -direction * kart.outwardsDriftForce, ForceMode.Acceleration);
         }
+
+        #region Boosts
+        if (giveImpulseBoost) {
+            rb.AddForce(transform.forward * impulseBoostAmount, ForceMode.Impulse);
+            giveImpulseBoost = false;
+        }
+
+        if (currentBoostTime > 0) {
+            currentBoostTime -= 1f * Time.deltaTime;
+            rb.AddForce(transform.forward * kart.boostAmount, ForceMode.Acceleration);
+        }
+        #endregion
     }
     void ForwardMovement() {
         if (vertical > 0) {
@@ -181,6 +190,20 @@ public class KartController : MonoBehaviour
 
     }
 
+    void AirTime() {
+        if (Landed() && airTime >= 0.6 && hoppedBeforAirborne)  {
+            GiveImpulseBoost(kart.boostAmount);
+            AddBoostTime(kart.boostTime);
+        }
+
+        if (Landed()) hoppedBeforAirborne = false;
+        
+        if (grounded) {
+            airTime = 0f;
+        } else {
+            airTime += Time.deltaTime;
+        }
+    }
     public void Hop() {
         if (!grounded) return;
         hoppedBeforAirborne = true;
@@ -192,15 +215,6 @@ public class KartController : MonoBehaviour
     public void StopDrifting() {
         drifting = false;
     }
-
-    void AirTime() {
-        if (grounded) {
-            airTime = 0f;
-        } else {
-            airTime += Time.deltaTime;
-        }
-    }
-
     public bool Landed() {
         return airTime > 0 && grounded;
     }
