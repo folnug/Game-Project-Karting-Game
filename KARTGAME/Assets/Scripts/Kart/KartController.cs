@@ -233,4 +233,6 @@ public class KartController : MonoBehaviour
 
     public void AddBoostTime(float amount) => currentBoostTime += amount;
 
+    public void SetState(KartStates state) => currentState = state;
+
 }
