@@ -114,9 +114,9 @@ public class KartController : MonoBehaviour
         if (drifting && grounded && vertical > 0) {
             rb.AddForce(transform.right * -direction * kart.outwardsDriftForce, ForceMode.Acceleration);
         }
-
         #region Boosts
         if (giveImpulseBoost) {
+            //Debug.Log("Give impulse boost!, "+ impulseBoostAmount);
             rb.AddForce(transform.forward * impulseBoostAmount, ForceMode.Impulse);
             giveImpulseBoost = false;
         }
@@ -209,7 +209,7 @@ public class KartController : MonoBehaviour
         hoppedBeforAirborne = true;
         hopped = true;
 
-        SoundController.PlaySound(SoundController.Sound.KartHop, transform.position, 0.2f);
+        //SoundController.PlaySound(SoundController.Sound.KartHop, transform.position, 0.2f);
     }
 
     public void StopDrifting() {
@@ -222,8 +222,7 @@ public class KartController : MonoBehaviour
     public void GiveImpulseBoost(float amount) {
         giveImpulseBoost = true;
         impulseBoostAmount = amount;
-
-        SoundController.PlaySound(SoundController.Sound.KartBoost, transform.position, 0.2f);
+        //SoundController.PlaySound(SoundController.Sound.KartBoost, transform.position, 0.2f);
     }
 
     public void SetInputs(float horizontal, float vertical) {
