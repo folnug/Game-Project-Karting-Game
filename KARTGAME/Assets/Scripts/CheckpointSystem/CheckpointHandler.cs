@@ -18,9 +18,6 @@ public class CheckpointHandler : MonoBehaviour
 
     [SerializeField] List<Transform> karts;
 
-
-    [SerializeField] Text helperText;
-
     float timer = 0f;
 
 
@@ -49,8 +46,6 @@ public class CheckpointHandler : MonoBehaviour
             if (nextCheckpoints[karts.IndexOf(kart)] == checkpoints.Count) {
                 times[karts.IndexOf(kart)].times.Add(timer - times[karts.IndexOf(kart)].lastTimes[laps[karts.IndexOf(kart)]]);
                 times[karts.IndexOf(kart)].lastTimes.Add(timer);
-
-                helperText.text += kart.transform.name + ": " + TimeToString(times[karts.IndexOf(kart)].times[laps[karts.IndexOf(kart)]]) +"\n";
 
                 laps[karts.IndexOf(kart)] += 1;
                 nextCheckpoints[karts.IndexOf(kart)] = nextCheckpoints[karts.IndexOf(kart)] % checkpoints.Count;

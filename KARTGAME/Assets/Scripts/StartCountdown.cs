@@ -16,6 +16,7 @@ public class StartCountdown : MonoBehaviour
         if (duration == 0f) return;
         duration -= Time.deltaTime;
         if (duration <= 0f) {
+            kartControllers = FindObjectsOfType<KartController>();
             foreach(KartController kartController in kartControllers) kartController.SetState(KartController.KartStates.Drive);
             duration = 0f;
         }

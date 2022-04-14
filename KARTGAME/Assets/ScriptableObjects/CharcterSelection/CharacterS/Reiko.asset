@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 490acf8a19ff96f44ad011ba66f5c773, type: 3}
+  m_Name: Reiko
+  m_EditorClassIdentifier: 
+  driverName: Reiko
+  kartName: Bimo
+  kart: {fileID: 4782834427503480329, guid: dc66253f4bba0ee4080ac051f560da05, type: 3}
