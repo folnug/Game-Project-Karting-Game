@@ -8,7 +8,7 @@ public class KartController : MonoBehaviour
     [SerializeField] Rigidbody rb;
     [SerializeField] LayerMask groundLayer;
     [SerializeField] Transform visual;
-
+    [SerializeField] float driftBufferTimeDuration = 0.5f;
     #region public variables
     public bool grounded { get; private set; }
     public bool giveImpulseBoost { get; private set; }
@@ -25,6 +25,7 @@ public class KartController : MonoBehaviour
     float horizontal, vertical, moveSpeed, direction = 0;
     float impulseBoostAmount = 0f;
     float currentSpeed = 0;
+    float driftBufferTime = 0;
     float airTime = 0f;
     bool hoppedBeforAirborne = false;
     #endregion
@@ -157,11 +158,17 @@ public class KartController : MonoBehaviour
     void DriftChecks() {
         if (hopped) {
             rb.AddForce(transform.up * kart.jumpForce, ForceMode.Impulse);
-            if ((horizontal != 0) && currentSpeed > kart.forwardSpeed * 0.25f) {
-                drifting = true;
-            }
+            driftBufferTime = driftBufferTimeDuration;
             hopped = false;
         }
+        if (driftBufferTime > 0) driftBufferTime -= Time.deltaTime;
+        if (driftBufferTime <= 0) driftBufferTime = 0;
+        if ((horizontal != 0) && currentSpeed > kart.forwardSpeed * 0.25f && driftBufferTime > 0) {
+            drifting = true;
+            driftBufferTime = 0;
+        }
+        Debug.Log(driftBufferTime);
+
         if (drifting && vertical < 0) {
             drifting = false;
             currentBoostTime = 0;

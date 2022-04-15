@@ -25230,6 +25230,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   visual: {fileID: 8610551684438883128}
+  driftBufferTimeDuration: 0.2
 --- !u!1 &8610551684438883129
 GameObject:
   m_ObjectHideFlags: 0
