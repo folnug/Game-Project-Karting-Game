@@ -6,9 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/CharacterTrackSelectTest.unity
+    guid: 8778b8cd704a5484d8c63f2b56f5366c
+  - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: 3a0006edd2e3a5e43afcfea048fc8104
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Ollin rata.unity
+    guid: 325d3a0a02bd00d48b1315df9a582bf2
+  - enabled: 1
+    path: Assets/Scenes/TestTrack01.unity
+    guid: ff71754bb2304d049907cedb89a09f7a
   m_configObjects: {}

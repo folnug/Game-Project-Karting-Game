@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class KartDisplay : MonoBehaviour
+public class TrackDisplay : MonoBehaviour
 {
     int index;
-    public KartModel kart;
+    public Track track;
     Button button;
     CharacterTrackSelectManager manager;
-    [SerializeField] Text kartName;
-    [SerializeField] Image kartImage;
+    [SerializeField] Text trackName;
+    [SerializeField] Image trackImage;
 
     void Start() {
         button = GetComponent<Button>();
@@ -18,8 +18,8 @@ public class KartDisplay : MonoBehaviour
     }
 
     public void UpdateDisplay() {
-        kartName.text = kart.driverName;
-        kartImage.sprite = kart.image;
+        trackName.text = track.name;
+        trackImage.sprite = track.trackImage;
     }
 
     public void SetValues(int index, CharacterTrackSelectManager manager) {
@@ -28,6 +28,6 @@ public class KartDisplay : MonoBehaviour
     }
 
     void ButtonClick() {
-        manager.CharacterSelected(index);
+        manager.TrackSelected(index);
     }
 }
