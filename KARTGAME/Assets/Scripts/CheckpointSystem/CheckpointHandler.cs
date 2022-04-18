@@ -11,17 +11,27 @@ public class KartTimes {
 public class CheckpointHandler : MonoBehaviour
 {
     List<int> nextCheckpoints = new List<int>();
+    List<int> currentCheckpoints = new List<int>();
     List<int> laps = new List<int>();
     List<Checkpoint> checkpoints = new List<Checkpoint>();
 
     List<KartTimes> times = new List<KartTimes>();
 
-    [SerializeField] List<Transform> karts;
+    List<Transform> karts = new List<Transform>();
+
+    List<int> kartPosition = new List<int>();
 
     float timer = 0f;
 
 
     void Awake() {
+
+        KartController[] kartsTemp = FindObjectsOfType<KartController>();
+
+        foreach(KartController kartTemp in kartsTemp) {
+            karts.Add(kartTemp.transform);
+        }
+
         Checkpoint[] tempCheckpoints = transform.GetComponentsInChildren<Checkpoint>();
         foreach(Checkpoint checkpoint in tempCheckpoints) {
             checkpoints.Add(checkpoint);
@@ -33,6 +43,11 @@ public class CheckpointHandler : MonoBehaviour
             laps.Add(0);
             times.Add(new KartTimes());
             times[karts.IndexOf(kart)].lastTimes.Add(0);
+            currentCheckpoints.Add(0);
+        }
+
+        for (int i = 0; i < karts.Count; i++) {
+            kartPosition.Add(i + 1);
         }
     }
 
@@ -42,6 +57,7 @@ public class CheckpointHandler : MonoBehaviour
     public void KartEnteredCheckpoint(Transform kart, Checkpoint checkpoint) {
         int nextCheckpoint = nextCheckpoints[karts.IndexOf(kart)];
         if (checkpoints.IndexOf(checkpoint) == nextCheckpoint) {
+            currentCheckpoints[karts.IndexOf(kart)]  = nextCheckpoint;
             nextCheckpoints[karts.IndexOf(kart)] = nextCheckpoint + 1;
             if (nextCheckpoints[karts.IndexOf(kart)] == checkpoints.Count) {
                 times[karts.IndexOf(kart)].times.Add(timer - times[karts.IndexOf(kart)].lastTimes[laps[karts.IndexOf(kart)]]);
@@ -52,6 +68,16 @@ public class CheckpointHandler : MonoBehaviour
             }
         } else {
             return;
+        }
+    }
+    
+    void kartPositions() {
+        int lastKart = 0;
+        for(int i = 0; i < karts.Count; i++) {
+            
+            
+
+            lastKart = i;
         }
     }
 

@@ -167,7 +167,6 @@ public class KartController : MonoBehaviour
             drifting = true;
             driftBufferTime = 0;
         }
-        Debug.Log(driftBufferTime);
 
         if (drifting && vertical < 0) {
             drifting = false;
