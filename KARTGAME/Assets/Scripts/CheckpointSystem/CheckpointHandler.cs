@@ -11,13 +11,14 @@ public class KartTimes {
 public class CheckpointHandler : MonoBehaviour
 {
     List<int> nextCheckpoints = new List<int>();
-    List<int> currentCheckpoints = new List<int>();
     List<int> laps = new List<int>();
     List<Checkpoint> checkpoints = new List<Checkpoint>();
 
     List<KartTimes> times = new List<KartTimes>();
 
-    List<Transform> karts = new List<Transform>();
+    public List<int> CheckpointsCollected = new List<int>();
+
+    public List<Transform> karts = new List<Transform>();
 
     List<int> kartPosition = new List<int>();
 
@@ -43,7 +44,7 @@ public class CheckpointHandler : MonoBehaviour
             laps.Add(0);
             times.Add(new KartTimes());
             times[karts.IndexOf(kart)].lastTimes.Add(0);
-            currentCheckpoints.Add(0);
+            CheckpointsCollected.Add(0);
         }
 
         for (int i = 0; i < karts.Count; i++) {
@@ -53,12 +54,13 @@ public class CheckpointHandler : MonoBehaviour
 
     void FixedUpdate() {
         timer += Time.deltaTime;
+        kartPositions();
     }
     public void KartEnteredCheckpoint(Transform kart, Checkpoint checkpoint) {
         int nextCheckpoint = nextCheckpoints[karts.IndexOf(kart)];
         if (checkpoints.IndexOf(checkpoint) == nextCheckpoint) {
-            currentCheckpoints[karts.IndexOf(kart)]  = nextCheckpoint;
             nextCheckpoints[karts.IndexOf(kart)] = nextCheckpoint + 1;
+            CheckpointsCollected[karts.IndexOf(kart)] += 1;
             if (nextCheckpoints[karts.IndexOf(kart)] == checkpoints.Count) {
                 times[karts.IndexOf(kart)].times.Add(timer - times[karts.IndexOf(kart)].lastTimes[laps[karts.IndexOf(kart)]]);
                 times[karts.IndexOf(kart)].lastTimes.Add(timer);
@@ -72,13 +74,7 @@ public class CheckpointHandler : MonoBehaviour
     }
     
     void kartPositions() {
-        int lastKart = 0;
-        for(int i = 0; i < karts.Count; i++) {
-            
-            
 
-            lastKart = i;
-        }
     }
 
     string TimeToString(float currentTime) {
