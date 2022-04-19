@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1a872246a8ec563419c64273d30e6e83
+guid: 50166d57af88e8a458a0a0bbd315ba17
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
@@ -7,18 +7,28 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: ReikoHair
-    second: {fileID: 2100000, guid: 0a3c8f642e0b93c4bbb3693925a305f4, type: 2}
+      name: Body
+    second: {fileID: 2100000, guid: 095d0a591ef7a474a885d0cb6c61ec18, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: ReikoHead
-    second: {fileID: 2100000, guid: 140a581a81d21984386e825058689064, type: 2}
+      name: FemaleCharOutfit1
+    second: {fileID: 2100000, guid: 44db7201ed534f449a305f378ca7f83d, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: ReikoOutfit
-    second: {fileID: 2100000, guid: 40fe953079c139241b9dd3baae5aae5c, type: 2}
+      name: HairPeace
+    second: {fileID: 2100000, guid: 701fe0349eb80fb438cbb6020edde99c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Head
+    second: {fileID: 2100000, guid: 6b86e5b01d32af34b9b153001fcbdec6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hair
+    second: {fileID: 2100000, guid: c1fe14b5e13b18b47b216f9c04e4b867, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
