@@ -5,6 +5,9 @@ using UnityEngine;
 public class AiWaypoint : MonoBehaviour
 {
     public AiWaypoint nextWaypoint;
+
+    public bool startDrifting = false;
+    public bool stopDrifting = false;
     public float distanceToReachWaypoint = 20f;
 
     void OnTriggerEnter(Collider other) {

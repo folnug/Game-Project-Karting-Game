@@ -157,6 +157,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextWaypoint: {fileID: 1975997520}
+  startDrifting: 0
+  stopDrifting: 1
   distanceToReachWaypoint: 20
 --- !u!65 &132243969
 BoxCollider:
@@ -415,7 +417,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &312478630
 MonoBehaviour:
@@ -718,67 +720,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1001 &339644584
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 1a872246a8ec563419c64273d30e6e83, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 1a872246a8ec563419c64273d30e6e83, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 8.29
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 1a872246a8ec563419c64273d30e6e83, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.079
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 1a872246a8ec563419c64273d30e6e83, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 23.582
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 1a872246a8ec563419c64273d30e6e83, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.9445199
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 1a872246a8ec563419c64273d30e6e83, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 1a872246a8ec563419c64273d30e6e83, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.32845443
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 1a872246a8ec563419c64273d30e6e83, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 1a872246a8ec563419c64273d30e6e83, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 1a872246a8ec563419c64273d30e6e83, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -38.35
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 1a872246a8ec563419c64273d30e6e83, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -39271664576005851, guid: 1a872246a8ec563419c64273d30e6e83, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 1a872246a8ec563419c64273d30e6e83, type: 3}
-      propertyPath: m_Name
-      value: reiko
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 1a872246a8ec563419c64273d30e6e83, type: 3}
 --- !u!1 &360987218
 GameObject:
   m_ObjectHideFlags: 0
@@ -870,7 +811,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &386658654
 GameObject:
@@ -906,6 +847,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextWaypoint: {fileID: 733217417}
+  startDrifting: 0
+  stopDrifting: 0
   distanceToReachWaypoint: 20
 --- !u!65 &386658656
 BoxCollider:
@@ -1108,6 +1051,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextWaypoint: {fileID: 132243968}
+  startDrifting: 1
+  stopDrifting: 0
   distanceToReachWaypoint: 20
 --- !u!65 &522763977
 BoxCollider:
@@ -1206,7 +1151,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7711892466690564980, guid: 6e9f3f639d783064db2575b03ee400d3, type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 7711892466690564980, guid: 6e9f3f639d783064db2575b03ee400d3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1292,6 +1237,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextWaypoint: {fileID: 1527331329}
+  startDrifting: 0
+  stopDrifting: 0
   distanceToReachWaypoint: 20
 --- !u!65 &596217935
 BoxCollider:
@@ -1481,7 +1428,7 @@ RectTransform:
   - {fileID: 1228299865}
   - {fileID: 1217597421}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1715,7 +1662,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &701317030
 GameObject:
@@ -1761,7 +1708,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
@@ -1895,6 +1842,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextWaypoint: {fileID: 1048123766}
+  startDrifting: 1
+  stopDrifting: 0
   distanceToReachWaypoint: 20
 --- !u!65 &733217418
 BoxCollider:
@@ -2018,6 +1967,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextWaypoint: {fileID: 386658655}
+  startDrifting: 0
+  stopDrifting: 0
   distanceToReachWaypoint: 20
 --- !u!65 &765447558
 BoxCollider:
@@ -2141,6 +2092,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextWaypoint: {fileID: 2081593565}
+  startDrifting: 0
+  stopDrifting: 1
   distanceToReachWaypoint: 20
 --- !u!65 &836283420
 BoxCollider:
@@ -2402,7 +2355,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: c73ea1081e5e69e4aac6e55509ff7875, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c73ea1081e5e69e4aac6e55509ff7875, type: 3}
       propertyPath: m_LocalScale.x
@@ -2774,6 +2727,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextWaypoint: {fileID: 1281495389}
+  startDrifting: 0
+  stopDrifting: 0
   distanceToReachWaypoint: 20
 --- !u!65 &1048123767
 BoxCollider:
@@ -3083,7 +3038,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ade4c9f8f9c02da4a91dd6a9eb4e5ce8, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ade4c9f8f9c02da4a91dd6a9eb4e5ce8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3173,7 +3128,7 @@ Transform:
   - {fileID: 963194228}
   - {fileID: 2018242627}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1190439768
 GameObject:
@@ -3284,7 +3239,7 @@ Transform:
   - {fileID: 1993830583}
   - {fileID: 1026754824}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1197155960
 GameObject:
@@ -3320,6 +3275,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextWaypoint: {fileID: 596217934}
+  startDrifting: 0
+  stopDrifting: 0
   distanceToReachWaypoint: 20
 --- !u!65 &1197155962
 BoxCollider:
@@ -3628,6 +3585,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextWaypoint: {fileID: 1580764210}
+  startDrifting: 0
+  stopDrifting: 1
   distanceToReachWaypoint: 20
 --- !u!65 &1281495390
 BoxCollider:
@@ -3778,7 +3737,7 @@ Transform:
   - {fileID: 1414422048}
   - {fileID: 765447561}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1359874980
 MonoBehaviour:
@@ -3922,6 +3881,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextWaypoint: {fileID: 2038070140}
+  startDrifting: 0
+  stopDrifting: 0
   distanceToReachWaypoint: 20
 --- !u!65 &1409125916
 BoxCollider:
@@ -4059,6 +4020,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextWaypoint: {fileID: 765447557}
+  startDrifting: 0
+  stopDrifting: 0
   distanceToReachWaypoint: 20
 --- !u!65 &1414422050
 BoxCollider:
@@ -4180,7 +4143,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1527331328
 GameObject:
@@ -4216,6 +4179,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextWaypoint: {fileID: 1688080896}
+  startDrifting: 1
+  stopDrifting: 0
   distanceToReachWaypoint: 20
 --- !u!65 &1527331330
 BoxCollider:
@@ -4339,6 +4304,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextWaypoint: {fileID: 1409125915}
+  startDrifting: 0
+  stopDrifting: 0
   distanceToReachWaypoint: 20
 --- !u!65 &1580764211
 BoxCollider:
@@ -4537,6 +4504,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextWaypoint: {fileID: 2041738035}
+  startDrifting: 0
+  stopDrifting: 1
   distanceToReachWaypoint: 20
 --- !u!65 &1688080897
 BoxCollider:
@@ -4657,7 +4626,7 @@ Transform:
   - {fileID: 920303499}
   - {fileID: 711508330}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1762533876
 GameObject:
@@ -5275,6 +5244,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextWaypoint: {fileID: 1414422049}
+  startDrifting: 0
+  stopDrifting: 0
   distanceToReachWaypoint: 20
 --- !u!65 &1975997521
 BoxCollider:
@@ -5575,6 +5546,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextWaypoint: {fileID: 836283419}
+  startDrifting: 1
+  stopDrifting: 0
   distanceToReachWaypoint: 20
 --- !u!65 &2038070141
 BoxCollider:
@@ -5698,6 +5671,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextWaypoint: {fileID: 522763976}
+  startDrifting: 0
+  stopDrifting: 0
   distanceToReachWaypoint: 20
 --- !u!65 &2041738036
 BoxCollider:
@@ -5821,6 +5796,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextWaypoint: {fileID: 1197155961}
+  startDrifting: 0
+  stopDrifting: 0
   distanceToReachWaypoint: 20
 --- !u!65 &2081593566
 BoxCollider:
@@ -5910,67 +5887,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9594ab3328ae02e41b9848e712401b08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1001 &2085037674
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 6197b1dfcea01df4fb16f15d9f070a37, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 6197b1dfcea01df4fb16f15d9f070a37, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 8.653407
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 6197b1dfcea01df4fb16f15d9f070a37, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.002184799
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 6197b1dfcea01df4fb16f15d9f070a37, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 23.497288
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 6197b1dfcea01df4fb16f15d9f070a37, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 6197b1dfcea01df4fb16f15d9f070a37, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 6197b1dfcea01df4fb16f15d9f070a37, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 6197b1dfcea01df4fb16f15d9f070a37, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 6197b1dfcea01df4fb16f15d9f070a37, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 6197b1dfcea01df4fb16f15d9f070a37, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 6197b1dfcea01df4fb16f15d9f070a37, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -4897732323685117858, guid: 6197b1dfcea01df4fb16f15d9f070a37, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 2cfc26a7fd673914cb6005fb009cbca6, type: 2}
-    - target: {fileID: 919132149155446097, guid: 6197b1dfcea01df4fb16f15d9f070a37, type: 3}
-      propertyPath: m_Name
-      value: bimo
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 6197b1dfcea01df4fb16f15d9f070a37, type: 3}
 --- !u!1 &2104967135
 GameObject:
   m_ObjectHideFlags: 0
@@ -6002,7 +5918,7 @@ Transform:
   - {fileID: 1052459369}
   - {fileID: 338051726}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2108723413 stripped
 GameObject:

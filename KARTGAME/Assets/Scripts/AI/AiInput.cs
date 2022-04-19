@@ -9,6 +9,7 @@ public class AiInput : MonoBehaviour
     KartController kartController;
 
     AiWaypoint currentWaypoint;
+    AiWaypoint lastCheckpoint;
     AiWaypoint[] aiWaypoints;
 
     bool hopped = false;
@@ -36,6 +37,7 @@ public class AiInput : MonoBehaviour
         float distanceToTarget = Vector3.Distance(transform.position, targetPosition);
 
         if (distanceToTarget <= currentWaypoint.distanceToReachWaypoint) {
+            lastCheckpoint = currentWaypoint;
             currentWaypoint = currentWaypoint.nextWaypoint;
             SetTargetPosition(randomPosition(currentWaypoint.transform.position));
         }
@@ -47,13 +49,14 @@ public class AiInput : MonoBehaviour
 
         float angleToDirection = Vector3.SignedAngle(transform.forward, directionToMovePosition, Vector3.up);
 
-        /*
-        if (angleToDirection > 30f || angleToDirection < -30f) {
+        if (currentWaypoint.startDrifting && !hopped) {
             kartController.Hop();
-        } else if (angleToDirection < 40f || angleToDirection > -40f) {
+            hopped = true;
+        } else if (currentWaypoint.stopDrifting) {
             kartController.StopDrifting();
+            hopped = false;
         }
-        */
+
 
         if (angleToDirection > 10f) {
             horizontal = 1f;
