@@ -11,7 +11,5 @@ public class KartAnimation : MonoBehaviour
     void Update()
     {
         anim.SetFloat("Speed", kc.speed);
-
-        Debug.Log(kc.speed);
     }
 }
