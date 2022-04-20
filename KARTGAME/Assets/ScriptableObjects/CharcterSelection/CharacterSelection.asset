@@ -16,4 +16,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f0c6748d96f4f0742b115d528a584c69, type: 2}
   - {fileID: 11400000, guid: 7107ee0477794af49a299f47b07c2282, type: 2}
   - {fileID: 11400000, guid: 7107ee0477794af49a299f47b07c2282, type: 2}
-  playerCharacterIndex: 1
+  playerCharacterIndex: 0
