@@ -46,14 +46,14 @@ public class AiInput : MonoBehaviour
         float dot = Vector3.Dot(transform.forward, directionToMovePosition);
 
         float angleToDirection = Vector3.SignedAngle(transform.forward, directionToMovePosition, Vector3.up);
-
-        if (currentWaypoint.startDrifting && !hopped) {
-            kartController.Hop();
-            hopped = true;
-        } else if (currentWaypoint.stopDrifting) {
+        if (currentWaypoint.stopDrifting) {
             kartController.StopDrifting();
             hopped = false;
         }
+        else if (currentWaypoint.startDrifting && !hopped) {
+            kartController.Hop();
+            hopped = true;
+        } 
 
         horizontal = angleToDirection / 10.0f;
 

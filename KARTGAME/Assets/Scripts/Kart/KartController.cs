@@ -27,6 +27,8 @@ public class KartController : MonoBehaviour
     float currentSpeed = 0;
     float driftBufferTime = 0;
     float airTime = 0f;
+
+    float speedEffector = 1f;
     bool hoppedBeforAirborne = false;
     #endregion
 
@@ -75,7 +77,10 @@ public class KartController : MonoBehaviour
         grounded = Physics.Raycast(transform.position, -transform.up, out hit, 0.8f, groundLayer);
         Debug.DrawRay(transform.position, -transform.up * 0.8f, Color.red);
         Quaternion rot = Quaternion.Lerp(transform.rotation, Quaternion.FromToRotation(transform.up * 2, hit.normal) * transform.rotation, 7f * Time.deltaTime);
-        
+
+        if (hit.transform != null)
+            speedEffector = hit.transform.tag == "Road" ? 1f: 0.5f;
+
         rot.x = Mathf.Clamp(rot.x, -45f, 45f);
         rot.z = Mathf.Clamp(rot.z, -45f, 45f);
         transform.rotation = rot;
@@ -104,12 +109,16 @@ public class KartController : MonoBehaviour
         if ((vertical != 0 || horizontal != 0) && OnSlope()) {
             rb.AddForce(-transform.up * 70f, ForceMode.Acceleration);
         }
-        
-        braking = vertical < 0 && currentSpeed > 0;
+
+        braking = vertical < 0 && currentSpeed > 0; 
         if (currentSpeed <= 0 && vertical < 0) {
             BackwardsMovement();
         } else if (grounded) {
             ForwardMovement();
+        }
+
+        if (grounded) {
+            rb.AddForce(transform.forward * currentSpeed * speedEffector, ForceMode.Force);
         }
 
         if (drifting && grounded && vertical > 0) {
@@ -138,9 +147,6 @@ public class KartController : MonoBehaviour
         }
 
         currentSpeed = Mathf.Clamp(currentSpeed, 0, kart.forwardSpeed);
-        if (grounded) {
-            rb.AddForce(transform.forward * currentSpeed, ForceMode.Force);
-        }
     }
 
     void BackwardsMovement() {
@@ -150,9 +156,7 @@ public class KartController : MonoBehaviour
             currentSpeed += kart.Decelerate * Time.deltaTime;
         }
         currentSpeed = Mathf.Clamp(currentSpeed, -kart.reverseSpeed, 0f);
-        if (grounded) {
-            rb.AddForce(transform.forward * currentSpeed, ForceMode.Force);
-        }
+
     }
 
     void DriftChecks() {
