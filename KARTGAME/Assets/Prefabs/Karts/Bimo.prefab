@@ -4850,7 +4850,6 @@ GameObject:
   - component: {fileID: 4782834427503480331}
   - component: {fileID: 4782834427503480330}
   - component: {fileID: 4692311669693576851}
-  - component: {fileID: 9211990814451618135}
   m_Layer: 0
   m_Name: Bimo
   m_TagString: Kart
@@ -4905,27 +4904,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93d21a42fc11d4d4e96831fed345f399, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 9211990814451618135}
+  anim: {fileID: 905569417756735325}
   kc: {fileID: 4782834427503480330}
---- !u!95 &9211990814451618135
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4782834427503480329}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 68bd22cf6d0ae7d46885cde1d5193aea, type: 3}
-  m_Controller: {fileID: 9100000, guid: 203ec1aef7ccb4646bf8a3a804d236da, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4782834427531972477
 GameObject:
   m_ObjectHideFlags: 0
@@ -24665,5 +24645,10 @@ PrefabInstance:
 --- !u!4 &6517014612492496167 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 68bd22cf6d0ae7d46885cde1d5193aea, type: 3}
+  m_PrefabInstance: {fileID: 6772199152267315916}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &905569417756735325 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 68bd22cf6d0ae7d46885cde1d5193aea, type: 3}
   m_PrefabInstance: {fileID: 6772199152267315916}
   m_PrefabAsset: {fileID: 0}
