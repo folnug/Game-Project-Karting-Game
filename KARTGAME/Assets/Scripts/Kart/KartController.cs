@@ -136,7 +136,7 @@ public class KartController : MonoBehaviour
         } else if (vertical == 0) {
             currentSpeed -= kart.Decelerate * Time.deltaTime;
         }
-
+        
         currentSpeed = Mathf.Clamp(currentSpeed, 0, kart.forwardSpeed);
         if (grounded) {
             rb.AddForce(transform.forward * currentSpeed, ForceMode.Force);

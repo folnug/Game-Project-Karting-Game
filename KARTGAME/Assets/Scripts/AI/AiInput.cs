@@ -61,7 +61,8 @@ public class AiInput : MonoBehaviour
         vertical = dot > 0 ? 1f : -1f;
 
         vertical = vertical * (1.05f - Mathf.Abs(horizontal) / 1.0f);
-        Debug.Log(vertical);
+
+
         kartController.SetInputs(horizontal, vertical);
     }
 
@@ -77,7 +78,7 @@ public class AiInput : MonoBehaviour
 
     Vector3 randomPosition(Vector3 position) {
         Vector3 randomDirection = new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f)).normalized;
-        return position + randomDirection * Random.Range(1f, 30f);
+        return position + randomDirection * Random.Range(1f, 15f);
     }
 
     void OnDrawGizmos() {
