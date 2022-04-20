@@ -55,7 +55,7 @@ public class AiInput : MonoBehaviour
             hopped = false;
         }
 
-        horizontal = angleToDirection / 25.0f;
+        horizontal = angleToDirection / 10.0f;
 
         horizontal = Mathf.Clamp(horizontal, -1f, 1f);
         vertical = dot > 0 ? 1f : -1f;
