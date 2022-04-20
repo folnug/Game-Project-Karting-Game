@@ -45,8 +45,6 @@ public class AiInput : MonoBehaviour
         Vector3 directionToMovePosition = (targetPosition - transform.position).normalized;
         float dot = Vector3.Dot(transform.forward, directionToMovePosition);
 
-        vertical = dot > 0 ? 1f : -1f;
-
         float angleToDirection = Vector3.SignedAngle(transform.forward, directionToMovePosition, Vector3.up);
 
         if (currentWaypoint.startDrifting && !hopped) {
@@ -57,15 +55,13 @@ public class AiInput : MonoBehaviour
             hopped = false;
         }
 
+        horizontal = angleToDirection / 25.0f;
 
-        if (angleToDirection > 10f) {
-            horizontal = 1f;
-        } else if (angleToDirection < -10f) {
-            horizontal = -1f;
-        } else {
-            horizontal = 0f;
-        }
+        horizontal = Mathf.Clamp(horizontal, -1f, 1f);
+        vertical = dot > 0 ? 1f : -1f;
 
+        vertical = vertical * (1.05f - Mathf.Abs(horizontal) / 1.0f);
+        Debug.Log(vertical);
         kartController.SetInputs(horizontal, vertical);
     }
 
