@@ -4863,6 +4863,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 5092476375580956955, guid: 4d58e8ee878a2dd40a4b55e6fa2c9472, type: 3}
+      propertyPath: m_TagString
+      value: Road
+      objectReference: {fileID: 0}
     - target: {fileID: 5607687094247238488, guid: 4d58e8ee878a2dd40a4b55e6fa2c9472, type: 3}
       propertyPath: m_RootOrder
       value: 2

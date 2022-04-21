@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: CharacterSelection
   m_EditorClassIdentifier: 
   characters:
+  - {fileID: 11400000, guid: fe133179b4fef914a9e7f114aecd8d4d, type: 2}
+  - {fileID: 11400000, guid: 7107ee0477794af49a299f47b07c2282, type: 2}
   - {fileID: 11400000, guid: f0c6748d96f4f0742b115d528a584c69, type: 2}
-  - {fileID: 11400000, guid: 7107ee0477794af49a299f47b07c2282, type: 2}
-  - {fileID: 11400000, guid: 7107ee0477794af49a299f47b07c2282, type: 2}
-  playerCharacterIndex: 1
+  - {fileID: 11400000, guid: e45e5bc8bd7ab1b4daeb59e0fa060486, type: 2}
+  playerCharacterIndex: 0
