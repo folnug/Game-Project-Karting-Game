@@ -21,7 +21,7 @@ MonoBehaviour:
   jumpForce: 15
   driftTurnSpeed: 70
   driftTurnModifier: 0.7
-  driftChargeSpeed: 80
+  driftChargeSpeed: 90
   outwardsDriftForce: 0
   boostTime: 2
   boostAmount: 30
@@ -31,5 +31,5 @@ MonoBehaviour:
   rollAmount: 0
   rollDriftAmount: 0
   yawAmount: 15
-  yawDriftAmount: 35
+  yawDriftAmount: 25
   visualTurningSpeed: 2

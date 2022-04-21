@@ -245,5 +245,11 @@ public class KartController : MonoBehaviour
     public void SetState(KartStates state) => currentState = state;
 
     public float GetVertical() => vertical;
+    public float GetHorizontal() => horizontal;
+
+    public float GetDirection() {
+        if (!drifting)  return 0;
+        return direction;
+    }
 
 }

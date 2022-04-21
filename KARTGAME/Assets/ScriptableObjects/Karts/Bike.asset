@@ -25,7 +25,7 @@ MonoBehaviour:
   outwardsDriftForce: 0
   boostTime: 2
   boostAmount: 20
-  impulseBoostAmount: 0
+  impulseBoostAmount: 10
   airDrag: 0
   groundDrag: 4
   rollAmount: 30

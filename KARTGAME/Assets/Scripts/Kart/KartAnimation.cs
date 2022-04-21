@@ -10,6 +10,6 @@ public class KartAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        anim.SetFloat("Speed", kc.speed);
+        anim.SetBool("Moving", kc.speed != 0);
     }
 }

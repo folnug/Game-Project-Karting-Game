@@ -4835,7 +4835,7 @@ Transform:
   - {fileID: 4782834427531972478}
   - {fileID: 5767712815390786370}
   - {fileID: 4782834428394896066}
-  - {fileID: 6517014612492496167}
+  - {fileID: 5854239990248416364}
   m_Father: {fileID: 4782834427503480331}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4904,7 +4904,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93d21a42fc11d4d4e96831fed345f399, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 905569417756735325}
+  anim: {fileID: 566992400494984726}
   kc: {fileID: 4782834427503480330}
 --- !u!1 &4782834427531972477
 GameObject:
@@ -24581,7 +24581,7 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
---- !u!1001 &6772199152267315916
+--- !u!1001 &6247839844586341255
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -24642,13 +24642,13 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 203ec1aef7ccb4646bf8a3a804d236da, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68bd22cf6d0ae7d46885cde1d5193aea, type: 3}
---- !u!4 &6517014612492496167 stripped
+--- !u!4 &5854239990248416364 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 68bd22cf6d0ae7d46885cde1d5193aea, type: 3}
-  m_PrefabInstance: {fileID: 6772199152267315916}
+  m_PrefabInstance: {fileID: 6247839844586341255}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &905569417756735325 stripped
+--- !u!95 &566992400494984726 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 68bd22cf6d0ae7d46885cde1d5193aea, type: 3}
-  m_PrefabInstance: {fileID: 6772199152267315916}
+  m_PrefabInstance: {fileID: 6247839844586341255}
   m_PrefabAsset: {fileID: 0}
