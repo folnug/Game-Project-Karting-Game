@@ -9,6 +9,11 @@ public class KartCheckpointData : MonoBehaviour
     public List<float> times = new List<float>();
     public int laps = 0;
     public int CheckpointsCollected = 0;
-    public int nextCheckpoint = 0;
+    public int currentCheckpointIndex = 0;
+    public int nextCheckpointIndex = 0;
     public int position = 0;
+    public Checkpoint nextCheckpoint;
+
+    public float DistanceToNext() =>
+        Vector3.Distance(transform.position, nextCheckpoint.transform.position);
 }
