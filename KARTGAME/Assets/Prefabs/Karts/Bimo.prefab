@@ -4850,6 +4850,7 @@ GameObject:
   - component: {fileID: 4782834427503480331}
   - component: {fileID: 4782834427503480330}
   - component: {fileID: 4692311669693576851}
+  - component: {fileID: 8225324158101462714}
   m_Layer: 0
   m_Name: Bimo
   m_TagString: Kart
@@ -4906,6 +4907,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 566992400494984726}
   kc: {fileID: 4782834427503480330}
+--- !u!114 &8225324158101462714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4782834427503480329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 873f13dbdb9f3524aa7d34a3f8c690df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lastTimes: []
+  times: []
+  laps: 0
+  CheckpointsCollected: 0
+  nextCheckpoint: 0
+  position: 0
 --- !u!1 &4782834427531972477
 GameObject:
   m_ObjectHideFlags: 0
@@ -5012,6 +5031,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea8ee2ef2e3d3ee409573f6697bfd10f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parent: {fileID: 4782834427503480331}
   kartController: {fileID: 4782834427503480330}
 --- !u!1 &4782834427728501749
 GameObject:

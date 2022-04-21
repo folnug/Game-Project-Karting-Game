@@ -8,8 +8,8 @@ public class Checkpoint : MonoBehaviour
 
     void OnTriggerEnter(Collider other) {
         if (other.TryGetComponent<KartMotor>(out KartMotor kartMotor)) {
-            Transform kart = kartMotor.kartController.transform;
-            checkpointHandler.KartEnteredCheckpoint(kart, this);
+            KartCheckpointData data = kartMotor.parent.GetComponent<KartCheckpointData>();
+            checkpointHandler.KartEnteredCheckpoint(data, this);
         }
     }
 

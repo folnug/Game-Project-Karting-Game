@@ -3,35 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
-public class KartTimes {
-    public List<float> lastTimes = new List<float>();
-    public List<float> times = new List<float>();
-}
-
 public class CheckpointHandler : MonoBehaviour
 {
-    List<int> nextCheckpoints = new List<int>();
-    List<int> laps = new List<int>();
     List<Checkpoint> checkpoints = new List<Checkpoint>();
-
-    List<KartTimes> times = new List<KartTimes>();
-
-    public List<int> CheckpointsCollected = new List<int>();
-
-    public List<Transform> karts = new List<Transform>();
-
-    List<int> kartPosition = new List<int>();
-
     float timer = 0f;
-
+    KartCheckpointData[] kartCheckpointData;
 
     void Awake() {
 
-        KartController[] kartsTemp = FindObjectsOfType<KartController>();
-
-        foreach(KartController kartTemp in kartsTemp) {
-            karts.Add(kartTemp.transform);
-        }
+        kartCheckpointData = FindObjectsOfType<KartCheckpointData>();
 
         Checkpoint[] tempCheckpoints = transform.GetComponentsInChildren<Checkpoint>();
         foreach(Checkpoint checkpoint in tempCheckpoints) {
@@ -39,42 +19,27 @@ public class CheckpointHandler : MonoBehaviour
             checkpoint.SetCheckpointHandler(this);
         }
 
-        foreach(Transform kart in karts) {
-            nextCheckpoints.Add(0);
-            laps.Add(0);
-            times.Add(new KartTimes());
-            times[karts.IndexOf(kart)].lastTimes.Add(0);
-            CheckpointsCollected.Add(0);
-        }
-
-        for (int i = 0; i < karts.Count; i++) {
-            kartPosition.Add(i + 1);
+        foreach(KartCheckpointData data in kartCheckpointData) {
+            data.lastTimes.Add(0);
         }
     }
 
     void FixedUpdate() {
         timer += Time.deltaTime;
-        kartPositions();
     }
-    public void KartEnteredCheckpoint(Transform kart, Checkpoint checkpoint) {
-        int nextCheckpoint = nextCheckpoints[karts.IndexOf(kart)];
+    public void KartEnteredCheckpoint(KartCheckpointData data, Checkpoint checkpoint) {
+        int nextCheckpoint = data.nextCheckpoint;
         if (checkpoints.IndexOf(checkpoint) == nextCheckpoint) {
-            nextCheckpoints[karts.IndexOf(kart)] = nextCheckpoint + 1;
-            CheckpointsCollected[karts.IndexOf(kart)] += 1;
-            if (nextCheckpoints[karts.IndexOf(kart)] == checkpoints.Count) {
-                times[karts.IndexOf(kart)].times.Add(timer - times[karts.IndexOf(kart)].lastTimes[laps[karts.IndexOf(kart)]]);
-                times[karts.IndexOf(kart)].lastTimes.Add(timer);
+            data.nextCheckpoint = nextCheckpoint + 1;
+            data.CheckpointsCollected += 1;
+            if (data.nextCheckpoint == checkpoints.Count) {
+                data.times.Add(timer - data.lastTimes[data.laps]);
+                data.lastTimes.Add(timer);
 
-                laps[karts.IndexOf(kart)] += 1;
-                nextCheckpoints[karts.IndexOf(kart)] = nextCheckpoints[karts.IndexOf(kart)] % checkpoints.Count;
+                data.laps += 1;
+                data.nextCheckpoint = data.nextCheckpoint % checkpoints.Count;
             }
-        } else {
-            return;
         }
-    }
-    
-    void kartPositions() {
-
     }
 
     string TimeToString(float currentTime) {
