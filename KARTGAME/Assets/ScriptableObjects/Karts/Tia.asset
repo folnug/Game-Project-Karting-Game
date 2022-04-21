@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Tia
   m_EditorClassIdentifier: 
   forwardSpeed: 250
-  Acceleration: 180
+  Acceleration: 210
   Decelerate: 200
   brakeForce: 300
   reverseSpeed: 80
@@ -22,7 +22,7 @@ MonoBehaviour:
   driftTurnSpeed: 70
   driftTurnModifier: 0.7
   driftChargeSpeed: 80
-  outwardsDriftForce: 20
+  outwardsDriftForce: 0
   boostTime: 2
   boostAmount: 30
   impulseBoostAmount: 20
@@ -30,6 +30,6 @@ MonoBehaviour:
   groundDrag: 4
   rollAmount: 0
   rollDriftAmount: 0
-  yawAmount: 20
-  yawDriftAmount: 10
+  yawAmount: 15
+  yawDriftAmount: 35
   visualTurningSpeed: 2

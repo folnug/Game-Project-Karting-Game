@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: SaminRata
   m_EditorClassIdentifier: 
   trackName: SaminRata
-  trackScene: TestTrack01
+  trackScene: Track01
   trackImage: {fileID: 0}

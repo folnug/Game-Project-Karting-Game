@@ -844,6 +844,7 @@ GameObject:
   m_Component:
   - component: {fileID: 477457923}
   - component: {fileID: 477457922}
+  - component: {fileID: 477457924}
   m_Layer: 0
   m_Name: CM FollowCam
   m_TagString: Untagged
@@ -901,6 +902,18 @@ Transform:
   m_Father: {fileID: 2117471420}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &477457924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 477457921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1b533f9cabc1dd4f857c6b55707ec09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &479119224
 PrefabInstance:
   m_ObjectHideFlags: 0

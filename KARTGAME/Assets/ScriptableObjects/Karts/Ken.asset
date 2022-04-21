@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Ken
   m_EditorClassIdentifier: 
   forwardSpeed: 260
-  Acceleration: 180
+  Acceleration: 150
   Decelerate: 200
   brakeForce: 300
   reverseSpeed: 80
@@ -31,5 +31,5 @@ MonoBehaviour:
   rollAmount: 0
   rollDriftAmount: 0
   yawAmount: 20
-  yawDriftAmount: 10
+  yawDriftAmount: 30
   visualTurningSpeed: 2

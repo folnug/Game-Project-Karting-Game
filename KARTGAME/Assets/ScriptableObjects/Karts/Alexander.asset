@@ -24,12 +24,12 @@ MonoBehaviour:
   driftChargeSpeed: 80
   outwardsDriftForce: 0
   boostTime: 2
-  boostAmount: 30
-  impulseBoostAmount: 20
+  boostAmount: 20
+  impulseBoostAmount: 25
   airDrag: 0
   groundDrag: 4
   rollAmount: 0
   rollDriftAmount: 0
   yawAmount: 20
-  yawDriftAmount: 10
+  yawDriftAmount: 40
   visualTurningSpeed: 2
