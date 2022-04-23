@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7711892466690564980}
   - component: {fileID: 7130191298497427311}
   - component: {fileID: 7711892466690564981}
+  - component: {fileID: 1964328858}
   m_Layer: 0
   m_Name: TrackManager 1
   m_TagString: Untagged
@@ -25,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7711892466690564982}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -8.55, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -44,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4322531a1aa9fb4ba3dfda8f02d7873, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 3
+  duration: 4
 --- !u!114 &7711892466690564981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,3 +61,16 @@ MonoBehaviour:
   characterSelection: {fileID: 11400000, guid: 7dba630185dc3ec4eb341a6e190c2024, type: 2}
   gap: 5
   vcam: {fileID: 0}
+--- !u!114 &1964328858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7711892466690564982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a37fdda34b237d04795569f416e45566, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkpointsTransform: {fileID: 0}

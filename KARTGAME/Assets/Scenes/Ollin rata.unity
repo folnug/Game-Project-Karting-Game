@@ -629,7 +629,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 375337072}
-  - component: {fileID: 375337073}
   - component: {fileID: 375337074}
   m_Layer: 0
   m_Name: Waypoints
@@ -678,18 +677,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &375337073
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 375337071}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a37fdda34b237d04795569f416e45566, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &375337074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1378,6 +1365,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1964328858, guid: 6e9f3f639d783064db2575b03ee400d3, type: 3}
+      propertyPath: checkpointsTransform
+      value: 
+      objectReference: {fileID: 375337072}
     - target: {fileID: 7711892466690564980, guid: 6e9f3f639d783064db2575b03ee400d3, type: 3}
       propertyPath: m_RootOrder
       value: 11

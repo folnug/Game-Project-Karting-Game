@@ -6,15 +6,21 @@ using System;
 using System.Linq;
 public class CheckpointHandler : MonoBehaviour
 {
+    [SerializeField] Transform checkpointsTransform;
     List<Checkpoint> checkpoints = new List<Checkpoint>();
+
+    StartCountdown startCountdown;
+
     float timer = 0f;
     List<KartCheckpointData> kartCheckpointData = new List<KartCheckpointData>();
 
     void Awake() {
 
+        startCountdown = GetComponent<StartCountdown>();
+
         KartCheckpointData[] tempKartCheckpointData = FindObjectsOfType<KartCheckpointData>();
 
-        Checkpoint[] tempCheckpoints = transform.GetComponentsInChildren<Checkpoint>();
+        Checkpoint[] tempCheckpoints = checkpointsTransform.GetComponentsInChildren<Checkpoint>();
         foreach(Checkpoint checkpoint in tempCheckpoints) {
             checkpoints.Add(checkpoint);
             checkpoint.SetCheckpointHandler(this);
@@ -30,7 +36,8 @@ public class CheckpointHandler : MonoBehaviour
     }
     
     void FixedUpdate() {
-        timer += Time.deltaTime;
+        if (startCountdown.GetCountdown() <= 0)
+            timer += Time.deltaTime;
         KartPosition();
         for (int i = 0; i < kartCheckpointData.Count; i++) {
             kartCheckpointData[i].position = i + 1;

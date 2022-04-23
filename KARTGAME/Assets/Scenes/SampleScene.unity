@@ -774,10 +774,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7130191298497427311, guid: 6e9f3f639d783064db2575b03ee400d3, type: 3}
-      propertyPath: duration
-      value: 4
-      objectReference: {fileID: 0}
+    - target: {fileID: 1964328858, guid: 6e9f3f639d783064db2575b03ee400d3, type: 3}
+      propertyPath: checkpointsTransform
+      value: 
+      objectReference: {fileID: 1299334528}
     - target: {fileID: 7711892466690564980, guid: 6e9f3f639d783064db2575b03ee400d3, type: 3}
       propertyPath: m_RootOrder
       value: 13
@@ -2363,6 +2363,11 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!4 &1299334528 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6826554317754054787, guid: 6148de9862bbd1e489efdf2711ed906f, type: 3}
+  m_PrefabInstance: {fileID: 6826554318543237920}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1385794812
 GameObject:
   m_ObjectHideFlags: 0
