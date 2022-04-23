@@ -164,12 +164,9 @@ public class KartController : MonoBehaviour
             rb.AddForce(transform.up * kart.jumpForce, ForceMode.Impulse);
             driftBufferTime = driftBufferTimeDuration;
             hopped = false;
-        }
-        if (driftBufferTime > 0) driftBufferTime -= Time.deltaTime;
-        if (driftBufferTime <= 0) driftBufferTime = 0;
-        if ((horizontal != 0) && currentSpeed > kart.forwardSpeed * 0.25f && driftBufferTime > 0) {
-            drifting = true;
-            driftBufferTime = 0;
+            if ((horizontal != 0) && currentSpeed > kart.forwardSpeed * 0.25f) {
+                drifting = true;
+            }
         }
 
         if (drifting && vertical < 0) {
