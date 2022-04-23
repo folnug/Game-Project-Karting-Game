@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class StartCountdown : MonoBehaviour
 {
@@ -20,5 +21,12 @@ public class StartCountdown : MonoBehaviour
             foreach(KartController kartController in kartControllers) kartController.SetState(KartController.KartStates.Drive);
             duration = 0f;
         }
+    }
+
+    public float GetCountdown() => duration;
+
+    public string GetCountdownString() {
+        TimeSpan timeSpan = TimeSpan.FromSeconds(duration);
+        return timeSpan.ToString("%s");
     }
 }

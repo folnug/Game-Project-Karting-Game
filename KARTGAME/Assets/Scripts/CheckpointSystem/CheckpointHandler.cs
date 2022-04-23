@@ -66,6 +66,8 @@ public class CheckpointHandler : MonoBehaviour
 
     }
 
+    public string GetTime() => TimeToString(timer);
+
     string TimeToString(float currentTime) {
         TimeSpan time = TimeSpan.FromSeconds(currentTime);
         return time.ToString(@"mm\:ss\:ff");
