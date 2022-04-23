@@ -42,7 +42,7 @@ public class GameUI : MonoBehaviour
 
         timer.text = checkpointHandler.GetTime();
         if (lastLap != playerData.laps) {
-            laps.text = "Laps: " + playerData.laps;
+            laps.text = "" + playerData.laps;
             lastLap = playerData.laps;
         }
 
