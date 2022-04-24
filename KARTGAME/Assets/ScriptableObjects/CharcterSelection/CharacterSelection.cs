@@ -7,4 +7,5 @@ public class CharacterSelection : ScriptableObject
 {
     public KartModel[] characters;
     public int playerCharacterIndex;
+    public int maxlaps = 3;
 }
