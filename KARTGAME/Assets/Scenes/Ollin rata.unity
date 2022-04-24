@@ -2976,6 +2976,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2324742948850023868, guid: afbd441fe39d19c4b8115adc35a07a64, type: 3}
   m_PrefabInstance: {fileID: 1814118989}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1441694207 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2946982529403334301, guid: c5351f620af757f4bbbe5e8b7631a4c1, type: 3}
+  m_PrefabInstance: {fileID: 1557140938}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1492300493 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2324742948850023868, guid: afbd441fe39d19c4b8115adc35a07a64, type: 3}
@@ -3039,6 +3050,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2946982529987315216, guid: c5351f620af757f4bbbe5e8b7631a4c1, type: 3}
+      propertyPath: timer
+      value: 
+      objectReference: {fileID: 1441694207}
     - target: {fileID: 5309063062475159891, guid: c5351f620af757f4bbbe5e8b7631a4c1, type: 3}
       propertyPath: m_Name
       value: UI
