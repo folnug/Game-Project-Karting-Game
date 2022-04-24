@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dfba463fc62c7344b5adbce30dc9512, type: 3}
   m_Name: OllinRata
   m_EditorClassIdentifier: 
-  trackName: Ollin rata
+  trackName: Farm Raceway
   trackScene: Ollin rata
   trackImage: {fileID: 0}
