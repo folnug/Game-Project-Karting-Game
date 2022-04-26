@@ -19,7 +19,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e45e5bc8bd7ab1b4daeb59e0fa060486, type: 2}
   playerCharacterIndex: 2
   maxlaps: 2
-<<<<<<< Updated upstream
   playerDriftMode: 1
-=======
->>>>>>> Stashed changes
