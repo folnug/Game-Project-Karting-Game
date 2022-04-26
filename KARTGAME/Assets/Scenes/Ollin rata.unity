@@ -1390,6 +1390,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 740131216, guid: 6e9f3f639d783064db2575b03ee400d3, type: 3}
+      propertyPath: GameOver.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1145495424}
+    - target: {fileID: 740131216, guid: 6e9f3f639d783064db2575b03ee400d3, type: 3}
+      propertyPath: GameOver.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GameOver
+      objectReference: {fileID: 0}
     - target: {fileID: 1964328858, guid: 6e9f3f639d783064db2575b03ee400d3, type: 3}
       propertyPath: checkpointsTransform
       value: 
@@ -2282,6 +2290,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: afbd441fe39d19c4b8115adc35a07a64, type: 3}
+--- !u!114 &1145495424 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2946982529923055883, guid: c5351f620af757f4bbbe5e8b7631a4c1, type: 3}
+  m_PrefabInstance: {fileID: 1557140938}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c8ce9a0e8031fb4386186aa6c30c140, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1202378314
 PrefabInstance:
   m_ObjectHideFlags: 0

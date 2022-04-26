@@ -31,11 +31,10 @@ public class KartController : MonoBehaviour
     float speedEffector = 1f;
     bool hoppedBeforAirborne = false;
 
+    // Automatic
     float automaticDriftTimer = 0f;
     float activateAutomaticDriftTime = 0.5f;
-
     bool automaticDrift = false;
-
     float automaticDriftDirection = 0f;
 
     #endregion

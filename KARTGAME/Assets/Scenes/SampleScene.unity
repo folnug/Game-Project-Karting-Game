@@ -3456,6 +3456,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1010601601, guid: c5351f620af757f4bbbe5e8b7631a4c1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1651406069, guid: c5351f620af757f4bbbe5e8b7631a4c1, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1651406069, guid: c5351f620af757f4bbbe5e8b7631a4c1, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1651406069, guid: c5351f620af757f4bbbe5e8b7631a4c1, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1651406069, guid: c5351f620af757f4bbbe5e8b7631a4c1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2946982529540491836, guid: c5351f620af757f4bbbe5e8b7631a4c1, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
