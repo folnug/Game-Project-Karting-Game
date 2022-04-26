@@ -9,16 +9,19 @@ public class CharacterTrackSelectManager : MonoBehaviour
     [SerializeField] CharacterSelection characterSelection;
     [SerializeField] TrackPool trackPool;
     [SerializeField] GameObject characterSelect;
+    [SerializeField] GameObject driftModeSelect;
     [SerializeField] GameObject trackSelect;
     [SerializeField] GameObject characterPrefab;
     [SerializeField] GameObject trackPrefab;
     [SerializeField] GameObject characterContainer;
+    [SerializeField] GameObject driftContainer;
     [SerializeField] GameObject trackContainer;
 
     EventSystem eventSystem;
 
     enum UIStates {
         CharacterSelection,
+        DriftModeSelection,
         TrackSelection
     }
 
@@ -60,20 +63,34 @@ public class CharacterTrackSelectManager : MonoBehaviour
     }
 
     void SwitchSelection() {
+        trackSelect.SetActive(false);
+        driftModeSelect.SetActive(false);
+        characterSelect.SetActive(false);
+        
         switch(currentState) {
             case UIStates.CharacterSelection:
                 characterSelect.SetActive(true);
-                trackSelect.SetActive(!characterSelect.activeSelf);
                 eventSystem.SetSelectedGameObject(null);
                 eventSystem.SetSelectedGameObject(characterContainer.transform.GetChild(0).gameObject);
                 break;
+            case UIStates.DriftModeSelection:
+                driftModeSelect.SetActive(true);
+                eventSystem.SetSelectedGameObject(null);
+                eventSystem.SetSelectedGameObject(driftContainer.transform.GetChild(0).gameObject);
+                break;
             case UIStates.TrackSelection:
                 trackSelect.SetActive(true);
-                characterSelect.SetActive(!trackSelect.activeSelf);
                 eventSystem.SetSelectedGameObject(null);
                 eventSystem.SetSelectedGameObject(trackContainer.transform.GetChild(0).gameObject);
                 break;
         }
+    }
+
+    public void SetDriftMode(int mode) {
+        KartController.KartDriftModes driftMode = (KartController.KartDriftModes)mode;
+        characterSelection.playerDriftMode = driftMode;
+        currentState = UIStates.TrackSelection;
+        SwitchSelection();
     }
 
     public void BackButton() {
@@ -84,7 +101,7 @@ public class CharacterTrackSelectManager : MonoBehaviour
     public void CharacterSelected(int index) {
         characterSelection.playerCharacterIndex = index;
         lastState = currentState;
-        currentState = UIStates.TrackSelection;
+        currentState = UIStates.DriftModeSelection;
         SwitchSelection();
     }
 

@@ -232,6 +232,17 @@
                 },
                 {
                     "name": "",
+                    "id": "0bde7d6c-1f36-4cb0-88be-ef5c78135975",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Hop",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "a7e82a22-6dc1-43b4-a9e5-6628474dc0f0",
                     "path": "<Keyboard>/shift",
                     "interactions": "Hold(duration=0.2)",

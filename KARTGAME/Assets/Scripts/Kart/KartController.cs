@@ -30,6 +30,14 @@ public class KartController : MonoBehaviour
 
     float speedEffector = 1f;
     bool hoppedBeforAirborne = false;
+
+    float automaticDriftTimer = 0f;
+    float activateAutomaticDriftTime = 0.5f;
+
+    bool automaticDrift = false;
+
+    float automaticDriftDirection = 0f;
+
     #endregion
 
     public enum KartStates {
@@ -40,6 +48,13 @@ public class KartController : MonoBehaviour
 
     public KartStates currentState { get; private set; }
 
+    public enum KartDriftModes {
+        Automatic = 0,
+        Normal = 1,
+    }
+
+    public KartDriftModes driftMode = KartDriftModes.Normal;
+
     float DriftDirection(float direction) => Mathf.Abs(kart.driftTurnModifier - (direction * -horizontal));
     float Steer(float turnSpeed, float direction, float amount) => (direction * turnSpeed * Time.deltaTime) * amount;
 
@@ -49,6 +64,8 @@ public class KartController : MonoBehaviour
         minDriftAmmount = 80f;
 
         currentState = KartStates.Stunned;
+
+        automaticDriftTimer = activateAutomaticDriftTime;
     }
 
     void Update()
@@ -96,13 +113,42 @@ public class KartController : MonoBehaviour
             case KartStates.Drive:
                 Steering();
                 Movement();
-                DriftChecks();
-                Drifting();
+                if (driftMode == KartDriftModes.Normal) {
+                    DriftChecks();
+                    Drifting();
+                } else if (driftMode == KartDriftModes.Automatic) {
+                    AutomaticDrift();
+                }
                 AirTime();
                 break;
             case KartStates.Spun:
                 break;
         }
+    }
+
+    void AutomaticDrift() {
+        if (horizontal > 0.5f) {
+            automaticDrift = true;
+            automaticDriftDirection = 1f;
+        } else if (horizontal < -0.5f) {
+            automaticDrift = true;
+            automaticDriftDirection = -1f;
+        }
+        else automaticDrift = false;
+        
+        if(automaticDrift && direction == automaticDriftDirection)
+            automaticDriftTimer = Mathf.Clamp(automaticDriftTimer - Time.deltaTime, 0, activateAutomaticDriftTime);
+        else 
+            automaticDriftTimer = activateAutomaticDriftTime;
+        
+        if (automaticDriftTimer <= 0)
+            drifting = true;
+        else {
+            drifting = false;
+            automaticDrift = false;
+        }
+        
+        Debug.Log(drifting + " " + automaticDriftTimer);
     }
 
     void Movement() {

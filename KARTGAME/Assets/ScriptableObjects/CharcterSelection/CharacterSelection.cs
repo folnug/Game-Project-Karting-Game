@@ -8,4 +8,6 @@ public class CharacterSelection : ScriptableObject
     public KartModel[] characters;
     public int playerCharacterIndex;
     public int maxlaps = 3;
+
+    public KartController.KartDriftModes playerDriftMode = KartController.KartDriftModes.Normal;
 }

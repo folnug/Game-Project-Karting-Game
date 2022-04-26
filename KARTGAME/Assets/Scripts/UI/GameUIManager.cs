@@ -8,16 +8,26 @@ public class GameUIManager : MonoBehaviour
 {
 
     MainControls mainControls;
+
     [SerializeField] string mainMenuScene = "CharacterTrackSelectTest";
 
-    bool toggle = false;
+    enum States {
+        game,
+        pause,
+        stats
+    }
+
+    States currentState;
 
     [SerializeField] GameObject pauseMenu;
     [SerializeField] GameObject gameMenu;
+    [SerializeField] GameObject statsMenu;
 
     void Awake() {
         mainControls = new MainControls();
         mainControls.Menu.Enable();
+
+        currentState = States.game;
     }
 
     void OnEnable() {
@@ -30,28 +40,61 @@ public class GameUIManager : MonoBehaviour
 
 
     void ToggleMenu(InputAction.CallbackContext context) {
-        toggle = !toggle;
+        if (currentState != States.pause) currentState = States.pause;
+        else currentState = States.game;
         UpdateUI();
     }
 
     public void QuitGame() {
-        Time.timeScale = 1;
+        StartTime();
         SceneManager.LoadScene(mainMenuScene);
     }
 
     public void ContinueGame() {
-        toggle = !toggle;
+        currentState = States.game;
+        UpdateUI();
+    }
+
+    public void GameOver() {
+        currentState = States.stats;
         UpdateUI();
     }
 
     void UpdateUI() {
-        pauseMenu.SetActive(toggle);
-        gameMenu.SetActive(!toggle);
-
-        if (toggle) {
-            Time.timeScale = 0;
-        } else {
-            Time.timeScale = 1;
+        switch(currentState) {
+            case States.game:
+                Game();
+                break;
+            case States.pause:
+                Pause();
+                break;
+            case States.stats:
+                Stats();
+                break;
         }
     }
+
+    void Pause() {
+        gameMenu.SetActive(false);
+        pauseMenu.SetActive(true);
+        statsMenu.SetActive(false);
+        StopTime();
+    }
+
+    void Game() {
+        gameMenu.SetActive(true);
+        pauseMenu.SetActive(false);
+        statsMenu.SetActive(false);
+        StartTime();
+    }
+
+    void Stats() {
+        gameMenu.SetActive(false);
+        pauseMenu.SetActive(false);
+        statsMenu.SetActive(true);
+        StartTime();
+    }
+
+    void StopTime() => Time.timeScale = 0;
+    void StartTime() => Time.timeScale = 1;
 }

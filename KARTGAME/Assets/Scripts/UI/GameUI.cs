@@ -13,7 +13,6 @@ public class GameUI : MonoBehaviour
     [SerializeField] Slider boostbar;
 
     CheckpointHandler checkpointHandler;
-    StartCountdown countdown;
     KartController player;
     KartCheckpointData playerData;
 
@@ -22,7 +21,6 @@ public class GameUI : MonoBehaviour
 
     void Awake() {
         checkpointHandler = FindObjectOfType<CheckpointHandler>();
-        countdown = FindObjectOfType<StartCountdown>();
         player = FindObjectOfType<PlayerInput>().transform.GetComponent<KartController>();
         playerData = player.transform.GetComponent<KartCheckpointData>();
         boostbar.maxValue = 100f;
@@ -30,15 +28,7 @@ public class GameUI : MonoBehaviour
 
     void Update() {
 
-        if (checkpointHandler == null || countdown == null || player == null || playerData == null) return;
-
-        if (countdown.GetCountdown() > 1) {
-            counter.text = countdown.GetCountdownString();
-        } else if (countdown.GetCountdown() < 1 && countdown.GetCountdown() > 0)
-            counter.text = "GO!";
-        else {
-            counter.gameObject.SetActive(false);
-        }
+        if (checkpointHandler == null || player == null || playerData == null) return;
 
         timer.text = checkpointHandler.GetTime();
         if (lastLap != playerData.laps) {

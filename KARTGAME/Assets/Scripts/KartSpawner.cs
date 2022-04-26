@@ -18,6 +18,7 @@ public class KartSpawner : MonoBehaviour
             GameObject kart = Instantiate(character.kart, pos + transform.position, transform.rotation);
             if (i == characterSelection.playerCharacterIndex) {
                 kart.AddComponent<PlayerInput>();
+                kart.GetComponent<KartController>().driftMode = characterSelection.playerDriftMode;
                 vcam.Follow = kart.transform;
                 vcam.LookAt = kart.transform;
             } else {
