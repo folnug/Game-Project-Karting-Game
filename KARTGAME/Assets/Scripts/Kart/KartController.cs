@@ -53,18 +53,18 @@ public class KartController : MonoBehaviour
         Normal = 1,
     }
 
-    public KartDriftModes driftMode = KartDriftModes.Normal;
+    public KartDriftModes driftMode;
 
     float DriftDirection(float direction) => Mathf.Abs(kart.driftTurnModifier - (direction * -horizontal));
     float Steer(float turnSpeed, float direction, float amount) => (direction * turnSpeed * Time.deltaTime) * amount;
 
-    void Start()
+    void Awake()
     {
         rb.transform.parent = null;
         minDriftAmmount = 80f;
 
         currentState = KartStates.Stunned;
-
+        driftMode = KartDriftModes.Normal;
         automaticDriftTimer = activateAutomaticDriftTime;
     }
 
