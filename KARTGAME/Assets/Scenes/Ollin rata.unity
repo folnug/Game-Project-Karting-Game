@@ -1442,6 +1442,10 @@ PrefabInstance:
       propertyPath: vcam
       value: 
       objectReference: {fileID: 477457922}
+    - target: {fileID: 7711892466690564981, guid: 6e9f3f639d783064db2575b03ee400d3, type: 3}
+      propertyPath: characterSelection
+      value: 
+      objectReference: {fileID: 11400000, guid: 7dba630185dc3ec4eb341a6e190c2024, type: 2}
     - target: {fileID: 7711892466690564982, guid: 6e9f3f639d783064db2575b03ee400d3, type: 3}
       propertyPath: m_Name
       value: TrackManager 1
@@ -2282,6 +2286,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: afbd441fe39d19c4b8115adc35a07a64, type: 3}
+--- !u!1 &1139665821 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7711892466690564982, guid: 6e9f3f639d783064db2575b03ee400d3, type: 3}
+  m_PrefabInstance: {fileID: 638922229}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1139665826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1139665821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbbd2a634101e994cb73e2e90cfd245f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterSelection: {fileID: 11400000, guid: 7dba630185dc3ec4eb341a6e190c2024, type: 2}
 --- !u!1001 &1202378314
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -72,6 +72,17 @@ public class CheckpointHandler : MonoBehaviour
 
     }
 
+    public KartCheckpointData GetPlayer() {
+        foreach(KartCheckpointData kart in kartCheckpointData) {
+            PlayerInput temp = kart.GetComponent<PlayerInput>();
+            if (temp != null) {
+                return kart;
+            }
+        }
+
+        return null;
+    }
+
     public string GetTime() => TimeToString(timer);
     public KartCheckpointData GetPlayer() {
         foreach(KartCheckpointData kart in kartCheckpointData) {
