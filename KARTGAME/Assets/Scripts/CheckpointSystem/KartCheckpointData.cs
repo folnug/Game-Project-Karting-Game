@@ -14,6 +14,13 @@ public class KartCheckpointData : MonoBehaviour
     public int position = 0;
     public Checkpoint nextCheckpoint;
 
+    string kartName;
+
+    void Awake() {
+        kartName = GetComponent<KartController>().kart.Name;
+    }
+
+    public string GetKartName() => kartName;
     public float DistanceToNext() =>
         Vector3.Distance(transform.position, nextCheckpoint.transform.position);
 }

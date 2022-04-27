@@ -84,6 +84,8 @@ public class CheckpointHandler : MonoBehaviour
     public void StartTimer() => runTimer = true;
     public void StopTimer() => runTimer = false;
     
+    public List<KartCheckpointData> GetKarts() => kartCheckpointData;
+
     string TimeToString(float currentTime) {
         TimeSpan time = TimeSpan.FromSeconds(currentTime);
         return time.ToString(@"mm\:ss\:ff");

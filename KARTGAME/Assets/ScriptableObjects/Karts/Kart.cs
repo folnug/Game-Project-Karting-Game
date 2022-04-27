@@ -4,6 +4,7 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "Kart", menuName = "KART DEMO/Kart", order = 0)]
 public class Kart : ScriptableObject {
+    public string Name;
     [Header("Movement Settings")]
     public float forwardSpeed;
 

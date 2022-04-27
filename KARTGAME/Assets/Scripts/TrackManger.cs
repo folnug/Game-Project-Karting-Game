@@ -56,8 +56,10 @@ public class TrackManger : MonoBehaviour
     }
     public float GetCountdown() => duration;
 
+    public int GetMaxLaps() => characterSelection.maxlaps;
+
     public string GetCountdownString() {
-        TimeSpan timeSpan = TimeSpan.FromSeconds(duration);
+        TimeSpan timeSpan = TimeSpan.FromSeconds(duration + 1);
         return timeSpan.ToString("%s");
     }
 }

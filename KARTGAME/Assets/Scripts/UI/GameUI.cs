@@ -16,11 +16,14 @@ public class GameUI : MonoBehaviour
     KartController player;
     KartCheckpointData playerData;
 
+    TrackManger trackManger;
+
     int lastLap = 1;
     int lastPosition = 0;
 
     void Awake() {
         checkpointHandler = FindObjectOfType<CheckpointHandler>();
+        trackManger = FindObjectOfType<TrackManger>();
         player = FindObjectOfType<PlayerInput>().transform.GetComponent<KartController>();
         playerData = player.transform.GetComponent<KartCheckpointData>();
         boostbar.maxValue = 100f;
@@ -30,9 +33,16 @@ public class GameUI : MonoBehaviour
 
         if (checkpointHandler == null || player == null || playerData == null) return;
 
+        if (trackManger.GetCountdown() > 0) {
+            counter.text = trackManger.GetCountdownString();
+            counter.gameObject.SetActive(true);
+        } else {
+            counter.gameObject.SetActive(false);
+        }
+
         timer.text = checkpointHandler.GetTime();
         if (lastLap != playerData.laps) {
-            laps.text = "" + playerData.laps;
+            laps.text = playerData.laps + "/" + trackManger.GetMaxLaps();
             lastLap = playerData.laps;
         }
 

@@ -4,7 +4,7 @@ using Random = UnityEngine.Random;
 
 public class KartController : MonoBehaviour
 {
-    [SerializeField] Kart kart;
+    public Kart kart;
     [SerializeField] Rigidbody rb;
     [SerializeField] LayerMask groundLayer;
     [SerializeField] Transform visual;

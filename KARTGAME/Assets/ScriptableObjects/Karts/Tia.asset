@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 543d8aa0779fe484c9924625ff0b72d0, type: 3}
   m_Name: Tia
   m_EditorClassIdentifier: 
+  Name: Tia
   forwardSpeed: 250
   Acceleration: 210
   Decelerate: 200

@@ -40,12 +40,14 @@ public class GameUIManager : MonoBehaviour
 
 
     void ToggleMenu(InputAction.CallbackContext context) {
+        if (currentState == States.stats) return;
         if (currentState != States.pause) currentState = States.pause;
         else currentState = States.game;
         UpdateUI();
     }
 
     public void QuitGame() {
+        Debug.Log("Quit game!");
         StartTime();
         SceneManager.LoadScene(mainMenuScene);
     }
