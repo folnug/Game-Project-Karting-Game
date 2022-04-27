@@ -8,7 +8,9 @@ public class KartController : MonoBehaviour
     [SerializeField] Rigidbody rb;
     [SerializeField] LayerMask groundLayer;
     [SerializeField] Transform visual;
-    [SerializeField] float driftBufferTimeDuration = 0.5f;
+
+    [SerializeField] float rubberBandSpeed = 20f;
+
     #region public variables
     public bool grounded { get; private set; }
     public bool giveImpulseBoost { get; private set; }
@@ -25,7 +27,6 @@ public class KartController : MonoBehaviour
     float horizontal, vertical, moveSpeed, direction = 0;
     float impulseBoostAmount = 0f;
     float currentSpeed = 0;
-    float driftBufferTime = 0;
     float airTime = 0f;
 
     float speedEffector = 1f;
@@ -36,6 +37,8 @@ public class KartController : MonoBehaviour
     float activateAutomaticDriftTime = 0.5f;
     bool automaticDrift = false;
     float automaticDriftDirection = 0f;
+
+    float rubberBandSpeedEffector = 0f;
 
     #endregion
 
@@ -191,7 +194,7 @@ public class KartController : MonoBehaviour
             currentSpeed -= kart.Decelerate * Time.deltaTime;
         }
 
-        currentSpeed = Mathf.Clamp(currentSpeed, 0, kart.forwardSpeed);
+        currentSpeed = Mathf.Clamp(currentSpeed, 0, kart.forwardSpeed + (rubberBandSpeed * rubberBandSpeedEffector));
     }
 
     void BackwardsMovement() {
@@ -207,7 +210,6 @@ public class KartController : MonoBehaviour
     void DriftChecks() {
         if (hopped) {
             rb.AddForce(transform.up * kart.jumpForce, ForceMode.Impulse);
-            driftBufferTime = driftBufferTimeDuration;
             hopped = false;
             if ((horizontal != 0) && currentSpeed > kart.forwardSpeed * 0.25f) {
                 drifting = true;
@@ -288,6 +290,8 @@ public class KartController : MonoBehaviour
 
     public float GetVertical() => vertical;
     public float GetHorizontal() => horizontal;
+
+    public void SetSpeedEffector(float amount) => rubberBandSpeedEffector = amount;
 
     public float GetDirection() {
         if (!drifting)  return 0;

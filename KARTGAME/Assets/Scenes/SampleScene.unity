@@ -779,16 +779,24 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1487489953}
     - target: {fileID: 740131216, guid: 6e9f3f639d783064db2575b03ee400d3, type: 3}
-      propertyPath: StartRace.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      propertyPath: GameOver.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 2946982530802530300}
     - target: {fileID: 740131216, guid: 6e9f3f639d783064db2575b03ee400d3, type: 3}
-      propertyPath: StartRace.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      propertyPath: StartRace.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2002808502}
+    - target: {fileID: 740131216, guid: 6e9f3f639d783064db2575b03ee400d3, type: 3}
+      propertyPath: GameOver.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
       value: UpdateStats
       objectReference: {fileID: 0}
     - target: {fileID: 740131216, guid: 6e9f3f639d783064db2575b03ee400d3, type: 3}
+      propertyPath: StartRace.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartTimer
+      objectReference: {fileID: 0}
+    - target: {fileID: 740131216, guid: 6e9f3f639d783064db2575b03ee400d3, type: 3}
       propertyPath: StartRace.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: StatsUI, Assembly-CSharp
+      value: CheckpointHandler, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1964328858, guid: 6e9f3f639d783064db2575b03ee400d3, type: 3}
       propertyPath: checkpointsTransform
@@ -3340,6 +3348,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1993830582}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2002808502 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1964328858, guid: 6e9f3f639d783064db2575b03ee400d3, type: 3}
+  m_PrefabInstance: {fileID: 584480646}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a37fdda34b237d04795569f416e45566, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2018242627 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7593143147091186127, guid: 52f58895e3cc261499b3771ae496ace6, type: 3}

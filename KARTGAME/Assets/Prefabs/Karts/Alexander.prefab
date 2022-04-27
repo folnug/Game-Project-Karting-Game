@@ -580,6 +580,7 @@ GameObject:
   - component: {fileID: 1327157457386611917}
   - component: {fileID: 1327157457386611916}
   - component: {fileID: 3039560446233371898}
+  - component: {fileID: 5431901518720295551}
   m_Layer: 0
   m_Name: Alexander
   m_TagString: Kart
@@ -622,6 +623,7 @@ MonoBehaviour:
     m_Bits: 64
   visual: {fileID: 1327157458097255835}
   driftBufferTimeDuration: 0.2
+  driftMode: 0
 --- !u!114 &3039560446233371898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -638,8 +640,22 @@ MonoBehaviour:
   times: []
   laps: 0
   CheckpointsCollected: 0
-  nextCheckpoint: 0
+  currentCheckpointIndex: 0
+  nextCheckpointIndex: 0
   position: 0
+  nextCheckpoint: {fileID: 0}
+--- !u!114 &5431901518720295551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1327157457386611919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 644d0c56244c7714bbd71b77b55f6d31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1327157458097255834
 GameObject:
   m_ObjectHideFlags: 0

@@ -81,6 +81,10 @@ public class CheckpointHandler : MonoBehaviour
         return null;
     }
 
+    public Transform FirstPositionKart() {
+        return kartCheckpointData.First().transform;
+    }
+
     public void StartTimer() => runTimer = true;
     public void StopTimer() => runTimer = false;
     
