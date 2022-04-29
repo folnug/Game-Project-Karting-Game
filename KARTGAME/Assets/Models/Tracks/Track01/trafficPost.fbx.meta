@@ -2,11 +2,13 @@ fileFormatVersion: 2
 guid: 10ea3d55f1cb77b4aaf6eca758b16e68
 ModelImporter:
   serializedVersion: 20200
-  internalIDToNameTable:
+  internalIDToNameTable: []
+  externalObjects:
   - first:
-      74: 4624265041913375413
-    second: Plane.005|Plane.005Action
-  externalObjects: {}
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TrafficPostMaterial
+    second: {fileID: 2100000, guid: 6c24e08efa2dff245a59ac826367d3aa, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
