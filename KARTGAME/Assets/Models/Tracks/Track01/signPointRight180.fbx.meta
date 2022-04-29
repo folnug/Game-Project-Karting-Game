@@ -3,7 +3,12 @@ guid: 78cc03ef50e9b0c4d9e9f2d8b302275d
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SignPointRight180Material
+    second: {fileID: 2100000, guid: 6c24e08efa2dff245a59ac826367d3aa, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

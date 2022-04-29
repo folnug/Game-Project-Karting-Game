@@ -3,7 +3,12 @@ guid: 618bd7a08a3ce4d40a2bf3c4332b11fe
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ConcreteBarrierMaterial
+    second: {fileID: 2100000, guid: 6c24e08efa2dff245a59ac826367d3aa, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
