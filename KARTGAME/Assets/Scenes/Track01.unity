@@ -8825,6 +8825,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 155ca562693c321409f66d0d44c7be9c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 155ca562693c321409f66d0d44c7be9c, type: 3}
       propertyPath: m_Name
       value: tyre (5)

@@ -3,7 +3,22 @@ guid: 8bec66d58f2e14544b6ae3a1fc04f702
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: OldWindmillTexture
+    second: {fileID: 2100000, guid: 6c24e08efa2dff245a59ac826367d3aa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WindmillBackMaterial
+    second: {fileID: 2100000, guid: 6c24e08efa2dff245a59ac826367d3aa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WindmillMaterial
+    second: {fileID: 2100000, guid: 6c24e08efa2dff245a59ac826367d3aa, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
