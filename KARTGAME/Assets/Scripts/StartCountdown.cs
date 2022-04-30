@@ -6,27 +6,33 @@ using System;
 public class StartCountdown : MonoBehaviour
 {
     [SerializeField] float duration = 0f;
-    KartController[] kartControllers;
+    public static event Action CountdownComplete;
+    public static event Action<float> UpdateUIDuration;
 
-    void Awake() {
-        kartControllers = FindObjectsOfType<KartController>();
+    bool runCounter = false;
+
+    void OnEnable() {
+        TrackManager.StartCounter += StartCounter;
+    }
+
+    void OnDisable() {
+        TrackManager.StartCounter -= StartCounter;
+    }
+
+    void StartCounter() {
+        Debug.Log("Run countdown");
+        runCounter = true;
     }
 
     void Update()
     {
-        if (duration == 0f) return;
+        if (!runCounter) return;
         duration -= Time.deltaTime;
+        UpdateUIDuration?.Invoke(duration);
         if (duration <= 0f) {
-            kartControllers = FindObjectsOfType<KartController>();
-            foreach(KartController kartController in kartControllers) kartController.SetState(KartController.KartStates.Drive);
+            runCounter = false;
             duration = 0f;
+            CountdownComplete?.Invoke();
         }
-    }
-
-    public float GetCountdown() => duration;
-
-    public string GetCountdownString() {
-        TimeSpan timeSpan = TimeSpan.FromSeconds(duration);
-        return timeSpan.ToString("%s");
     }
 }

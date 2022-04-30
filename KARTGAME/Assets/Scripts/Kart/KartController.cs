@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public class KartController : MonoBehaviour
 {
@@ -149,8 +148,6 @@ public class KartController : MonoBehaviour
             drifting = false;
             automaticDrift = false;
         }
-        
-        Debug.Log(drifting + " " + automaticDriftTimer);
     }
 
     void Movement() {

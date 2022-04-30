@@ -18,6 +18,7 @@ public class KartRubberBanding : MonoBehaviour
     }
 
     void FixedUpdate() {
+        /*
         if (kartData.position == 1) return;
 
         Transform firstPositionKart = checkpointHandler.FirstPositionKart();
@@ -29,5 +30,6 @@ public class KartRubberBanding : MonoBehaviour
         }
 
         kart.SetSpeedEffector(speedEffector);
+        */
     }
 }
