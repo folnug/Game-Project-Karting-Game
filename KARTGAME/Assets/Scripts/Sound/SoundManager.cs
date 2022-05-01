@@ -91,16 +91,17 @@ public static class SoundManager
         }
     }
 
-
     private static bool CanPlaySound(Sound sound)
     {
         switch (sound)
         {
+            default:
+                return true;
             case Sound.KartDrift:
                 if (soundTimerDictionary.ContainsKey(sound)) 
                 {
                     float lastTimePlayed = soundTimerDictionary[sound];
-                    float playerDriftTimerMax = .05f;
+                    float playerDriftTimerMax = .05f; //TÄMÄ
                     if (lastTimePlayed + playerDriftTimerMax < Time.time) {
                         soundTimerDictionary[sound] = Time.time;
                         return true;
@@ -110,8 +111,6 @@ public static class SoundManager
                 } else {
                     return true;
                 }
-            default:
-                return true;
         }
     }
 

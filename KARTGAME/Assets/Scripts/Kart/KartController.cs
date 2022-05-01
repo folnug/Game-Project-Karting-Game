@@ -222,6 +222,7 @@ public class KartController : MonoBehaviour
 
     void Drifting() {
         if (drifting && grounded) {
+            SoundManager.PlaySound(SoundManager.Sound.KartDrift, transform.position, 0.01f);
             driftValue += kart.driftChargeSpeed * Time.deltaTime;
         } else if (!drifting && driftValue >= minDriftAmmount && vertical > 0) {
             driftValue = 0;
