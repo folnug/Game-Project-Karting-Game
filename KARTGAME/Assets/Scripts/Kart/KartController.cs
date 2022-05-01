@@ -260,7 +260,7 @@ public class KartController : MonoBehaviour
         hoppedBeforAirborne = true;
         hopped = true;
 
-        //SoundController.PlaySound(SoundController.Sound.KartHop, transform.position, 0.2f);
+        SoundManager.PlaySound(SoundManager.Sound.KartHop, transform.position, 0.01f);
     }
 
     public void StopDrifting() {
@@ -273,7 +273,7 @@ public class KartController : MonoBehaviour
     public void GiveImpulseBoost(float amount) {
         giveImpulseBoost = true;
         impulseBoostAmount = amount;
-        //SoundController.PlaySound(SoundController.Sound.KartBoost, transform.position, 0.2f);
+        SoundManager.PlaySound(SoundManager.Sound.KartBoost, transform.position, 0.05f);
     }
 
     public void SetInputs(float horizontal, float vertical) {

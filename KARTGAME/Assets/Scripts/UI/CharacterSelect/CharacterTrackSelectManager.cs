@@ -90,11 +90,13 @@ public class CharacterTrackSelectManager : MonoBehaviour
         KartController.KartDriftModes driftMode = (KartController.KartDriftModes)mode;
         characterSelection.playerDriftMode = driftMode;
         currentState = UIStates.TrackSelection;
+        SoundManager.PlaySoundMenu(SoundManager.Sound.MenuButton, 0.05f, false);
         SwitchSelection();
     }
 
     public void BackButton() {
         currentState = lastState;
+        SoundManager.PlaySoundMenu(SoundManager.Sound.MenuButton, 0.05f, true);
         SwitchSelection();
     }
 
@@ -102,11 +104,13 @@ public class CharacterTrackSelectManager : MonoBehaviour
         characterSelection.playerCharacterIndex = index;
         lastState = currentState;
         currentState = UIStates.DriftModeSelection;
+        SoundManager.PlaySoundMenu(SoundManager.Sound.MenuButton, 0.05f, true);
         SwitchSelection();
     }
 
     public void TrackSelected(int index) {
         Track selected = trackPool.tracks[index];
+        SoundManager.PlaySoundMenu(SoundManager.Sound.MenuConfirmButton, 0.05f, true);
         SceneManager.LoadScene(selected.trackScene);
     }
 }

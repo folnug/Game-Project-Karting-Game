@@ -20,7 +20,7 @@ public class SoundAssets : MonoBehaviour
     [System.Serializable]
     public class SoundAudioClip
     {
-        public SoundController.Sound sound;
+        public SoundManager.Sound sound;
         public AudioClip audioClip;
     }
 }

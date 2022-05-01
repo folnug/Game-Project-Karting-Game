@@ -27,6 +27,6 @@ public class GameHandler : MonoBehaviour
 
     private void Awake()
     {
-        SoundController.Intialize();
+        SoundManager.Intialize();
     }
 }
