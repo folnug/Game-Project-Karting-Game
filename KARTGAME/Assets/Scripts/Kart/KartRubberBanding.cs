@@ -40,6 +40,6 @@ public class KartRubberBanding : MonoBehaviour
         if (distanceBetween > minDistance) {
             speedEffector = Mathf.Clamp(distanceBetween / maxDistance, 0f, 1f);
         }
-
+        kart.SetSpeedEffector(speedEffector);
     }
 }

@@ -8,8 +8,6 @@ public class KartController : MonoBehaviour
     [SerializeField] LayerMask groundLayer;
     [SerializeField] Transform visual;
 
-    [SerializeField] float rubberBandSpeed = 20f;
-
     #region public variables
     public bool grounded { get; private set; }
     public bool giveImpulseBoost { get; private set; }
@@ -38,6 +36,8 @@ public class KartController : MonoBehaviour
     float automaticDriftDirection = 0f;
 
     float rubberBandSpeedEffector = 0f;
+
+    float rubberBandSpeed = 100f;
 
     #endregion
 

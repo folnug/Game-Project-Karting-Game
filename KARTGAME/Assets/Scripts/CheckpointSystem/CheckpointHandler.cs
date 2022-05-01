@@ -62,10 +62,11 @@ public class CheckpointHandler : MonoBehaviour
         for (int i = 0; i < kartCheckpointData.Count; i++) {
             kartCheckpointData[i].position = i + 1;
         }
-
+        firstPosKart = kartCheckpointData.Find(e => e.position == 1);
         if (firstPosKart != lastFirstPosKart) {
             lastFirstPosKart = firstPosKart;
             KartInFirstPos?.Invoke(firstPosKart);
+            Debug.Log(KartInFirstPos);
         }
 
     }
@@ -111,7 +112,7 @@ public class CheckpointHandler : MonoBehaviour
         }
         return null;
     }
-    
+
     public void StartTimer() => runTimer = true;
     public void StopTimer() => runTimer = false;
     
