@@ -60,7 +60,7 @@ public class GameUI : MonoBehaviour
     void Update() {
         if (selectedData == null || selectedController == null) return;
         boostbar.value = selectedController.driftValue;
-        laps.text = selectedData.laps + " / " + selectedData.maxLaps;
+        laps.text = (selectedData.laps + 1) + " / " + selectedData.maxLaps;
         position.text = selectedData.position + PositionEnding(selectedData.position);
     }
 
