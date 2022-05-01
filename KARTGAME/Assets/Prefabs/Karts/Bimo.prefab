@@ -4893,7 +4893,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   visual: {fileID: 4782834426527948637}
-  driftBufferTimeDuration: 0.2
+  rubberBandSpeed: 20
   driftMode: 0
 --- !u!114 &4692311669693576851
 MonoBehaviour:
@@ -4928,6 +4928,7 @@ MonoBehaviour:
   currentCheckpointIndex: 0
   nextCheckpointIndex: 0
   position: 0
+  maxLaps: 0
   nextCheckpoint: {fileID: 0}
 --- !u!114 &4624558938552846201
 MonoBehaviour:
@@ -9688,7 +9689,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 49ce1792a710a7c4ba022d5c6ce9a4e3, type: 2}
+  - {fileID: 2100000, guid: 98eb73253b381764ca189e2f8d76f05c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -24668,6 +24669,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7635956903842350082, guid: 68bd22cf6d0ae7d46885cde1d5193aea, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4aa9a578e47fb6747bd207c2dbe51909, type: 2}
+    - target: {fileID: -7635956903842350082, guid: 68bd22cf6d0ae7d46885cde1d5193aea, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8fed98d5d351fbe44866064248d9bb3a, type: 2}
+    - target: {fileID: -4897732323685117858, guid: 68bd22cf6d0ae7d46885cde1d5193aea, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 35c4bfa8d39f3e942af8987ce91dc855, type: 2}
+    - target: {fileID: -1096445545266730805, guid: 68bd22cf6d0ae7d46885cde1d5193aea, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 13f277c81b7428e4188ca1465fd004df, type: 2}
+    - target: {fileID: -1096445545266730805, guid: 68bd22cf6d0ae7d46885cde1d5193aea, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 98eb73253b381764ca189e2f8d76f05c, type: 2}
     - target: {fileID: 919132149155446097, guid: 68bd22cf6d0ae7d46885cde1d5193aea, type: 3}
       propertyPath: m_Name
       value: reiko
@@ -24676,6 +24697,14 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 203ec1aef7ccb4646bf8a3a804d236da, type: 2}
+    - target: {fileID: 7315674979762077967, guid: 68bd22cf6d0ae7d46885cde1d5193aea, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 13f277c81b7428e4188ca1465fd004df, type: 2}
+    - target: {fileID: 7315674979762077967, guid: 68bd22cf6d0ae7d46885cde1d5193aea, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 98eb73253b381764ca189e2f8d76f05c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68bd22cf6d0ae7d46885cde1d5193aea, type: 3}
 --- !u!4 &5854239990248416364 stripped
