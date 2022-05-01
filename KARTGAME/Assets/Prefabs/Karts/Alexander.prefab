@@ -581,6 +581,7 @@ GameObject:
   - component: {fileID: 1327157457386611916}
   - component: {fileID: 3039560446233371898}
   - component: {fileID: 5431901518720295551}
+  - component: {fileID: 5557705349437610831}
   m_Layer: 0
   m_Name: Alexander
   m_TagString: Kart
@@ -657,6 +658,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 644d0c56244c7714bbd71b77b55f6d31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &5557705349437610831
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1327157457386611919}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 5a7a80d0e5000e441b85b47b3998e5d2, type: 3}
+  m_Controller: {fileID: 9100000, guid: ced820e762ac45c45af6f3911e5be2af, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1327157458097255834
 GameObject:
   m_ObjectHideFlags: 0
@@ -689,7 +709,7 @@ Transform:
   - {fileID: 25602436}
   - {fileID: 1327157458412294148}
   - {fileID: 3386359672616880461}
-  - {fileID: 5020453390235874805}
+  - {fileID: 4462209938754677023}
   m_Father: {fileID: 1327157457386611917}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -29631,7 +29651,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6edcbdb74f21fd146aa18d2d956147ff, type: 3}
   m_PrefabInstance: {fileID: 2987150249475501734}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &4766641013388694046
+--- !u!1001 &4208135776116788980
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -29686,14 +29706,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: alexander
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 5a7a80d0e5000e441b85b47b3998e5d2, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: ced820e762ac45c45af6f3911e5be2af, type: 2}
     - target: {fileID: 8265358993532343628, guid: 5a7a80d0e5000e441b85b47b3998e5d2, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 065165bce8c8d5c4bb53503fa9db62b5, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a7a80d0e5000e441b85b47b3998e5d2, type: 3}
---- !u!4 &5020453390235874805 stripped
+--- !u!4 &4462209938754677023 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5a7a80d0e5000e441b85b47b3998e5d2, type: 3}
-  m_PrefabInstance: {fileID: 4766641013388694046}
+  m_PrefabInstance: {fileID: 4208135776116788980}
   m_PrefabAsset: {fileID: 0}
