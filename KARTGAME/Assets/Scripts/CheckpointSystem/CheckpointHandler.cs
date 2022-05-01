@@ -15,6 +15,7 @@ public class CheckpointHandler : MonoBehaviour
     List<KartCheckpointData> kartCheckpointData = new List<KartCheckpointData>();
 
     public static event Action<KartCheckpointData> KartCompletedLap;
+    public static event Action<float> TimerUpdate;
 
     void OnEnable() {
         TrackManager.SetupRace += Init;
@@ -49,6 +50,7 @@ public class CheckpointHandler : MonoBehaviour
     void FixedUpdate() {
         if (runTimer)
             timer += Time.deltaTime;
+            TimerUpdate?.Invoke(timer);
         KartPosition();
         for (int i = 0; i < kartCheckpointData.Count; i++) {
             kartCheckpointData[i].position = i + 1;

@@ -12,7 +12,7 @@ public class KartSpawner : MonoBehaviour
     [SerializeField] CinemachineVirtualCamera vcam;
 
     public static event Action<KartController[]> KartSpawnComplete;
-    
+    public static event Action<Transform> PlayerKart;
     void OnEnable() {
         TrackManager.SpawnKarts += SpawnKarts;
     }
@@ -29,11 +29,14 @@ public class KartSpawner : MonoBehaviour
             pos = new Vector3(i * gap, 0, 0);
             GameObject kart = Instantiate(character.kart, pos + transform.position, transform.rotation);
             KartController kartController =  kart.GetComponent<KartController>();
+            KartCheckpointData kartData = kart.GetComponent<KartCheckpointData>();
+            kartData.maxLaps = characterSelection.maxlaps;
             if (i == characterSelection.playerCharacterIndex) {
                 kart.AddComponent<PlayerInput>();
                 kartController.driftMode = characterSelection.playerDriftMode;
                 vcam.Follow = kart.transform;
                 vcam.LookAt = kart.transform;
+                PlayerKart?.Invoke(kart.transform);
             } else {
                 kart.AddComponent<AiInput>();
             }

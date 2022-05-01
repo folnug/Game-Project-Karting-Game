@@ -12,7 +12,7 @@ public class StatsUI : MonoBehaviour
         checkpointHandler = FindObjectOfType<CheckpointHandler>();
     }
 
-    public void UpdateStats() {
+    public void OnEnable() {
         List<KartCheckpointData> karts = checkpointHandler.GetKarts();
         foreach(KartCheckpointData kart in karts) {
             GameObject temp = Instantiate(prefab, Vector3.zero, Quaternion.identity);

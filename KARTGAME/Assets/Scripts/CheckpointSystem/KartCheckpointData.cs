@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
 [System.Serializable]
 public class KartCheckpointData : MonoBehaviour
 {
@@ -12,12 +12,18 @@ public class KartCheckpointData : MonoBehaviour
     public int currentCheckpointIndex = 0;
     public int nextCheckpointIndex = 0;
     public int position = 0;
+    public int maxLaps;
     public Checkpoint nextCheckpoint;
+
+    int lastPosition;
+    int lastLap;
 
     string kartName;
 
     void Awake() {
         kartName = GetComponent<KartController>().kart.Name;
+        lastPosition = -1;
+        lastLap = -1;
     }
 
     public string GetKartName() => kartName;

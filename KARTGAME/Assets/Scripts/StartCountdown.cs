@@ -7,7 +7,7 @@ public class StartCountdown : MonoBehaviour
 {
     [SerializeField] float duration = 0f;
     public static event Action CountdownComplete;
-    public static event Action<float> UpdateUIDuration;
+    public static event Action<float> CountdownUpdate;
 
     bool runCounter = false;
 
@@ -28,7 +28,7 @@ public class StartCountdown : MonoBehaviour
     {
         if (!runCounter) return;
         duration -= Time.deltaTime;
-        UpdateUIDuration?.Invoke(duration);
+        CountdownUpdate?.Invoke(duration);
         if (duration <= 0f) {
             runCounter = false;
             duration = 0f;

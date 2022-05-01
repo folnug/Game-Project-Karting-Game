@@ -5,7 +5,6 @@ using UnityEngine;
 using UnityEngine.Events;
 using Cinemachine;
 
-
 public class TrackManager : MonoBehaviour
 {
 
@@ -28,6 +27,7 @@ public class TrackManager : MonoBehaviour
     public static event Action StartCounter;
     public static event Action SetupRace;
     public static event Action EndRace;
+    public static event Action<KartController> SelectedKart;
 
     #endregion
 
@@ -56,10 +56,10 @@ public class TrackManager : MonoBehaviour
 
     void UpdateTrackManager() {
         lastState = currentState;
-        Debug.Log(currentState);
         switch(currentState) {
             case GameStates.Spawn:
                 SpawnKarts?.Invoke(characterSelection);
+                SelectedKart?.Invoke(karts[characterSelection.playerCharacterIndex]);
                 break;
             case GameStates.Intro:
                 PlayIntro?.Invoke();

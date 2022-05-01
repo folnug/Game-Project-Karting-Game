@@ -32,10 +32,12 @@ public class GameUIManager : MonoBehaviour
 
     void OnEnable() {
         mainControls.Menu.ToggleMenu.started += ToggleMenu;
+        TrackManager.EndRace += GameOver;
     }
 
     void OnDisable() {
         mainControls.Menu.ToggleMenu.started -= ToggleMenu;
+        TrackManager.EndRace -= GameOver;
     }
 
 
@@ -96,7 +98,6 @@ public class GameUIManager : MonoBehaviour
         statsMenu.SetActive(true);
         StartTime();
     }
-
     void StopTime() => Time.timeScale = 0;
     void StartTime() => Time.timeScale = 1;
 }

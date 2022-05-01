@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using System;
 
 public class GameUI : MonoBehaviour
 {
@@ -11,50 +12,56 @@ public class GameUI : MonoBehaviour
     [SerializeField] Text position;
     [SerializeField] Text counter;
     [SerializeField] Slider boostbar;
-
+    Transform selectedKart;
     CheckpointHandler checkpointHandler;
-    KartController player;
-    KartCheckpointData playerData;
-
-    TrackManager trackManger;
-
-    int lastLap = 1;
-    int lastPosition = 0;
+    KartController selectedController;
+    KartCheckpointData selectedData;
 
     void Awake() {
-        /*
-        checkpointHandler = FindObjectOfType<CheckpointHandler>();
-        trackManger = FindObjectOfType<TrackManager>();
-        player = FindObjectOfType<PlayerInput>().transform.GetComponent<KartController>();
-        playerData = player.transform.GetComponent<KartCheckpointData>();
+        boostbar.value = 0f;
         boostbar.maxValue = 100f;
-        */
+    }
+
+    void OnEnable() {
+        StartCountdown.CountdownUpdate += UpdateCountdown;
+        StartCountdown.CountdownComplete += CountdownCompleted;
+        CheckpointHandler.TimerUpdate += UpdateTimer;
+        TrackManager.SelectedKart += SelectKart;
+    }
+
+    void OnDisable() {
+        StartCountdown.CountdownUpdate -= UpdateCountdown;
+        StartCountdown.CountdownComplete -= CountdownCompleted;
+        CheckpointHandler.TimerUpdate -= UpdateTimer;
+        TrackManager.SelectedKart -= SelectKart;
+    }
+
+    void UpdateCountdown(float time) {
+        TimeSpan timeSpan = TimeSpan.FromSeconds(time + 1);
+        counter.text = timeSpan.ToString("%s");
+    }
+
+    void UpdateTimer(float time) {
+        TimeSpan timeSpan = TimeSpan.FromSeconds(time);
+        timer.text = timeSpan.ToString(@"mm\:ss\:ff");
+    }
+
+    void CountdownCompleted() {
+        counter.gameObject.SetActive(false);
+    }
+
+    void SelectKart(KartController kart) {
+        selectedController = kart;
+        selectedData = kart.transform.GetComponent<KartCheckpointData>();
+
+        if (selectedData == null || selectedController == null) return;
     }
 
     void Update() {
-        /*
-        if (checkpointHandler == null || player == null || playerData == null) return;
-
-        if (trackManger.GetCountdown() > 0) {
-            counter.text = trackManger.GetCountdownString();
-            counter.gameObject.SetActive(true);
-        } else {
-            counter.gameObject.SetActive(false);
-        }
-
-        timer.text = checkpointHandler.GetTime();
-        if (lastLap != playerData.laps) {
-            //laps.text = playerData.laps + "/" + trackManger.GetMaxLaps();
-            lastLap = playerData.laps;
-        }
-
-        if (lastPosition != playerData.position) {
-            position.text = playerData.position + PositionEnding(playerData.position);
-            lastPosition = playerData.position;
-        }
-
-        boostbar.value = player.driftValue;
-        */
+        if (selectedData == null || selectedController == null) return;
+        boostbar.value = selectedController.driftValue;
+        laps.text = selectedData.laps + " / " + selectedData.maxLaps;
+        position.text = selectedData.position + PositionEnding(selectedData.position);
     }
 
     string PositionEnding(int position) {
