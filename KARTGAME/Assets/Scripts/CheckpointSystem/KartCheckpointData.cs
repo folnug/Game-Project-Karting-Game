@@ -15,15 +15,10 @@ public class KartCheckpointData : MonoBehaviour
     public int maxLaps;
     public Checkpoint nextCheckpoint;
 
-    int lastPosition;
-    int lastLap;
-
     string kartName;
 
     void Awake() {
         kartName = GetComponent<KartController>().kart.Name;
-        lastPosition = -1;
-        lastLap = -1;
     }
 
     public string GetKartName() => kartName;

@@ -17,6 +17,11 @@ public class CheckpointHandler : MonoBehaviour
     public static event Action<KartCheckpointData> KartCompletedLap;
     public static event Action<float> TimerUpdate;
 
+    public static event Action<KartCheckpointData> KartInFirstPos;
+
+    KartCheckpointData firstPosKart;
+    KartCheckpointData lastFirstPosKart;
+
     void OnEnable() {
         TrackManager.SetupRace += Init;
         TrackManager.EndRace += StopTimer;
@@ -45,6 +50,8 @@ public class CheckpointHandler : MonoBehaviour
         }
 
         runTimer = true;
+
+        firstPosKart = kartCheckpointData[0];
     }
     
     void FixedUpdate() {
@@ -55,6 +62,12 @@ public class CheckpointHandler : MonoBehaviour
         for (int i = 0; i < kartCheckpointData.Count; i++) {
             kartCheckpointData[i].position = i + 1;
         }
+
+        if (firstPosKart != lastFirstPosKart) {
+            lastFirstPosKart = firstPosKart;
+            KartInFirstPos?.Invoke(firstPosKart);
+        }
+
     }
     public void KartEnteredCheckpoint(KartCheckpointData data, Checkpoint checkpoint) {
         if (!runTimer) return;
@@ -98,11 +111,7 @@ public class CheckpointHandler : MonoBehaviour
         }
         return null;
     }
-    /*
-    public Transform FirstPositionKart() {
-        return kartCheckpointData.First().transform;
-    }
-    */
+    
     public void StartTimer() => runTimer = true;
     public void StopTimer() => runTimer = false;
     
