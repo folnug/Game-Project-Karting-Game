@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using System;
 
 public class GameUIManager : MonoBehaviour
 {
@@ -22,6 +23,9 @@ public class GameUIManager : MonoBehaviour
     [SerializeField] GameObject pauseMenu;
     [SerializeField] GameObject gameMenu;
     [SerializeField] GameObject statsMenu;
+
+    public static Action GamePaused;
+    public static Action GameUnPaused;
 
     void Awake() {
         mainControls = new MainControls();
@@ -68,9 +72,11 @@ public class GameUIManager : MonoBehaviour
         switch(currentState) {
             case States.game:
                 Game();
+                GameUnPaused?.Invoke();
                 break;
             case States.pause:
                 Pause();
+                GamePaused?.Invoke();
                 break;
             case States.stats:
                 Stats();

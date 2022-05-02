@@ -4,16 +4,7 @@ using UnityEngine;
 
 public class KartRespawn : MonoBehaviour
 {
-    [SerializeField] Transform sphere;
-    [SerializeField] Transform kart;
-    [SerializeField] float kartRespawnValue;
+    public void RespawnKart(Transform kart, Transform motor) {
 
-    void Update() {
-        if (sphere == null && kart == null) return;
-
-        if (sphere.position.y < kartRespawnValue) {
-            sphere.position = transform.position;
-            kart.rotation = transform.rotation;
-        }
     }
 }
