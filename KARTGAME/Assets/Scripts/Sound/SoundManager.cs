@@ -73,6 +73,22 @@ public static class SoundManager
         }
     }
 
+    public static void PlaySoundCountdown(Sound sound, float volume)
+    {
+        if (CanPlaySound(sound))
+        {
+            GameObject soundGameObject = new GameObject("Countdown Audio");
+            AudioSource audioSource = soundGameObject.AddComponent<AudioSource>();
+            audioSource.clip = GetAudioClip(sound);
+
+            audioSource.volume = volume;
+
+            audioSource.Play();
+
+            Object.Destroy(soundGameObject, audioSource.clip.length);
+        }
+    }
+
     public static void PlaySoundMenu(Sound sound, float volume, bool checkPitch)
     {
         if (CanPlaySound(sound))
@@ -89,7 +105,7 @@ public static class SoundManager
 
             audioSource.Play();
 
-            UnityEngine.Object.Destroy(soundGameObject, audioSource.clip.length);
+            Object.Destroy(soundGameObject, audioSource.clip.length);
         }
     }
 
@@ -138,6 +154,4 @@ public static class SoundManager
     {
         AudioListener.pause = false;
     }
-
-    public static void AddButtonSounds() { }
 }
