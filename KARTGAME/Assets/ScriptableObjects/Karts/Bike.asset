@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Bike
   m_EditorClassIdentifier: 
   Name: Reiko
-  forwardSpeed: 255
-  Acceleration: 180
+  forwardSpeed: 245
+  Acceleration: 250
   Decelerate: 200
   brakeForce: 300
   reverseSpeed: 80

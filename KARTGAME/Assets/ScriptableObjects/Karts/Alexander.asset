@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Alexander
   m_EditorClassIdentifier: 
   Name: Alexander
-  forwardSpeed: 255
+  forwardSpeed: 250
   Acceleration: 200
   Decelerate: 200
   brakeForce: 300
   reverseSpeed: 80
-  turnSpeed: 60
+  turnSpeed: 50
   jumpForce: 15
   driftTurnSpeed: 60
   driftTurnModifier: 0.7

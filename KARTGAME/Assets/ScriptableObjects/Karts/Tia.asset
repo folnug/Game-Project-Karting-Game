@@ -18,14 +18,14 @@ MonoBehaviour:
   Decelerate: 200
   brakeForce: 300
   reverseSpeed: 80
-  turnSpeed: 70
+  turnSpeed: 80
   jumpForce: 15
   driftTurnSpeed: 70
   driftTurnModifier: 0.7
   driftChargeSpeed: 90
   outwardsDriftForce: 0
   boostTime: 2
-  boostAmount: 30
+  boostAmount: 10
   impulseBoostAmount: 20
   airDrag: 0
   groundDrag: 4

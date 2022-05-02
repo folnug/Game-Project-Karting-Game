@@ -13,19 +13,19 @@ MonoBehaviour:
   m_Name: Ken
   m_EditorClassIdentifier: 
   Name: Ken
-  forwardSpeed: 260
+  forwardSpeed: 270
   Acceleration: 150
   Decelerate: 200
   brakeForce: 300
   reverseSpeed: 80
-  turnSpeed: 50
+  turnSpeed: 30
   jumpForce: 15
-  driftTurnSpeed: 50
+  driftTurnSpeed: 40
   driftTurnModifier: 0.7
   driftChargeSpeed: 80
   outwardsDriftForce: 90
   boostTime: 2
-  boostAmount: 20
+  boostAmount: 10
   impulseBoostAmount: 20
   airDrag: 0
   groundDrag: 4
