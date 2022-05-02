@@ -20,7 +20,7 @@ MonoBehaviour:
   reverseSpeed: 80
   turnSpeed: 30
   jumpForce: 15
-  driftTurnSpeed: 40
+  driftTurnSpeed: 50
   driftTurnModifier: 0.7
   driftChargeSpeed: 80
   outwardsDriftForce: 90
