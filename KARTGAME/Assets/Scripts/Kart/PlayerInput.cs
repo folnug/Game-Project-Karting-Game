@@ -25,6 +25,7 @@ public class PlayerInput : MonoBehaviour
 
     void OnDisable() {
         controls.Kart.Hop.started -= StartHop;
+        controls.Kart.Hop.canceled -= StopDrifting;
     }
 
     void Update() {

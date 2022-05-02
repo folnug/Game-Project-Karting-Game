@@ -62,6 +62,15 @@ public partial class @MainControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""FlipCamera"",
+                    ""type"": ""Button"",
+                    ""id"": ""5982ed42-ac97-4a0c-bb32-8771dbe821fa"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -284,6 +293,28 @@ public partial class @MainControls : IInputActionCollection2, IDisposable
                     ""action"": ""Drifting"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c4e9f820-2b16-4ef8-b407-fe8766342469"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""FlipCamera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6475022d-3020-4f9a-96cc-7a3d3dc48863"",
+                    ""path"": ""<Keyboard>/c"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""FlipCamera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -358,6 +389,7 @@ public partial class @MainControls : IInputActionCollection2, IDisposable
         m_Kart_Vertical = m_Kart.FindAction("Vertical", throwIfNotFound: true);
         m_Kart_Hop = m_Kart.FindAction("Hop", throwIfNotFound: true);
         m_Kart_Drifting = m_Kart.FindAction("Drifting", throwIfNotFound: true);
+        m_Kart_FlipCamera = m_Kart.FindAction("FlipCamera", throwIfNotFound: true);
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_ToggleMenu = m_Menu.FindAction("ToggleMenu", throwIfNotFound: true);
@@ -424,6 +456,7 @@ public partial class @MainControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Kart_Vertical;
     private readonly InputAction m_Kart_Hop;
     private readonly InputAction m_Kart_Drifting;
+    private readonly InputAction m_Kart_FlipCamera;
     public struct KartActions
     {
         private @MainControls m_Wrapper;
@@ -432,6 +465,7 @@ public partial class @MainControls : IInputActionCollection2, IDisposable
         public InputAction @Vertical => m_Wrapper.m_Kart_Vertical;
         public InputAction @Hop => m_Wrapper.m_Kart_Hop;
         public InputAction @Drifting => m_Wrapper.m_Kart_Drifting;
+        public InputAction @FlipCamera => m_Wrapper.m_Kart_FlipCamera;
         public InputActionMap Get() { return m_Wrapper.m_Kart; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -453,6 +487,9 @@ public partial class @MainControls : IInputActionCollection2, IDisposable
                 @Drifting.started -= m_Wrapper.m_KartActionsCallbackInterface.OnDrifting;
                 @Drifting.performed -= m_Wrapper.m_KartActionsCallbackInterface.OnDrifting;
                 @Drifting.canceled -= m_Wrapper.m_KartActionsCallbackInterface.OnDrifting;
+                @FlipCamera.started -= m_Wrapper.m_KartActionsCallbackInterface.OnFlipCamera;
+                @FlipCamera.performed -= m_Wrapper.m_KartActionsCallbackInterface.OnFlipCamera;
+                @FlipCamera.canceled -= m_Wrapper.m_KartActionsCallbackInterface.OnFlipCamera;
             }
             m_Wrapper.m_KartActionsCallbackInterface = instance;
             if (instance != null)
@@ -469,6 +506,9 @@ public partial class @MainControls : IInputActionCollection2, IDisposable
                 @Drifting.started += instance.OnDrifting;
                 @Drifting.performed += instance.OnDrifting;
                 @Drifting.canceled += instance.OnDrifting;
+                @FlipCamera.started += instance.OnFlipCamera;
+                @FlipCamera.performed += instance.OnFlipCamera;
+                @FlipCamera.canceled += instance.OnFlipCamera;
             }
         }
     }
@@ -530,6 +570,7 @@ public partial class @MainControls : IInputActionCollection2, IDisposable
         void OnVertical(InputAction.CallbackContext context);
         void OnHop(InputAction.CallbackContext context);
         void OnDrifting(InputAction.CallbackContext context);
+        void OnFlipCamera(InputAction.CallbackContext context);
     }
     public interface IMenuActions
     {
