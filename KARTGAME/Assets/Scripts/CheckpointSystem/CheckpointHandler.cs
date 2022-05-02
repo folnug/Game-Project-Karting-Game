@@ -66,7 +66,6 @@ public class CheckpointHandler : MonoBehaviour
         if (firstPosKart != lastFirstPosKart) {
             lastFirstPosKart = firstPosKart;
             KartInFirstPos?.Invoke(firstPosKart);
-            Debug.Log(KartInFirstPos);
         }
 
     }
