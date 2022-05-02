@@ -53,6 +53,7 @@ public class GameUIManager : MonoBehaviour
     }
 
     public void QuitGame() {
+        SoundManager.EnableSounds();
         Debug.Log("Quit game!");
         StartTime();
         SceneManager.LoadScene(mainMenuScene);
@@ -71,10 +72,12 @@ public class GameUIManager : MonoBehaviour
     void UpdateUI() {
         switch(currentState) {
             case States.game:
+                SoundManager.EnableSounds();
                 Game();
                 GameUnPaused?.Invoke();
                 break;
             case States.pause:
+                SoundManager.DisableSounds();
                 Pause();
                 GamePaused?.Invoke();
                 break;

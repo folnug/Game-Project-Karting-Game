@@ -1,28 +1,30 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public static class SoundManager
 {
-    //private static string[] audioSourcePitchArray = {"Kart"};
 
     public enum Sound
     {
-        // KART //
+        #region Kart
         KartHop,
         KartDrift,
         KartBoost,
 
-        // TRACK //
+        #endregion
+
+        #region Track
         TrackCheckpoint,
         TrackCountdown,
 
-        // MENU (ButtonSounds etc.) //
+        #endregion
+
+        #region Menu
+
         MenuButton,
         MenuConfirmButton,
-
+        #endregion
     }
 
     private static Dictionary<Sound, float> soundTimerDictionary;
@@ -67,7 +69,7 @@ public static class SoundManager
 
             audioSource.Play();
 
-            UnityEngine.Object.Destroy(soundGameObject, audioSource.clip.length);
+            Object.Destroy(soundGameObject, audioSource.clip.length);
         }
     }
 
@@ -125,6 +127,16 @@ public static class SoundManager
         }
         Debug.LogWarning($"SoundController: GetAudioClip() | Sound: {sound} not found.");
         return null;    
+    }
+
+    public static void DisableSounds()
+    {
+        AudioListener.pause = true;
+    }
+
+    public static void EnableSounds()
+    {
+        AudioListener.pause = false;
     }
 
     public static void AddButtonSounds() { }
