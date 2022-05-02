@@ -59,7 +59,7 @@ public class KartController : MonoBehaviour
     public KartDriftModes driftMode;
 
     float DriftDirection(float direction) => Mathf.Abs(kart.driftTurnModifier - (direction * -horizontal));
-    float Steer(float turnSpeed, float direction, float amount) => (direction * turnSpeed * Time.deltaTime) * amount;
+    float Steer(float turnSpeed, float direction, float amount, float factor) => (direction * turnSpeed * Time.deltaTime * factor) * amount;
 
     public static Action<Transform, Transform> RespawnKart;
 
@@ -85,12 +85,14 @@ public class KartController : MonoBehaviour
         float turnDirection = drifting ? direction : horizontal;
         float turnSpeed = drifting && grounded ? kart.driftTurnSpeed : kart.turnSpeed;
         float amount = drifting ? DriftDirection(direction) : Mathf.Abs(horizontal);
-        transform.Rotate(0f, Steer(turnSpeed, turnDirection, amount), 0f);
+        float turningFactor = (rb.velocity.magnitude / 8f);
+        turningFactor = Mathf.Clamp01(turningFactor);
+        transform.Rotate(0f, Steer(turnSpeed, turnDirection, amount, turningFactor), 0f);
 
         float visualDirection = drifting ? direction : horizontal;
         float localVisualYawAmount = drifting ? kart.yawDriftAmount : kart.yawAmount;
         float localVisualRollAmount = drifting ? kart.rollDriftAmount : kart.rollAmount;
-        visual.localRotation = Quaternion.Lerp(visual.localRotation, Quaternion.Euler(0, localVisualYawAmount * visualDirection, localVisualRollAmount * -visualDirection), kart.visualTurningSpeed * Time.deltaTime);
+        visual.localRotation = Quaternion.Lerp(visual.localRotation, Quaternion.Euler(0, localVisualYawAmount * visualDirection * turningFactor, localVisualRollAmount * -visualDirection * turningFactor), kart.visualTurningSpeed * Time.deltaTime);
 
     }
     void GroundCheck()
@@ -211,8 +213,9 @@ public class KartController : MonoBehaviour
     }
 
     void BackwardsMovement() {
+
         if (vertical < 0) {
-            currentSpeed -= kart.Acceleration * Time.deltaTime * vertical;
+            currentSpeed -= kart.Acceleration * Time.deltaTime;
         } else {
             currentSpeed += kart.Decelerate * Time.deltaTime;
         }

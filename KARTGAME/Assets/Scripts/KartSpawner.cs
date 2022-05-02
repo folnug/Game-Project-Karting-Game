@@ -9,7 +9,7 @@ public class KartSpawner : MonoBehaviour
     
     [SerializeField] float gap = 20f;
 
-    [SerializeField] CinemachineVirtualCamera vcam;
+    [SerializeField] CinemachineStateDrivenCamera vcam;
 
     public static event Action<KartController[]> KartSpawnComplete;
     public static event Action<Transform> PlayerKart;
