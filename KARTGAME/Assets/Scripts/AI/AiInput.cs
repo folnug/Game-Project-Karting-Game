@@ -6,6 +6,7 @@ using System.Linq;
 public class AiInput : MonoBehaviour
 {
     Vector3 targetPosition;
+    Vector3 targetWaypoint;
     KartController kartController;
 
     AiWaypoint currentWaypoint;
@@ -44,7 +45,7 @@ public class AiInput : MonoBehaviour
 
         
         if (distaneToPoint > 40f) {
-            Vector3 nearestPointOnWaypoint = FindNearestPointOnLine(lastCheckpoint.transform.position, currentWaypoint.transform.position, transform.position);
+            Vector3 nearestPointOnWaypoint = FindNearestPointOnLine(lastCheckpoint.transform.position, targetWaypoint, transform.position);
             float segments = distaneToPoint / 40f;
 
             targetPosition = (targetPosition + nearestPointOnWaypoint * segments) / (segments + 1);
@@ -55,8 +56,8 @@ public class AiInput : MonoBehaviour
             lastCheckpoint = currentWaypoint;
             currentWaypoint = currentWaypoint.nextWaypoint;
             targetPosition = currentWaypoint.transform.position;
+            targetWaypoint = randomPosition(currentWaypoint.transform.position);
         }
-
 
         Vector3 directionToMovePosition = (targetPosition - transform.position).normalized;
         float dot = Vector3.Dot(transform.forward, directionToMovePosition);
@@ -108,7 +109,7 @@ public class AiInput : MonoBehaviour
 
     Vector3 randomPosition(Vector3 position) {
         Vector3 randomDirection = new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f)).normalized;
-        return position + randomDirection * Random.Range(1f, 15f);
+        return position + randomDirection * Random.Range(1f, 25f);
     }
 
     void OnDrawGizmos() {
