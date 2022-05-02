@@ -39,6 +39,8 @@ public class KartController : MonoBehaviour
 
     float rubberBandSpeed = 50f;
 
+    float respawnTimer = 0f;
+
     #endregion
 
     public enum KartStates {
@@ -58,6 +60,8 @@ public class KartController : MonoBehaviour
 
     float DriftDirection(float direction) => Mathf.Abs(kart.driftTurnModifier - (direction * -horizontal));
     float Steer(float turnSpeed, float direction, float amount) => (direction * turnSpeed * Time.deltaTime) * amount;
+
+    public static Action<Transform, Transform> RespawnKart;
 
     void Awake()
     {
@@ -108,6 +112,18 @@ public class KartController : MonoBehaviour
     void FixedUpdate()
     {
         speed = transform.InverseTransformDirection(rb.velocity).z;
+
+        if (rb.velocity.magnitude < 0.1 && vertical != 0) {
+            respawnTimer += Time.deltaTime;
+        } else {
+            respawnTimer = 0f;
+        }
+
+        if (respawnTimer >= 4f) {
+            RespawnKart?.Invoke(transform, rb.transform);
+            respawnTimer = 0f;
+        }
+
         switch(currentState) {
             case KartStates.Stunned:
                 break;

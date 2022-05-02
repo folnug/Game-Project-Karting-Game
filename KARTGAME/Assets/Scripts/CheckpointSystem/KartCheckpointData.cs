@@ -15,6 +15,8 @@ public class KartCheckpointData : MonoBehaviour
     public int maxLaps;
     public Checkpoint nextCheckpoint;
 
+    public Checkpoint currentCheckpoint;
+
     string kartName;
 
     void Awake() {
