@@ -65,6 +65,7 @@ public class TrackManager : MonoBehaviour
                 PlayIntro?.Invoke();
                 break;
             case GameStates.Countdown:
+                SoundManager.PlaySoundCountdown(SoundManager.Sound.TrackCountdown, 0.05f);
                 StartCounter?.Invoke();
                 break;
             case GameStates.Race:
