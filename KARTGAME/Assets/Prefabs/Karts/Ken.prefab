@@ -581,6 +581,7 @@ GameObject:
   - component: {fileID: 1327157457386611916}
   - component: {fileID: 3159473460545623468}
   - component: {fileID: -8927270858199396841}
+  - component: {fileID: 8136713771423610961}
   m_Layer: 0
   m_Name: Ken
   m_TagString: Kart
@@ -622,7 +623,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   visual: {fileID: 1327157458097255835}
-  rubberBandSpeed: 20
   driftMode: 0
 --- !u!114 &3159473460545623468
 MonoBehaviour:
@@ -657,6 +657,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 644d0c56244c7714bbd71b77b55f6d31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &8136713771423610961
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1327157457386611919}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: f9f530613ff9dbd4f91ce71dbbc6033e, type: 3}
+  m_Controller: {fileID: 9100000, guid: ced820e762ac45c45af6f3911e5be2af, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1327157458097255834
 GameObject:
   m_ObjectHideFlags: 0
@@ -689,6 +708,7 @@ Transform:
   - {fileID: 25602436}
   - {fileID: 1327157458412294148}
   - {fileID: 3206793280456739546}
+  - {fileID: 2390479899925997696}
   m_Father: {fileID: 1327157457386611917}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -29552,6 +29572,69 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!1001 &2784924074373123947
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1327157458097255835}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: f9f530613ff9dbd4f91ce71dbbc6033e, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f9f530613ff9dbd4f91ce71dbbc6033e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f9f530613ff9dbd4f91ce71dbbc6033e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f9f530613ff9dbd4f91ce71dbbc6033e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f9f530613ff9dbd4f91ce71dbbc6033e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f9f530613ff9dbd4f91ce71dbbc6033e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f9f530613ff9dbd4f91ce71dbbc6033e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f9f530613ff9dbd4f91ce71dbbc6033e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f9f530613ff9dbd4f91ce71dbbc6033e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f9f530613ff9dbd4f91ce71dbbc6033e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f9f530613ff9dbd4f91ce71dbbc6033e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f9f530613ff9dbd4f91ce71dbbc6033e, type: 3}
+      propertyPath: m_Name
+      value: Ken
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5866666021909216657, guid: f9f530613ff9dbd4f91ce71dbbc6033e, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: f9f530613ff9dbd4f91ce71dbbc6033e, type: 3}
+--- !u!4 &2390479899925997696 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f9f530613ff9dbd4f91ce71dbbc6033e, type: 3}
+  m_PrefabInstance: {fileID: 2784924074373123947}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3101405655274532145
 PrefabInstance:
   m_ObjectHideFlags: 0
