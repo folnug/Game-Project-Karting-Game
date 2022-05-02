@@ -7,6 +7,7 @@ TagManager:
   - Kart
   - Ground
   - Road
+  - BGMusic
   layers:
   - Default
   - TransparentFX

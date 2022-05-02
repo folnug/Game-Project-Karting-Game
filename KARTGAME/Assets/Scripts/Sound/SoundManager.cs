@@ -30,6 +30,7 @@ public static class SoundManager
     private static Dictionary<Sound, float> soundTimerDictionary;
     private static GameObject oneShotGameObject;
     private static AudioSource oneShotAudioSource;
+    private static GameObject bgMusic;
 
     public static void Intialize()
     {
@@ -153,5 +154,11 @@ public static class SoundManager
     public static void EnableSounds()
     {
         AudioListener.pause = false;
+    }
+
+    public static void EnableBGMusic()
+    {
+        bgMusic = GameObject.FindGameObjectWithTag("BGMusic");
+        bgMusic.GetComponent<AudioSource>().enabled = true;
     }
 }

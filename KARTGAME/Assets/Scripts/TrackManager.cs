@@ -71,6 +71,7 @@ public class TrackManager : MonoBehaviour
             case GameStates.Race:
                 SetupRace?.Invoke();
                 EnableKarts();
+                SoundManager.EnableBGMusic();
                 break;
             case GameStates.End:
                 EndRace?.Invoke();
