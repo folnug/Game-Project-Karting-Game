@@ -54,12 +54,14 @@ public class GameUIManager : MonoBehaviour
 
     public void QuitGame() {
         SoundManager.EnableSounds();
+        SoundManager.PlaySoundMenu(SoundManager.Sound.MenuButton, 0.05f, true);
         Debug.Log("Quit game!");
         StartTime();
         SceneManager.LoadScene(mainMenuScene);
     }
 
     public void ContinueGame() {
+        SoundManager.PlaySoundMenu(SoundManager.Sound.MenuButton, 0.05f, true);
         currentState = States.game;
         UpdateUI();
     }
