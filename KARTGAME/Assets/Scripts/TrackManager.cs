@@ -20,6 +20,8 @@ public class TrackManager : MonoBehaviour
     public GameStates currentState { get; private set; }
     GameStates lastState;
 
+    Transform kartInFirstPos;
+
     #region Events
 
     public static event Action<CharacterSelection> SpawnKarts;
@@ -28,6 +30,8 @@ public class TrackManager : MonoBehaviour
     public static event Action SetupRace;
     public static event Action EndRace;
     public static event Action<KartController> SelectedKart;
+
+    public static event Action<Transform> WinnerKart;
 
     #endregion
 
@@ -42,12 +46,14 @@ public class TrackManager : MonoBehaviour
         KartSpawner.KartSpawnComplete += KartSpawnComplete;
         StartCountdown.CountdownComplete += CounterComplete;
         CheckpointHandler.KartCompletedLap += KartCompletedLap;
+        CheckpointHandler.KartInFirstPos += KartInFirstPosition;
     }
 
     void OnDisable() {
         KartSpawner.KartSpawnComplete -= KartSpawnComplete;
         StartCountdown.CountdownComplete -= CounterComplete;
         CheckpointHandler.KartCompletedLap -= KartCompletedLap;
+        CheckpointHandler.KartInFirstPos -= KartInFirstPosition;
     }
 
     void Update() {
@@ -75,6 +81,7 @@ public class TrackManager : MonoBehaviour
                 break;
             case GameStates.End:
                 EndRace?.Invoke();
+                WinnerKart?.Invoke(kartInFirstPos);
                 break;
         }
     }
@@ -106,6 +113,10 @@ public class TrackManager : MonoBehaviour
 
     void RaceComplete() {
         currentState = GameStates.End;
+    }
+
+    void KartInFirstPosition(KartCheckpointData data) {
+        kartInFirstPos = data.transform;
     }
 }
 /*

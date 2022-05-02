@@ -582,6 +582,7 @@ GameObject:
   - component: {fileID: 3039560446233371898}
   - component: {fileID: 5431901518720295551}
   - component: {fileID: 5557705349437610831}
+  - component: {fileID: 7975844880709081038}
   m_Layer: 0
   m_Name: Alexander
   m_TagString: Kart
@@ -623,7 +624,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   visual: {fileID: 1327157458097255835}
-  rubberBandSpeed: 20
   driftMode: 0
 --- !u!114 &3039560446233371898
 MonoBehaviour:
@@ -646,6 +646,7 @@ MonoBehaviour:
   position: 0
   maxLaps: 0
   nextCheckpoint: {fileID: 0}
+  currentCheckpoint: {fileID: 0}
 --- !u!114 &5431901518720295551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -668,7 +669,7 @@ Animator:
   m_GameObject: {fileID: 1327157457386611919}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 5a7a80d0e5000e441b85b47b3998e5d2, type: 3}
-  m_Controller: {fileID: 9100000, guid: ced820e762ac45c45af6f3911e5be2af, type: 2}
+  m_Controller: {fileID: 9100000, guid: 229a04cedfd2e3d40a95433e47a5644a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -677,6 +678,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7975844880709081038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1327157457386611919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e269f43e6ea39b4a924ed15134103bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1327157458097255834
 GameObject:
   m_ObjectHideFlags: 0
@@ -29705,6 +29718,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 5a7a80d0e5000e441b85b47b3998e5d2, type: 3}
       propertyPath: m_Name
       value: alexander
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 5a7a80d0e5000e441b85b47b3998e5d2, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 5a7a80d0e5000e441b85b47b3998e5d2, type: 3}
       propertyPath: m_Controller

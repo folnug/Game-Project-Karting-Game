@@ -582,6 +582,7 @@ GameObject:
   - component: {fileID: 3159473460545623468}
   - component: {fileID: -8927270858199396841}
   - component: {fileID: 8136713771423610961}
+  - component: {fileID: -3190546607032828567}
   m_Layer: 0
   m_Name: Ken
   m_TagString: Kart
@@ -645,6 +646,7 @@ MonoBehaviour:
   position: 0
   maxLaps: 0
   nextCheckpoint: {fileID: 0}
+  currentCheckpoint: {fileID: 0}
 --- !u!114 &-8927270858199396841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -667,7 +669,7 @@ Animator:
   m_GameObject: {fileID: 1327157457386611919}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: f9f530613ff9dbd4f91ce71dbbc6033e, type: 3}
-  m_Controller: {fileID: 9100000, guid: ced820e762ac45c45af6f3911e5be2af, type: 2}
+  m_Controller: {fileID: 9100000, guid: 229a04cedfd2e3d40a95433e47a5644a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -676,6 +678,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-3190546607032828567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1327157457386611919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e269f43e6ea39b4a924ed15134103bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1327157458097255834
 GameObject:
   m_ObjectHideFlags: 0
@@ -29627,8 +29641,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ken
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5866666021909216657, guid: f9f530613ff9dbd4f91ce71dbbc6033e, type: 3}
+    - target: {fileID: 5866666021909216657, guid: f9f530613ff9dbd4f91ce71dbbc6033e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9f530613ff9dbd4f91ce71dbbc6033e, type: 3}
 --- !u!4 &2390479899925997696 stripped
 Transform:

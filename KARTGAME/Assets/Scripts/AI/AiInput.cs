@@ -13,6 +13,9 @@ public class AiInput : MonoBehaviour
     AiWaypoint lastCheckpoint;
     AiWaypoint[] aiWaypoints;
 
+    float vertical = 0f;
+    float horizontal = 0f;
+
     bool hopped = false;
 
     void Start()
@@ -35,9 +38,6 @@ public class AiInput : MonoBehaviour
         //SetTargetPosition(targetPositionTransform.position);
 
         targetPosition = currentWaypoint.transform.position;
-
-        float vertical = 0f;
-        float horizontal = 0f;
 
         float distanceToTarget = Vector3.Distance(transform.position, targetPosition);
 

@@ -582,6 +582,7 @@ GameObject:
   - component: {fileID: 6481867458142369644}
   - component: {fileID: -4790152797938169285}
   - component: {fileID: 5806338194518996346}
+  - component: {fileID: -5418186239739920081}
   m_Layer: 0
   m_Name: Kart
   m_TagString: Kart
@@ -623,7 +624,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   visual: {fileID: 1327157458097255835}
-  rubberBandSpeed: 20
   driftMode: 0
 --- !u!114 &6481867458142369644
 MonoBehaviour:
@@ -646,6 +646,7 @@ MonoBehaviour:
   position: 0
   maxLaps: 0
   nextCheckpoint: {fileID: 0}
+  currentCheckpoint: {fileID: 0}
 --- !u!114 &-4790152797938169285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -668,7 +669,7 @@ Animator:
   m_GameObject: {fileID: 1327157457386611919}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 0bede51347d2b564dbde425709dd3e86, type: 3}
-  m_Controller: {fileID: 9100000, guid: ced820e762ac45c45af6f3911e5be2af, type: 2}
+  m_Controller: {fileID: 9100000, guid: 229a04cedfd2e3d40a95433e47a5644a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -677,6 +678,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-5418186239739920081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1327157457386611919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e269f43e6ea39b4a924ed15134103bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1327157458097255834
 GameObject:
   m_ObjectHideFlags: 0
@@ -29637,9 +29650,17 @@ PrefabInstance:
       value: tia
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 0bede51347d2b564dbde425709dd3e86, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 0bede51347d2b564dbde425709dd3e86, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: ced820e762ac45c45af6f3911e5be2af, type: 2}
+      objectReference: {fileID: 9100000, guid: 229a04cedfd2e3d40a95433e47a5644a, type: 2}
+    - target: {fileID: 5866666021909216657, guid: 0bede51347d2b564dbde425709dd3e86, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0bede51347d2b564dbde425709dd3e86, type: 3}
 --- !u!4 &5301769015106979403 stripped
