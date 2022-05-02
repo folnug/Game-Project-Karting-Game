@@ -37,7 +37,7 @@ public class KartController : MonoBehaviour
 
     float rubberBandSpeedEffector = 0f;
 
-    float rubberBandSpeed = 100f;
+    float rubberBandSpeed = 50f;
 
     #endregion
 
@@ -196,7 +196,7 @@ public class KartController : MonoBehaviour
 
     void BackwardsMovement() {
         if (vertical < 0) {
-            currentSpeed -= kart.Acceleration * Time.deltaTime;
+            currentSpeed -= kart.Acceleration * Time.deltaTime * vertical;
         } else {
             currentSpeed += kart.Decelerate * Time.deltaTime;
         }

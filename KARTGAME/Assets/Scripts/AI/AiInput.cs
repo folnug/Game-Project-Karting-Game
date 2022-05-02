@@ -24,23 +24,39 @@ public class AiInput : MonoBehaviour
     void FixedUpdate()
     {
 
-        if (currentWaypoint == null)
+        if (currentWaypoint == null) {
             currentWaypoint = FindClosestWaypoint();
+            lastCheckpoint = currentWaypoint;
+        }
         
         if (currentWaypoint == null) return;
 
         //SetTargetPosition(targetPositionTransform.position);
+
+        targetPosition = currentWaypoint.transform.position;
 
         float vertical = 0f;
         float horizontal = 0f;
 
         float distanceToTarget = Vector3.Distance(transform.position, targetPosition);
 
+        float distaneToPoint = (targetPosition - transform.position).magnitude;
+
+        
+        if (distaneToPoint > 40f) {
+            Vector3 nearestPointOnWaypoint = FindNearestPointOnLine(lastCheckpoint.transform.position, currentWaypoint.transform.position, transform.position);
+            float segments = distaneToPoint / 40f;
+
+            targetPosition = (targetPosition + nearestPointOnWaypoint * segments) / (segments + 1);
+            Debug.DrawLine(transform.position, targetPosition, Color.blue);
+        } 
+        
         if (distanceToTarget <= currentWaypoint.distanceToReachWaypoint) {
             lastCheckpoint = currentWaypoint;
             currentWaypoint = currentWaypoint.nextWaypoint;
-            SetTargetPosition(randomPosition(currentWaypoint.transform.position));
+            targetPosition = currentWaypoint.transform.position;
         }
+
 
         Vector3 directionToMovePosition = (targetPosition - transform.position).normalized;
         float dot = Vector3.Dot(transform.forward, directionToMovePosition);
@@ -74,6 +90,20 @@ public class AiInput : MonoBehaviour
     AiWaypoint FindClosestWaypoint() {
         return aiWaypoints
         .OrderBy(t => Vector3.Distance(transform.position, t.transform.position)).FirstOrDefault();
+    }
+
+    Vector3 FindNearestPointOnLine(Vector3 starPos, Vector3 endPos, Vector3 point) {
+        Vector3 headingVector = (endPos - starPos);
+
+        float maxDistance = headingVector.magnitude;
+        headingVector.Normalize();
+
+        Vector3 vectorStartToPoint = point - starPos;
+        float dot = Vector3.Dot(vectorStartToPoint, headingVector);
+
+        dot = Mathf.Clamp(dot, 0f, maxDistance);
+
+        return starPos + headingVector * dot;
     }
 
     Vector3 randomPosition(Vector3 position) {
