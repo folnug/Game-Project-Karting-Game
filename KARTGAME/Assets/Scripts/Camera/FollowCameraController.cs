@@ -34,6 +34,7 @@ public class FollowCameraController : MonoBehaviour
     }
 
     void EndRaceCamera() {
+        Debug.Log("Race ended!");
         anim.Play(FollowCameraState.Front.ToString());
     }
 }

@@ -62,6 +62,7 @@ public class TrackManager : MonoBehaviour
 
     void UpdateTrackManager() {
         lastState = currentState;
+        Debug.Log(currentState.ToString());
         switch(currentState) {
             case GameStates.Spawn:
                 SpawnKarts?.Invoke(characterSelection);
