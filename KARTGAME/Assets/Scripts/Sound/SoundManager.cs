@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -17,6 +18,7 @@ public static class SoundManager
         #region Track
         TrackCheckpoint,
         TrackCountdown,
+        TrackVictory,
 
         #endregion
 
@@ -160,5 +162,13 @@ public static class SoundManager
     {
         bgMusic = GameObject.FindGameObjectWithTag("BGMusic");
         bgMusic.GetComponent<AudioSource>().enabled = true;
+        
+    }
+
+    public static void PostRaceMusic(Sound sound)
+    {
+        bgMusic = GameObject.FindGameObjectWithTag("BGMusic");
+        bgMusic.GetComponent<AudioSource>().clip = GetAudioClip(sound);
+        bgMusic.GetComponent<AudioSource>().Play();
     }
 }

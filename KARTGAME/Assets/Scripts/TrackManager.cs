@@ -133,10 +133,11 @@ public class TrackManager : MonoBehaviour
     }
 
     void RaceComplete() {
+        SoundManager.PostRaceMusic(SoundManager.Sound.TrackVictory);
         currentState = GameStates.End;
     }
 
-    void KartInFirstPosition(KartCheckpointData data) {
+    void KartInFirstPosition(KartCheckpointData data) {   
         kartInFirstPos = data.transform;
     }
 }
