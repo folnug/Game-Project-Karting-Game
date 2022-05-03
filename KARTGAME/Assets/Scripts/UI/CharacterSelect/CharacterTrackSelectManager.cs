@@ -8,6 +8,8 @@ public class CharacterTrackSelectManager : MonoBehaviour
 {
     [SerializeField] CharacterSelection characterSelection;
     [SerializeField] TrackPool trackPool;
+    [SerializeField] GameObject MainMenu;
+    [SerializeField] GameObject MainMenuFirst;
     [SerializeField] GameObject characterSelect;
     [SerializeField] GameObject driftModeSelect;
     [SerializeField] GameObject trackSelect;
@@ -20,6 +22,7 @@ public class CharacterTrackSelectManager : MonoBehaviour
     EventSystem eventSystem;
 
     enum UIStates {
+        MainMenu,
         CharacterSelection,
         DriftModeSelection,
         TrackSelection
@@ -30,7 +33,7 @@ public class CharacterTrackSelectManager : MonoBehaviour
 
     void Start()
     {
-        currentState = UIStates.CharacterSelection;
+        currentState = UIStates.MainMenu;
         lastState = currentState;
         CreateCharacterSelection();
         CreateTrackSelection();
@@ -63,11 +66,17 @@ public class CharacterTrackSelectManager : MonoBehaviour
     }
 
     void SwitchSelection() {
+        MainMenu.SetActive(false);
         trackSelect.SetActive(false);
         driftModeSelect.SetActive(false);
         characterSelect.SetActive(false);
         
         switch(currentState) {
+            case UIStates.MainMenu:
+                MainMenu.SetActive(true);
+                eventSystem.SetSelectedGameObject(null);
+                eventSystem.SetSelectedGameObject(MainMenuFirst);
+                break;
             case UIStates.CharacterSelection:
                 characterSelect.SetActive(true);
                 eventSystem.SetSelectedGameObject(null);
@@ -90,13 +99,12 @@ public class CharacterTrackSelectManager : MonoBehaviour
         KartController.KartDriftModes driftMode = (KartController.KartDriftModes)mode;
         characterSelection.playerDriftMode = driftMode;
         currentState = UIStates.TrackSelection;
-        SoundManager.PlaySoundMenu(SoundManager.Sound.MenuButton, 0.05f, false);
+        PlayButtonSound();
         SwitchSelection();
     }
 
     public void BackButton() {
         currentState = lastState;
-        SoundManager.PlaySoundMenu(SoundManager.Sound.MenuButton, 0.05f, true);
         SwitchSelection();
     }
 
@@ -104,7 +112,7 @@ public class CharacterTrackSelectManager : MonoBehaviour
         characterSelection.playerCharacterIndex = index;
         lastState = currentState;
         currentState = UIStates.DriftModeSelection;
-        SoundManager.PlaySoundMenu(SoundManager.Sound.MenuButton, 0.05f, true);
+        PlayButtonSound();
         SwitchSelection();
     }
 
@@ -112,5 +120,16 @@ public class CharacterTrackSelectManager : MonoBehaviour
         Track selected = trackPool.tracks[index];
         SoundManager.PlaySoundMenu(SoundManager.Sound.MenuConfirmButton, 0.05f, true);
         SceneManager.LoadScene(selected.trackScene);
+    }
+
+    public void GameModeSelected(int index) {
+        characterSelection.gameMode = (TrackManager.GameModes)index;
+        lastState = currentState;
+        currentState = UIStates.CharacterSelection;
+        SwitchSelection();
+    }
+
+    public void PlayButtonSound() {
+        SoundManager.PlaySoundMenu(SoundManager.Sound.MenuButton, 0.05f, true);
     }
 }

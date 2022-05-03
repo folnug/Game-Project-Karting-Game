@@ -18,8 +18,8 @@ public class TrackManager : MonoBehaviour
     }
 
     public enum GameModes {
-        TimeTrial,
-        Arcade,
+        TimeTrial = 0,
+        Arcade = 1,
     }
 
     public GameStates currentState { get; private set; }
@@ -72,6 +72,7 @@ public class TrackManager : MonoBehaviour
     void UpdateTrackManager() {
         lastState = currentState;
         Debug.Log(currentState);
+
         switch(currentState) {
             case GameStates.Spawn:
                 Spawn();
