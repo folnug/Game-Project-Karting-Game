@@ -15,10 +15,23 @@ public class KartSpawner : MonoBehaviour
     public static event Action<Transform> PlayerKart;
     void OnEnable() {
         TrackManager.SpawnKarts += SpawnKarts;
+        TrackManager.SpawnKart += SpawnKart;
     }
 
     void OnDisable() {
         TrackManager.SpawnKarts -= SpawnKarts;
+        TrackManager.SpawnKart -= SpawnKart;
+    }
+
+    void SpawnKart(CharacterSelection characterSelection) {
+        KartController[] karts = new KartController[1];
+        KartModel character = characterSelection.characters[characterSelection.playerCharacterIndex];
+        if (character == null) return;
+        GameObject kart = Instantiate(character.kart, transform.position, transform.rotation);
+        KartController kartController =  kart.GetComponent<KartController>();
+        SetUpPlayerKart(kart, kartController, characterSelection);
+        karts[0] = kartController;
+        KartSpawnComplete?.Invoke(karts);
     }
 
     void SpawnKarts(CharacterSelection characterSelection) {
@@ -32,11 +45,7 @@ public class KartSpawner : MonoBehaviour
             KartCheckpointData kartData = kart.GetComponent<KartCheckpointData>();
             kartData.maxLaps = characterSelection.maxlaps;
             if (i == characterSelection.playerCharacterIndex) {
-                kart.AddComponent<PlayerInput>();
-                kartController.driftMode = characterSelection.playerDriftMode;
-                vcam.Follow = kart.transform;
-                vcam.LookAt = kart.transform;
-                PlayerKart?.Invoke(kart.transform);
+                SetUpPlayerKart(kart, kartController, characterSelection);
             } else {
                 kart.AddComponent<AiInput>();
             }
@@ -44,5 +53,13 @@ public class KartSpawner : MonoBehaviour
         }
         KartSpawnComplete?.Invoke(karts);
         Debug.Log("Karts spawned");
+    }
+
+    void SetUpPlayerKart(GameObject kart, KartController kartController, CharacterSelection characterSelection) {
+        kart.AddComponent<PlayerInput>();
+        kartController.driftMode = characterSelection.playerDriftMode;
+        vcam.Follow = kart.transform;
+        vcam.LookAt = kart.transform;
+        PlayerKart?.Invoke(kart.transform);
     }
 }

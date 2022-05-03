@@ -17,14 +17,22 @@ public class TrackManager : MonoBehaviour
         End,
     }
 
+    public enum GameModes {
+        TimeTrial,
+        Arcade,
+    }
+
     public GameStates currentState { get; private set; }
     GameStates lastState;
+
+    GameModes currentGameMode;
 
     Transform kartInFirstPos;
 
     #region Events
 
     public static event Action<CharacterSelection> SpawnKarts;
+    public static event Action<CharacterSelection> SpawnKart;
     public static event Action PlayIntro;
     public static event Action StartCounter;
     public static event Action SetupRace;
@@ -40,6 +48,7 @@ public class TrackManager : MonoBehaviour
     void Awake() {
         currentState = GameStates.Spawn;
         lastState = GameStates.Intro;
+        currentGameMode = characterSelection.gameMode;
     }
 
     void OnEnable() {
@@ -59,14 +68,12 @@ public class TrackManager : MonoBehaviour
     void Update() {
         if (currentState != lastState) UpdateTrackManager();
     }
-
+    
     void UpdateTrackManager() {
         lastState = currentState;
-        Debug.Log(currentState.ToString());
         switch(currentState) {
             case GameStates.Spawn:
-                SpawnKarts?.Invoke(characterSelection);
-                SelectedKart?.Invoke(karts[characterSelection.playerCharacterIndex]);
+                Spawn();
                 break;
             case GameStates.Intro:
                 PlayIntro?.Invoke();
@@ -83,6 +90,19 @@ public class TrackManager : MonoBehaviour
             case GameStates.End:
                 EndRace?.Invoke();
                 WinnerKart?.Invoke(kartInFirstPos);
+                break;
+        }
+    }
+
+    void Spawn() {
+        switch(currentGameMode) {
+            case GameModes.TimeTrial:
+                SpawnKart?.Invoke(characterSelection);
+                SelectedKart?.Invoke(karts[0]);
+                break;
+            case GameModes.Arcade:
+                SpawnKarts?.Invoke(characterSelection);
+                SelectedKart?.Invoke(karts[characterSelection.playerCharacterIndex]);
                 break;
         }
     }
