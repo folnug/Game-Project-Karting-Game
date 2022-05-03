@@ -29,6 +29,8 @@ public class KartSpawner : MonoBehaviour
         if (character == null) return;
         GameObject kart = Instantiate(character.kart, transform.position, transform.rotation);
         KartController kartController =  kart.GetComponent<KartController>();
+        KartCheckpointData kartData = kart.GetComponent<KartCheckpointData>();
+        kartData.maxLaps = characterSelection.maxlaps;
         SetUpPlayerKart(kart, kartController, characterSelection);
         karts[0] = kartController;
         KartSpawnComplete?.Invoke(karts);

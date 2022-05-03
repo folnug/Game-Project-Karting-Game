@@ -71,6 +71,7 @@ public class TrackManager : MonoBehaviour
     
     void UpdateTrackManager() {
         lastState = currentState;
+        Debug.Log(currentState);
         switch(currentState) {
             case GameStates.Spawn:
                 Spawn();
@@ -79,7 +80,7 @@ public class TrackManager : MonoBehaviour
                 PlayIntro?.Invoke();
                 break;
             case GameStates.Countdown:
-                SoundManager.PlaySoundCountdown(SoundManager.Sound.TrackCountdown, 0.05f);
+                //SoundManager.PlaySoundCountdown(SoundManager.Sound.TrackCountdown, 0.05f);
                 StartCounter?.Invoke();
                 break;
             case GameStates.Race:
@@ -133,7 +134,7 @@ public class TrackManager : MonoBehaviour
     }
 
     void RaceComplete() {
-        SoundManager.PostRaceMusic(SoundManager.Sound.TrackVictory);
+        //SoundManager.PostRaceMusic(SoundManager.Sound.TrackVictory);
         currentState = GameStates.End;
     }
 
