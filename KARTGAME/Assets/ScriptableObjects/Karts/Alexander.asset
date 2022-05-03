@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Alexander
   m_EditorClassIdentifier: 
   Name: Alexander
-  forwardSpeed: 250
+  forwardSpeed: 255
   Acceleration: 200
   Decelerate: 200
   brakeForce: 300
@@ -23,10 +23,10 @@ MonoBehaviour:
   driftTurnSpeed: 60
   driftTurnModifier: 0.7
   driftChargeSpeed: 80
-  outwardsDriftForce: 0
+  outwardsDriftForce: 25
   boostTime: 2
   boostAmount: 20
-  impulseBoostAmount: 25
+  impulseBoostAmount: 20
   airDrag: 0
   groundDrag: 4
   rollAmount: 0

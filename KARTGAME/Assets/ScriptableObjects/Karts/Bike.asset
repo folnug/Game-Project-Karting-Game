@@ -24,9 +24,9 @@ MonoBehaviour:
   driftTurnModifier: 0.7
   driftChargeSpeed: 80
   outwardsDriftForce: 0
-  boostTime: 2
-  boostAmount: 20
-  impulseBoostAmount: 10
+  boostTime: 2.25
+  boostAmount: 25
+  impulseBoostAmount: 20
   airDrag: 0
   groundDrag: 4
   rollAmount: 30

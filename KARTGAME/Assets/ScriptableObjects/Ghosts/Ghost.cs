@@ -7,11 +7,11 @@ public class Ghost : ScriptableObject
     public float totalTime;
     public bool record;
     public bool replay;
-    public float recordFrequency = 30f;
+    public float recordFrequency = 240f;
     public GameObject character;
     public List<float> timestamp;
     public List<Vector3> position;
-    public List<Vector3> rotation;
+    public List<Quaternion> rotation;
 
     public void Reset() {
         timestamp.Clear();

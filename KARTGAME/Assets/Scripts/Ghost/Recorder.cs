@@ -41,7 +41,7 @@ public class Recorder : MonoBehaviour
         if (ghost.record & timer >= 1/ghost.recordFrequency) {
             ghost.timestamp.Add(time);
             ghost.position.Add(recordTarget.transform.position);
-            ghost.rotation.Add(recordTarget.transform.eulerAngles);
+            ghost.rotation.Add(recordTarget.transform.rotation);
 
             timer = 0f;
         }

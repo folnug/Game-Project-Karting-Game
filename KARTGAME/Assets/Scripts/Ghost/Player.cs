@@ -65,11 +65,11 @@ public class Player : MonoBehaviour
     void SetTransform() {
         if (index1 == index2) {
             character.transform.position = ghost.position[index1];
-            character.transform.eulerAngles = ghost.rotation[index1];
+            character.transform.rotation = ghost.rotation[index1];
         } else {
             float factor = ((time - ghost.timestamp[index1]) / (ghost.timestamp[index2] - ghost.timestamp[index1]));
             character.transform.position = Vector3.Lerp(ghost.position[index1], ghost.position[index2], factor);
-            character.transform.eulerAngles = Vector3.Lerp(ghost.rotation[index1], ghost.rotation[index2], factor);
+            character.transform.rotation = Quaternion.Slerp(ghost.rotation[index1], ghost.rotation[index2], factor);
         }
     }
 }

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Ken
   m_EditorClassIdentifier: 
   Name: Ken
-  forwardSpeed: 270
+  forwardSpeed: 265
   Acceleration: 150
   Decelerate: 200
   brakeForce: 300
