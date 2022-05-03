@@ -20,4 +20,4 @@ MonoBehaviour:
   playerCharacterIndex: 3
   maxlaps: 2
   playerDriftMode: 1
-  gameMode: 1
+  gameMode: 0
