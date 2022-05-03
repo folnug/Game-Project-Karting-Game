@@ -29,6 +29,8 @@ public class TrackManager : MonoBehaviour
 
     Transform kartInFirstPos;
 
+    Ghost currentGhost;
+
     #region Events
 
     public static event Action<CharacterSelection> SpawnKarts;
@@ -57,6 +59,7 @@ public class TrackManager : MonoBehaviour
         StartCountdown.CountdownComplete += CounterComplete;
         CheckpointHandler.KartCompletedLap += KartCompletedLap;
         CheckpointHandler.KartInFirstPos += KartInFirstPosition;
+        Player.GhostData += SetGhost;
     }
 
     void OnDisable() {
@@ -64,6 +67,7 @@ public class TrackManager : MonoBehaviour
         StartCountdown.CountdownComplete -= CounterComplete;
         CheckpointHandler.KartCompletedLap -= KartCompletedLap;
         CheckpointHandler.KartInFirstPos -= KartInFirstPosition;
+        Player.GhostData -= SetGhost;
     }
 
     void Update() {
@@ -89,8 +93,7 @@ public class TrackManager : MonoBehaviour
                 Race();
                 break;
             case GameStates.End:
-                EndRace?.Invoke();
-                WinnerKart?.Invoke(kartInFirstPos);
+                End();
                 break;
         }
     }
@@ -139,12 +142,26 @@ public class TrackManager : MonoBehaviour
     }
 
     void RaceComplete() {
-        //SoundManager.PostRaceMusic(SoundManager.Sound.TrackVictory);
         currentState = GameStates.End;
     }
 
     void KartInFirstPosition(KartCheckpointData data) {   
         kartInFirstPos = data.transform;
+    }
+
+    void SetGhost(Ghost ghost) {
+        currentGhost = ghost;
+    }
+
+    void End() {
+        EndRace?.Invoke();
+        if (currentGameMode == GameModes.TimeTrial) {
+            bool playerWon = kartInFirstPos.GetComponent<KartCheckpointData>().totalTime < currentGhost.totalTime;
+            WinnerKart?.Invoke(playerWon ? kartInFirstPos : null);
+            Debug.Log(playerWon);
+            return;
+        }
+        WinnerKart?.Invoke(kartInFirstPos);
     }
 }
 /*

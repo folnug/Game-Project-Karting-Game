@@ -14,16 +14,27 @@ public class KartCheckpointData : MonoBehaviour
     public int position = 0;
     public int maxLaps;
     public Checkpoint nextCheckpoint;
-
     public Checkpoint currentCheckpoint;
-
+    public float totalTime = 0f;
     string kartName;
 
     void Awake() {
         kartName = GetComponent<KartController>().kart.Name;
     }
 
+    void OnEnable() {
+        CheckpointHandler.TimerUpdate += SetTime;
+    }
+
+    void OnDisable() {
+        CheckpointHandler.TimerUpdate -= SetTime;
+    }
+
     public string GetKartName() => kartName;
     public float DistanceToNext() =>
         Vector3.Distance(transform.position, nextCheckpoint.transform.position);
+    
+    void SetTime(float time) {
+        totalTime = time;
+    }
 }

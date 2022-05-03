@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Player : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class Player : MonoBehaviour
     bool runReplay = false;
 
     GameObject character;
+
+    public static Action<Ghost> GhostData;
 
     void OnEnable() {
         TrackManager.ReplayGhost += StartReplay;
@@ -28,6 +31,7 @@ public class Player : MonoBehaviour
     void StartReplay() {
         runReplay = true;
         character.SetActive(true);
+        GhostData?.Invoke(ghost);
     }
 
     void Update() {
