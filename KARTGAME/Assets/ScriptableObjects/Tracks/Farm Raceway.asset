@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trackName: Farm Raceway
   trackScene: Ollin rata
-  trackImage: {fileID: 0}
+  trackImage: {fileID: 21300000, guid: 412ecdb5556dac94daf5ae35a6811c5c, type: 3}
