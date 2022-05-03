@@ -13,19 +13,21 @@ public class Player : MonoBehaviour
     GameObject character;
 
     void OnEnable() {
-        TrackManager.SetupRace += StartReplay;
+        TrackManager.ReplayGhost += StartReplay;
     }
 
     void OnDisable() {
-        TrackManager.SetupRace -= StartReplay;
+        TrackManager.ReplayGhost -= StartReplay;
     }
 
     void Awake() {
         character = Instantiate(ghost.character, transform.position, transform.rotation);
+        character.SetActive(false);
     }
 
     void StartReplay() {
         runReplay = true;
+        character.SetActive(true);
     }
 
     void Update() {

@@ -36,6 +36,7 @@ public class TrackManager : MonoBehaviour
     public static event Action PlayIntro;
     public static event Action StartCounter;
     public static event Action SetupRace;
+    public static event Action ReplayGhost;
     public static event Action EndRace;
     public static event Action<KartController> SelectedKart;
 
@@ -85,9 +86,7 @@ public class TrackManager : MonoBehaviour
                 StartCounter?.Invoke();
                 break;
             case GameStates.Race:
-                SetupRace?.Invoke();
-                EnableKarts();
-                SoundManager.EnableBGMusic();
+                Race();
                 break;
             case GameStates.End:
                 EndRace?.Invoke();
@@ -95,7 +94,12 @@ public class TrackManager : MonoBehaviour
                 break;
         }
     }
-
+    void Race() {
+        if (currentGameMode == GameModes.TimeTrial) ReplayGhost?.Invoke();
+        SetupRace?.Invoke();
+        EnableKarts();
+        SoundManager.EnableBGMusic();
+    }
     void Spawn() {
         switch(currentGameMode) {
             case GameModes.TimeTrial:
