@@ -15,7 +15,8 @@ public class GameUIManager : MonoBehaviour
     enum States {
         game,
         pause,
-        stats
+        stats,
+        timeStats,
     }
 
     States currentState;
@@ -23,6 +24,7 @@ public class GameUIManager : MonoBehaviour
     [SerializeField] GameObject pauseMenu;
     [SerializeField] GameObject gameMenu;
     [SerializeField] GameObject statsMenu;
+    [SerializeField] GameObject timeStats;
 
     public static Action GamePaused;
     public static Action GameUnPaused;
@@ -66,8 +68,11 @@ public class GameUIManager : MonoBehaviour
         UpdateUI();
     }
 
-    public void GameOver() {
-        currentState = States.stats;
+    public void GameOver(TrackManager.GameModes gameMode) {
+        if (gameMode == TrackManager.GameModes.TimeTrial)
+            currentState = States.timeStats;
+        else
+            currentState = States.stats;
         UpdateUI();
     }
 
@@ -83,6 +88,9 @@ public class GameUIManager : MonoBehaviour
                 Pause();
                 GamePaused?.Invoke();
                 break;
+            case States.timeStats:
+                TimeStats();
+                break;
             case States.stats:
                 Stats();
                 break;
@@ -93,6 +101,7 @@ public class GameUIManager : MonoBehaviour
         gameMenu.SetActive(false);
         pauseMenu.SetActive(true);
         statsMenu.SetActive(false);
+        timeStats.SetActive(false);
         StopTime();
     }
 
@@ -100,6 +109,7 @@ public class GameUIManager : MonoBehaviour
         gameMenu.SetActive(true);
         pauseMenu.SetActive(false);
         statsMenu.SetActive(false);
+        timeStats.SetActive(false);
         StartTime();
     }
 
@@ -107,6 +117,15 @@ public class GameUIManager : MonoBehaviour
         gameMenu.SetActive(false);
         pauseMenu.SetActive(false);
         statsMenu.SetActive(true);
+        timeStats.SetActive(false);
+        StartTime();
+    }
+
+    void TimeStats() {
+        gameMenu.SetActive(false);
+        pauseMenu.SetActive(false);
+        statsMenu.SetActive(false);
+        timeStats.SetActive(true);
         StartTime();
     }
     void StopTime() => Time.timeScale = 0;

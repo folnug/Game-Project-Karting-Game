@@ -11,8 +11,8 @@ public class FollowCameraController : MonoBehaviour
         Back,
     }
 
-    void Start()
-    {
+    void Awake() {
+        
         anim = GetComponent<Animator>();
         
         action.started += _ => SwitchCameraState(FollowCameraState.Front);
@@ -33,8 +33,9 @@ public class FollowCameraController : MonoBehaviour
         anim.Play(state.ToString());
     }
 
-    void EndRaceCamera() {
+    void EndRaceCamera(TrackManager.GameModes gameMode) {
         Debug.Log("Race ended!");
+        if (anim == null) return;
         anim.Play(FollowCameraState.Front.ToString());
     }
 }

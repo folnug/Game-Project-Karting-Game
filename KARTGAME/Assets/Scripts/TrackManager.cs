@@ -39,10 +39,13 @@ public class TrackManager : MonoBehaviour
     public static event Action StartCounter;
     public static event Action SetupRace;
     public static event Action ReplayGhost;
-    public static event Action EndRace;
+    public static event Action<GameModes> EndRace;
     public static event Action<KartController> SelectedKart;
 
     public static event Action<Transform> WinnerKart;
+
+    public static event Action<float, float> PlayerGhostTime;
+
 
     #endregion
 
@@ -154,11 +157,11 @@ public class TrackManager : MonoBehaviour
     }
 
     void End() {
-        EndRace?.Invoke();
+        EndRace?.Invoke(characterSelection.gameMode);
         if (currentGameMode == GameModes.TimeTrial) {
             bool playerWon = kartInFirstPos.GetComponent<KartCheckpointData>().totalTime < currentGhost.totalTime;
             WinnerKart?.Invoke(playerWon ? kartInFirstPos : null);
-            Debug.Log(playerWon);
+            PlayerGhostTime?.Invoke(kartInFirstPos.GetComponent<KartCheckpointData>().totalTime, currentGhost.totalTime);
             return;
         }
         WinnerKart?.Invoke(kartInFirstPos);

@@ -113,7 +113,7 @@ public class CheckpointHandler : MonoBehaviour
     }
 
     public void StartTimer() => runTimer = true;
-    public void StopTimer() => runTimer = false;
+    public void StopTimer(TrackManager.GameModes gameMode) => runTimer = false;
     
     public List<KartCheckpointData> GetKarts() => kartCheckpointData;
 
