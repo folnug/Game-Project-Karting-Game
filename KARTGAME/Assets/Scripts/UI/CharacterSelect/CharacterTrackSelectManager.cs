@@ -9,6 +9,8 @@ public class CharacterTrackSelectManager : MonoBehaviour
     [SerializeField] CharacterSelection characterSelection;
     [SerializeField] TrackPool trackPool;
     [SerializeField] GameObject MainMenu;
+    [SerializeField] GameObject Guide;
+    [SerializeField] GameObject GuideNextButton;
     [SerializeField] GameObject MainMenuFirst;
     [SerializeField] GameObject characterSelect;
     [SerializeField] GameObject driftModeSelect;
@@ -23,6 +25,7 @@ public class CharacterTrackSelectManager : MonoBehaviour
 
     enum UIStates {
         MainMenu,
+        Guide,
         CharacterSelection,
         DriftModeSelection,
         TrackSelection
@@ -70,12 +73,17 @@ public class CharacterTrackSelectManager : MonoBehaviour
         trackSelect.SetActive(false);
         driftModeSelect.SetActive(false);
         characterSelect.SetActive(false);
-        
+        Guide.SetActive(false);
         switch(currentState) {
             case UIStates.MainMenu:
                 MainMenu.SetActive(true);
                 eventSystem.SetSelectedGameObject(null);
                 eventSystem.SetSelectedGameObject(MainMenuFirst);
+                break;
+            case UIStates.Guide:
+                Guide.SetActive(true);
+                eventSystem.SetSelectedGameObject(null);
+                eventSystem.SetSelectedGameObject(GuideNextButton);
                 break;
             case UIStates.CharacterSelection:
                 characterSelect.SetActive(true);
@@ -129,7 +137,17 @@ public class CharacterTrackSelectManager : MonoBehaviour
         SwitchSelection();
     }
 
+    public void OpenGuide() {
+        lastState = currentState;
+        currentState = UIStates.Guide;
+        SwitchSelection();
+    }
+
     public void PlayButtonSound() {
         SoundManager.PlaySoundMenu(SoundManager.Sound.MenuButton, 0.05f, true);
+    }
+
+    public void QuitGame() {
+        Application.Quit();
     }
 }
