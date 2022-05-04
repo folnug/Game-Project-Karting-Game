@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490acf8a19ff96f44ad011ba66f5c773, type: 3}
   m_Name: Reiko
   m_EditorClassIdentifier: 
-  image: {fileID: 21300000, guid: 0d0e93cd5d9de414ca1cf4de6afaa17b, type: 3}
+  image: {fileID: 21300000, guid: c934a0fe1c7beb343b4f1be6d1f4e631, type: 3}
   driverName: Reiko
   kartName: Bimo
   kart: {fileID: 4782834427503480329, guid: dc66253f4bba0ee4080ac051f560da05, type: 3}

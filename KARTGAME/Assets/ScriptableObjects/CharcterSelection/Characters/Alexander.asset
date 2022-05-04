@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490acf8a19ff96f44ad011ba66f5c773, type: 3}
   m_Name: Alexander
   m_EditorClassIdentifier: 
-  image: {fileID: 21300000, guid: b5bcfde70c61d6249a95cdead0d74897, type: 3}
+  image: {fileID: 21300000, guid: e7aa2490310b8c04fb74be8a1c277dc7, type: 3}
   driverName: Alexander
   kartName: Kart
   kart: {fileID: 1327157457386611919, guid: d705bcb4bfe6061408540bad05b8ca9a, type: 3}

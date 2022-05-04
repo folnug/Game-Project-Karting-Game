@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490acf8a19ff96f44ad011ba66f5c773, type: 3}
   m_Name: Ken
   m_EditorClassIdentifier: 
-  image: {fileID: 21300000, guid: b82526d121ebe254593d9805121f9948, type: 3}
+  image: {fileID: 21300000, guid: dd586d16c24b4e54592f13a067f31400, type: 3}
   driverName: Ken
   kartName: Kart
   kart: {fileID: 1327157457386611919, guid: 6a4a8a855d57d4242bedf936a8d13212, type: 3}
